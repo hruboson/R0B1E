@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dhvvkf1kxgksw"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
-[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="2_fowph"]
 
 [sub_resource type="Gradient" id="Gradient_20voq"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
@@ -16,16 +15,16 @@ distance = 116.0
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_d7bms")]
 position = Vector2(572, 480)
-walk_sound = ExtResource("2_fowph")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=179545343]
 z_index = -1000
-position = Vector2(585, 294)
+position = Vector2(587.00006, 200.00002)
 scale = Vector2(-6.0348625, 768.2464)
 texture = SubResource("GradientTexture1D_d7bms")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1896617816]
+position = Vector2(0, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=1779408204]
-position = Vector2(574.75, 657)
+position = Vector2(573, 666)
 shape = SubResource("WorldBoundaryShape2D_d7bms")

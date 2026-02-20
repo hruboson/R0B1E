@@ -3,6 +3,12 @@ extends Node2D
 ########## EXPORTS ###########
 @export var leads_to: PackedScene
 
+########## NODES ###########
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+###########################
+# 		PROPERTIES		  #
+###########################
 var player_inside: bool = false
 
 func _ready() -> void:
@@ -20,16 +26,23 @@ func open_doors() -> void:
 # @param leads_to_direct: PackedScene (optional)
 #		Overrides the default leads_to variable. This parameter is only used in menu so far.
 func close_doors(leads_to_direct: PackedScene) -> void:
-	var animation = get_tree().create_tween()
+	audio.play()
 	
-	# object, property, value, time
-	animation.tween_property($LeftDoor, "position:x", $LeftDoor.position.x + 50, 0) # 2.5
-	animation.parallel().tween_property($RightDoor, "position:x", $RightDoor.position.x - 50, 0) # 2.5
+	var tween_front = get_tree().create_tween()
+	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x + 70, 2.5) # object, property, value, time
+	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x - 70, 2.5)
+
+	await tween_front.finished
+
+	var tween_back = get_tree().create_tween()
+	tween_back.tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x + 50, 2.5)
+	tween_back.parallel().tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x - 50, 2.5)
 	
+	await audio.finished
 	if(leads_to_direct):
-		animation.tween_callback(transition_to.bind(leads_to_direct))
+		tween_back.tween_callback(transition_to.bind(leads_to_direct))
 	else:
-		animation.tween_callback(transition_to.bind(leads_to))
+		tween_back.tween_callback(transition_to.bind(leads_to))
 	
 func transition_to(leads_to: PackedScene) -> void:
 	get_tree().change_scene_to_packed(leads_to)

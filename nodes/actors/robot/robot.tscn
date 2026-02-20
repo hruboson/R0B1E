@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
 [ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_i7lrg"]
 [ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="7_jslpc"]
+[ext_resource type="Texture2D" uid="uid://ba7b0w0vysy0b" path="res://assets/robot/walk_right/walk1.png" id="8_rgfc7"]
+[ext_resource type="Texture2D" uid="uid://b8d7gigkr2a7e" path="res://assets/robot/walk_right/walk2.png" id="9_bysw6"]
+[ext_resource type="Texture2D" uid="uid://civwqqoccpqhj" path="res://assets/robot/walk_right/walk3.png" id="10_lbdxb"]
+[ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="11_fsb0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(154.15854, 132.61765)
@@ -48,7 +52,19 @@ animations = [{
 "name": &"walk_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rgfc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bysw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lbdxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fsb0y")
+}],
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
@@ -76,7 +92,7 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.7999995, 1.7999995)
 sprite_frames = SubResource("SpriteFrames_im0kw")
-animation = &"idle"
+animation = &"walk_right"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1857384157]
 stream = SubResource("AudioStream_83y4m")

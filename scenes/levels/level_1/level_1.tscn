@@ -21,7 +21,7 @@ position = Vector2(-64, -5)
 position = Vector2(574.75, 661)
 shape = SubResource("WorldBoundaryShape2D_014kd")
 
-[node name="Door" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
+[node name="DoorR1" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
 position = Vector2(508, 509)
 leads_to = ExtResource("2_5o1mp")
 
