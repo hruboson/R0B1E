@@ -34,6 +34,10 @@ func _physics_process(delta: float) -> void:
 	update_audio(state)
 	update_animation(state)
 
+###
+# @func get_input
+# @return State
+# Handles player input. In case of no input returns State.IDLE
 func get_input() -> State:
 	if Input.is_action_pressed("left"):
 		velocity.x = -SPEED
@@ -67,6 +71,8 @@ func update_animation(state: State):
 					sprite.play("idle_left")
 				State.WALK_RIGHT:
 					sprite.play("idle_right")
+				_:
+					sprite.play("idle_right")
 
 	# Update last_state if the player is walking
 	if state in [State.WALK_LEFT, State.WALK_RIGHT]:
@@ -78,7 +84,6 @@ func update_animation(state: State):
 func update_audio(state: State) -> void:
 	match state:
 		State.WALK_LEFT, State.WALK_RIGHT:
-			print("here")
 			if audio.stream != walk_sound or not audio.playing:
 				audio.stream = walk_sound
 				audio.play()
