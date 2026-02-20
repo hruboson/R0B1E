@@ -1,25 +1,75 @@
 [gd_scene format=3 uid="uid://cp7d0myjohxhn"]
 
 [ext_resource type="Script" uid="uid://cb05fmubw5qc2" path="res://nodes/actors/robot/robot.gd" id="1_im0kw"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ahpfj"]
+[ext_resource type="Texture2D" uid="uid://bidrekvjniood" path="res://assets/robot/idle/idle1.png" id="2_83y4m"]
+[ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_cqmxv"]
+[ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
+[ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
+[ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_i7lrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
-size = Vector2(200, 267)
+size = Vector2(154.15854, 132.61765)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_im0kw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83y4m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"interact",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cqmxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_83y4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jslpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i7lrg")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}]
 
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440490744]
-position = Vector2(-3.8146973e-06, 0.49998665)
-scale = Vector2(60.366417, 115.897095)
-texture = SubResource("PlaceholderTexture2D_ahpfj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
-position = Vector2(-1, 0)
-scale = Vector2(0.30488092, 0.43734753)
+position = Vector2(-1.499999, 0.99999905)
+scale = Vector2(0.5279571, 0.7573472)
 shape = SubResource("RectangleShape2D_02wwk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2028687310]
-position = Vector2(-5, -157)
+position = Vector2(-2, -58)
+scale = Vector2(4.0197024, -378.68054)
+zoom = Vector2(2, 2)
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1732482102]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(1.7999995, 1.7999995)
+sprite_frames = SubResource("SpriteFrames_im0kw")
+animation = &"idle"

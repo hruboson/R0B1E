@@ -5,18 +5,18 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s7ca3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj45k"]
-size = Vector2(224, 909)
+size = Vector2(128, 909)
 
 [node name="Door" type="Area2D" unique_id=821589660]
 script = ExtResource("1_hj45k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1446425662]
-position = Vector2(1, -42.981026)
-scale = Vector2(226.59946, -360.03793)
+position = Vector2(1.9999962, 5.722046e-06)
+scale = Vector2(128.29973, -225.03793)
 texture = SubResource("PlaceholderTexture2D_s7ca3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=864438064]
-position = Vector2(1, -43.5)
+position = Vector2(2, -65)
 shape = SubResource("RectangleShape2D_hj45k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
