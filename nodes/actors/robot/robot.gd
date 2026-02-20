@@ -13,8 +13,7 @@ func get_input():
 		velocity.x = 0
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
 
 	get_input()
