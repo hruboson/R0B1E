@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dhvvkf1kxgksw"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
+[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="2_fowph"]
 
 [sub_resource type="Gradient" id="Gradient_20voq"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
@@ -15,6 +16,7 @@ distance = 116.0
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_d7bms")]
 position = Vector2(572, 480)
+walk_sound = ExtResource("2_fowph")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=179545343]
 z_index = -1000

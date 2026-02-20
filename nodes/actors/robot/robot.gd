@@ -1,7 +1,13 @@
 extends CharacterBody2D
 class_name Robot
 
+########## EXPORTS ###########
+@export var walk_sound: AudioStream
+@export var interact_sound: AudioStream
+
+########## NODES ###########
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 ##########################
 # 		CONSTANTS        #
@@ -25,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	var state = get_input()
 	move_and_slide()
 	update_animation(state)
+	update_audio(state)
 
 func get_input() -> State:
 	if Input.is_action_pressed("left"):
@@ -32,7 +39,7 @@ func get_input() -> State:
 		return State.WALK_LEFT
 	elif Input.is_action_pressed("right"):
 		velocity.x =  SPEED
-		return State.WALK_LEFT
+		return State.WALK_RIGHT
 	else:
 		velocity.x = 0
 		return State.IDLE
@@ -44,10 +51,31 @@ func walk_in() -> void:
 	
 	await animation.finished
 		
-func update_animation(state: State):	
-	if state == State.WALK_LEFT:
-		sprite.play("walk_forward")
-	elif state == State.WALK_RIGHT:
-		sprite.play("walk_forward")
-	else:
-		sprite.play("idle")
+func update_animation(state: State):
+	match state:
+		State.WALK_LEFT:
+			sprite.play("walk_forward")
+		State.WALK_RIGHT:
+			sprite.play("walk_forward")
+		State.INTERACT:
+			sprite.play("interact")
+		State.IDLE:
+			sprite.play("idle")
+		
+######################
+# 		AUDIO 		 #
+######################
+func update_audio(state: State) -> void:
+	match state:
+		State.WALK_LEFT, State.WALK_RIGHT:
+			print("here")
+			if audio.stream != walk_sound or not audio.playing:
+				audio.stream = walk_sound
+				audio.play()
+		State.IDLE:
+			if audio.stream == walk_sound and audio.playing:
+				audio.stop()
+		State.INTERACT:
+			if audio.stream != interact_sound or not audio.playing:
+				audio.stream = interact_sound
+				audio.play()

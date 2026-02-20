@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
 [ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_i7lrg"]
+[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="7_jslpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(154.15854, 132.61765)
@@ -53,9 +54,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStream" id="AudioStream_83y4m"]
+
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
+walk_sound = ExtResource("7_jslpc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-1.499999, 0.99999905)
@@ -73,3 +77,7 @@ texture_repeat = 1
 scale = Vector2(1.7999995, 1.7999995)
 sprite_frames = SubResource("SpriteFrames_im0kw")
 animation = &"idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1857384157]
+stream = SubResource("AudioStream_83y4m")
+bus = &"SFX"

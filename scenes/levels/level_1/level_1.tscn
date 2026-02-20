@@ -21,10 +21,9 @@ position = Vector2(-64, -5)
 position = Vector2(574.75, 661)
 shape = SubResource("WorldBoundaryShape2D_014kd")
 
-[node name="Door" parent="." unique_id=930907932 node_paths=PackedStringArray("player") instance=ExtResource("2_fngju")]
+[node name="Door" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
 position = Vector2(508, 509)
 leads_to = ExtResource("2_5o1mp")
-player = NodePath("../Robot")
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 position = Vector2(339, 599)
