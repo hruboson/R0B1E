@@ -105,6 +105,12 @@ animations = [{
 
 [sub_resource type="AudioStream" id="AudioStream_83y4m"]
 
+[sub_resource type="Gradient" id="Gradient_u01i4"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b7ats"]
+gradient = SubResource("Gradient_u01i4")
+width = 20
+
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
@@ -132,12 +138,18 @@ stream = SubResource("AudioStream_83y4m")
 pitch_scale = 0.7
 bus = &"SFX"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1644353481]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327289935]
 
-[node name="AudioDisable" type="Button" parent="CanvasLayer" unique_id=1595507588]
-offset_left = 261.0
-offset_top = -217.0
-offset_right = 281.0
-offset_bottom = -197.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=2057537116]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -19.0
+offset_bottom = 31.0
+grow_horizontal = 0
 
-[connection signal="pressed" from="CanvasLayer/AudioDisable" to="." method="_on_audio_disable_pressed"]
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=130474000]
+layout_mode = 2
+text = "Sound"
+icon = SubResource("GradientTexture1D_b7ats")
+flat = true

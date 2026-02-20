@@ -23,6 +23,11 @@ buses/default_bus_layout="uid://bm8s4slp4balm"
 
 AudioManager="*uid://c8as0fwwesqpr"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
 [input]
 
 left={
