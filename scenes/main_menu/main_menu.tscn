@@ -25,10 +25,10 @@ stretch_mode = 1
 
 [node name="Options" type="Button" parent="." unique_id=1017384650]
 layout_mode = 0
-offset_left = 463.0
-offset_top = 292.0
-offset_right = 551.0
-offset_bottom = 356.0
+offset_left = 497.0
+offset_top = 336.0
+offset_right = 585.0
+offset_bottom = 400.0
 text = "Options"
 
 [node name="Start" type="Button" parent="." unique_id=1057461269]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmsjbwrfeweag"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://dhvvkf1kxgksw" path="res://scenes/levels/level_1/rooms/room_1.tscn" id="2_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door.tscn" id="2_fngju"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
@@ -21,6 +22,7 @@ shape = SubResource("WorldBoundaryShape2D_014kd")
 
 [node name="Door" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
 position = Vector2(508, 474)
+leads_to = ExtResource("2_5o1mp")
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 position = Vector2(187, 584)
