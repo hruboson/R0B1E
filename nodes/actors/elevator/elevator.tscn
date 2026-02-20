@@ -38,8 +38,8 @@ texture = SubResource("GradientTexture2D_6lkcx")
 
 [node name="LeftFrontDoor" type="Sprite2D" parent="." unique_id=1782289956]
 z_index = 10
-position = Vector2(-103, 0.4999975)
-scale = Vector2(0.78125, 3.3943756)
+position = Vector2(-119.5, 0.4999975)
+scale = Vector2(1.2968751, 3.3943756)
 texture = SubResource("GradientTexture2D_m5435")
 
 [node name="LeftBackDoor" type="Sprite2D" parent="." unique_id=1321720682]
@@ -49,8 +49,8 @@ texture = SubResource("GradientTexture2D_m5435")
 
 [node name="RightFrontDoor" type="Sprite2D" parent="." unique_id=1952482422]
 z_index = 10
-position = Vector2(103, -1.5497209e-06)
-scale = Vector2(0.7656251, 3.3706388)
+position = Vector2(123.25, -1.5497209e-06)
+scale = Vector2(1.3984376, 3.3706388)
 texture = SubResource("GradientTexture2D_b8sc4")
 
 [node name="RightBackDoor" type="Sprite2D" parent="." unique_id=329642075]

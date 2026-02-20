@@ -22,6 +22,7 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, INTERACT }
 ###########################
 
 var current_state: State = State.IDLE
+var last_state: State = State.IDLE
 var energy: int = 10 # TODO balance this
 
 func _physics_process(delta: float) -> void:
@@ -30,8 +31,8 @@ func _physics_process(delta: float) -> void:
 
 	var state = get_input()
 	move_and_slide()
-	update_animation(state)
 	update_audio(state)
+	update_animation(state)
 
 func get_input() -> State:
 	if Input.is_action_pressed("left"):
@@ -54,13 +55,22 @@ func walk_in() -> void:
 func update_animation(state: State):
 	match state:
 		State.WALK_LEFT:
-			sprite.play("walk_forward")
+			sprite.play("walk_left")
 		State.WALK_RIGHT:
-			sprite.play("walk_forward")
+			sprite.play("walk_right")
 		State.INTERACT:
 			sprite.play("interact")
 		State.IDLE:
-			sprite.play("idle")
+			# Use the last walking direction to decide idle animation
+			match last_state:
+				State.WALK_LEFT:
+					sprite.play("idle_left")
+				State.WALK_RIGHT:
+					sprite.play("idle_right")
+
+	# Update last_state if the player is walking
+	if state in [State.WALK_LEFT, State.WALK_RIGHT]:
+		last_state = state
 		
 ######################
 # 		AUDIO 		 #
@@ -79,3 +89,7 @@ func update_audio(state: State) -> void:
 			if audio.stream != interact_sound or not audio.playing:
 				audio.stream = interact_sound
 				audio.play()
+
+
+func _on_audio_disable_pressed() -> void:
+	pass # Replace with function body.

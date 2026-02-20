@@ -26,7 +26,9 @@ func open_doors() -> void:
 # @param leads_to_direct: PackedScene (optional)
 #		Overrides the default leads_to variable. This parameter is only used in menu so far.
 func close_doors(leads_to_direct: PackedScene) -> void:
+	# TODO get the timing right
 	audio.play()
+	await get_tree().create_timer(.5).timeout
 	
 	var tween_front = get_tree().create_tween()
 	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x + 70, 2.5) # object, property, value, time
@@ -38,11 +40,13 @@ func close_doors(leads_to_direct: PackedScene) -> void:
 	tween_back.tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x + 50, 2.5)
 	tween_back.parallel().tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x - 50, 2.5)
 	
-	await audio.finished
+	await get_tree().create_timer(7.0).timeout
+	audio.stop()
+	
 	if(leads_to_direct):
-		tween_back.tween_callback(transition_to.bind(leads_to_direct))
+		transition_to(leads_to_direct)
 	else:
-		tween_back.tween_callback(transition_to.bind(leads_to))
+		transition_to(leads_to)
 	
 func transition_to(leads_to: PackedScene) -> void:
 	get_tree().change_scene_to_packed(leads_to)

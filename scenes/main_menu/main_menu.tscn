@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dm3dr156yxot4" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="2_0ebjn"]
+[ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="3_uqeha"]
+[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door.tscn" id="4_wem23"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vue75"]
 
@@ -53,6 +55,13 @@ text = "Exit"
 z_index = -1
 position = Vector2(220.99998, 352)
 scale = Vector2(1.12, 1.4)
+
+[node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("3_uqeha")]
+position = Vector2(218, 448)
+
+[node name="Door" parent="." unique_id=821589660 instance=ExtResource("4_wem23")]
+position = Vector2(684, 201.99998)
+scale = Vector2(2.88, 2.88)
 
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
