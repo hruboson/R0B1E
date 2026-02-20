@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Robot
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 
@@ -14,7 +15,8 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, INTERACT }
 # 		PROPERTIES		  #
 ###########################
 
-var current_state = State.IDLE
+var current_state: State = State.IDLE
+var energy: int = 10 # TODO balance this
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
@@ -34,6 +36,13 @@ func get_input() -> State:
 	else:
 		velocity.x = 0
 		return State.IDLE
+
+func walk_in() -> void:
+	var animation = get_tree().create_tween()
+	animation.tween_property(self, "scale", self.scale * 0.7, 2.5) # object, property, value, time
+	animation.parallel().tween_property(self, "position:y", self.position.y - 15, 2.5)
+	
+	await animation.finished
 		
 func update_animation(state: State):	
 	if state == State.WALK_LEFT:

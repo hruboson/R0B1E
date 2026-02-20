@@ -35,10 +35,10 @@ text = "Options"
 
 [node name="Start" type="Button" parent="." unique_id=1057461269]
 layout_mode = 0
-offset_left = 140.0
-offset_top = 265.0
-offset_right = 317.0
-offset_bottom = 504.0
+offset_left = 112.0
+offset_top = 198.0
+offset_right = 328.0
+offset_bottom = 506.0
 text = "Start"
 
 [node name="Exit" type="Button" parent="." unique_id=133433221]
