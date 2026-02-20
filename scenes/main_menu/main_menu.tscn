@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bjvk15f836be8"]
+
+[ext_resource type="Script" uid="uid://dm3dr156yxot4" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vue75"]
+
+[node name="MainMenu" type="Control" unique_id=1802946784]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsom3")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1488491662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_vue75")
+stretch_mode = 1
+
+[node name="Options" type="Button" parent="." unique_id=1017384650]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 292.0
+offset_right = 551.0
+offset_bottom = 356.0
+text = "Options"
+
+[node name="Start" type="Button" parent="." unique_id=1057461269]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 265.0
+offset_right = 317.0
+offset_bottom = 504.0
+text = "Start"
+
+[node name="Exit" type="Button" parent="." unique_id=133433221]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 166.0
+offset_right = 1155.0
+offset_bottom = 501.0
+text = "Exit"
+
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

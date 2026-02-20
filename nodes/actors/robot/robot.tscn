@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cp7d0myjohxhn"]
+
+[ext_resource type="Script" uid="uid://cb05fmubw5qc2" path="res://nodes/actors/robot/robot.gd" id="1_im0kw"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ahpfj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
+size = Vector2(200, 267)
+
+[node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
+floor_constant_speed = true
+script = ExtResource("1_im0kw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440490744]
+position = Vector2(-3.8146973e-06, 0.49998665)
+scale = Vector2(60.366417, 115.897095)
+texture = SubResource("PlaceholderTexture2D_ahpfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
+position = Vector2(-1, 0)
+scale = Vector2(0.30488092, 0.43734753)
+shape = SubResource("RectangleShape2D_02wwk")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2028687310]
+position = Vector2(-5, -157)
