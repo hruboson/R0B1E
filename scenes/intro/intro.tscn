@@ -103,8 +103,9 @@ leads_to = ExtResource("26_4uilh")
 is_closed = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=173830378]
-position = Vector2(171, 538)
-zoom = Vector2(5, 5)
+position = Vector2(173, 552.00006)
+scale = Vector2(0.22802913, 0.53689337)
+zoom = Vector2(6.885, 6.885)
 position_smoothing_enabled = true
 
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
