@@ -21,10 +21,6 @@ func play_2A():
 	print("Playing 2A")
 	pass
 	
-func play_1B():
-	print("Playing 1B")
-	pass
-	
 func play_2B():
 	print("Playing 2B")
 	pass

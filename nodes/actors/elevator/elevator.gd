@@ -15,8 +15,11 @@ var player: Robot = null
 const len_from_center_back: int = 50
 const len_from_center_front: int = 80
 
+var awaiting_confirmation: bool = false
+
 func _ready() -> void:
 	$BG.play("empty")
+	$Control.visible = false
 	if is_closed:
 		$LeftBackDoor.position.x += len_from_center_back
 		$RightBackDoor.position.x -= len_from_center_back
@@ -24,13 +27,27 @@ func _ready() -> void:
 		$RightFrontDoor.position.x -= len_from_center_front
 
 func _process(delta):
-	if player != null and Input.is_action_just_pressed("interact"):
-		player.input_enabled = false		
-		if is_closed:
+	if player == null:
+		return
+
+	if not awaiting_confirmation and Input.is_action_just_pressed("interact"):
+		awaiting_confirmation = true
+		player.input_enabled = false
+		$Control.visible = true
+		return
+
+	if awaiting_confirmation:
+		# YES (E)
+		if Input.is_action_just_pressed("interact"):
+			awaiting_confirmation = false
+			$Control.visible = false
 			await open_doors(leads_to)
-		else:
-			await close_doors(leads_to)
-		player.queue_free()
+		
+		# NO (Q)
+		elif Input.is_action_just_pressed("back"):
+			awaiting_confirmation = false
+			$Control.visible = false
+			player.input_enabled = true
 
 func open_doors(leads_to_direct) -> void:
 	var tween_front = get_tree().create_tween()

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://syf4grm658oc" path="res://assets/elevator/bot_at_home/sit_home_4.png" id="5_e8xrv"]
 [ext_resource type="Texture2D" uid="uid://pknb3f2u8wgt" path="res://assets/elevator/bot_at_home/sit_home_5.png" id="6_uxtxa"]
 [ext_resource type="Texture2D" uid="uid://mxip5sbddn63" path="res://assets/elevator/bot_at_home/sit_home_6.png" id="7_012qs"]
+[ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="11_6gby4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lkcx"]
 size = Vector2(98, 381.7896)
@@ -154,3 +155,39 @@ texture = ExtResource("2_8c7y2")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1684523772]
 position = Vector2(4, 0)
 stream = ExtResource("2_m5435")
+
+[node name="Control" type="Control" parent="." unique_id=551996671]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Continue" type="Label" parent="Control" unique_id=589685436]
+z_index = 30
+layout_mode = 0
+offset_left = 44.44442
+offset_top = 19.444427
+offset_right = 98.44443
+offset_bottom = 42.444427
+theme_override_fonts/font = ExtResource("11_6gby4")
+text = "Ano [E]"
+
+[node name="Back" type="Label" parent="Control" unique_id=217121585]
+z_index = 30
+layout_mode = 0
+offset_left = -91.66661
+offset_top = 19.444431
+offset_right = -38.66661
+offset_bottom = 42.44443
+theme_override_fonts/font = ExtResource("11_6gby4")
+text = "Ne [Q]"
+
+[node name="Question" type="Label" parent="Control" unique_id=441078994]
+z_index = 50
+layout_mode = 0
+offset_left = -51.388855
+offset_top = -4.1666636
+offset_right = 52.611145
+offset_bottom = 18.833336
+theme_override_fonts/font = ExtResource("11_6gby4")
+text = "Pokračovat?"
