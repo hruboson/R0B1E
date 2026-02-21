@@ -1,4 +1,4 @@
-extenextends CanvasLayer
+extends CanvasLayer
 
 @export var time_limit: float = 15.0
 var current_time: float

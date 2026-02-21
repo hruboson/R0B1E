@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
 [ext_resource type="Texture2D" uid="uid://c61eqpfd3qku7" path="res://assets/room/server_room_front.png" id="3_0k63i"]
 [ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
+[ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="6_3iq2o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
 distance = 116.0
@@ -52,7 +53,7 @@ shape = SubResource("WorldBoundaryShape2D_3iq2o")
 modulate = Color(1, 1, 1, 0.4117647)
 z_index = 100
 position = Vector2(427, 445)
-leads_to = "uid://cmsjbwrfeweag"
+leads_to = "uid://dvvpiqjsmtl0n"
 inward = true
 pop_room = true
 
@@ -63,3 +64,7 @@ position = Vector2(238, -7)
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1495833004]
 scale = Vector2(1, 8)
 color = Color(0.17785347, 0.17785347, 0.17785347, 1)
+
+[node name="Area2D2" parent="." unique_id=603462997 instance=ExtResource("6_3iq2o")]
+z_index = 77
+position = Vector2(-321, 4)
