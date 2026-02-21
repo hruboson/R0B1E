@@ -16,6 +16,7 @@ const len_from_center_back: int = 50
 const len_from_center_front: int = 80
 
 func _ready() -> void:
+	$BG.play("empty")
 	if is_closed:
 		$LeftBackDoor.position.x += len_from_center_back
 		$RightBackDoor.position.x -= len_from_center_back
@@ -46,6 +47,7 @@ func open_doors(leads_to_direct) -> void:
 	await get_tree().create_timer(.5).timeout
 	
 	player.hide()
+	$BG.play("sit")
 	await get_tree().create_timer(.2).timeout
 	
 	#var tween_elevator = get_tree().create_tween()
@@ -54,6 +56,27 @@ func open_doors(leads_to_direct) -> void:
 	#tween_elevator.parallel().tween_property($LeftBackDoor, "position:y", $LeftBackDoor.position.y - 500, 7.0)
 	
 	await get_tree().create_timer(2.0).timeout
+	$BG.play("sitting_only")
+	
+	var tween_front_close = get_tree().create_tween()
+	tween_front_close.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x + len_from_center_front, 2.5) # object, property, value, time
+	tween_front_close.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x - len_from_center_front, 2.5)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	var tween_back_close = get_tree().create_tween()
+	tween_back_close.tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x - len_from_center_back, 2.5)
+	tween_back_close.parallel().tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x + len_from_center_back, 2.5)
+	
+	await tween_back_close.finished
+	await get_tree().create_timer(.5).timeout
+	
+	var tween_elevator = get_tree().create_tween()
+	tween_elevator.tween_property($BG, "position:y", $BG.position.y - 500, 7.0)
+	tween_elevator.parallel().tween_property($RightBackDoor, "position:y", $RightBackDoor.position.y - 500, 7.0)
+	tween_elevator.parallel().tween_property($LeftBackDoor, "position:y", $LeftBackDoor.position.y - 500, 7.0)
+	
+	await get_tree().create_timer(7.0).timeout
 	audio.stop()
 		
 	if(leads_to_direct):

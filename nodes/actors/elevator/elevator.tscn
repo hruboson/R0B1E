@@ -2,19 +2,59 @@
 
 [ext_resource type="Script" uid="uid://fojbu0s3e1gg" path="res://nodes/actors/elevator/elevator.gd" id="1_6lkcx"]
 [ext_resource type="Texture2D" uid="uid://gw577u4rfmlh" path="res://assets/elevator/door.png" id="2_8c7y2"]
+[ext_resource type="Texture2D" uid="uid://h6wp5me3coho" path="res://assets/elevator/bot_at_home/sit_home_1.png" id="2_37pjb"]
 [ext_resource type="AudioStream" uid="uid://bft7wd33cas4w" path="res://audio/elevator/elevator.mp3" id="2_m5435"]
+[ext_resource type="Texture2D" uid="uid://cepjwgvr5dnwt" path="res://assets/elevator/bot_at_home/empty.png" id="2_rv3pe"]
+[ext_resource type="Texture2D" uid="uid://133p6g1j3okk" path="res://assets/elevator/bot_at_home/sit_home_2.png" id="3_rv3pe"]
+[ext_resource type="Texture2D" uid="uid://dv7d750imyy08" path="res://assets/elevator/bot_at_home/sit_home_3.png" id="4_6gby4"]
+[ext_resource type="Texture2D" uid="uid://syf4grm658oc" path="res://assets/elevator/bot_at_home/sit_home_4.png" id="5_e8xrv"]
+[ext_resource type="Texture2D" uid="uid://pknb3f2u8wgt" path="res://assets/elevator/bot_at_home/sit_home_5.png" id="6_uxtxa"]
+[ext_resource type="Texture2D" uid="uid://mxip5sbddn63" path="res://assets/elevator/bot_at_home/sit_home_6.png" id="7_012qs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lkcx"]
 size = Vector2(98, 381.7896)
 
-[sub_resource type="Gradient" id="Gradient_rlb0w"]
-colors = PackedColorArray(0.23300542, 0.14182666, 6.6341954e-08, 1, 0.3254902, 0.24313726, 0.11764706, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6lkcx"]
-gradient = SubResource("Gradient_rlb0w")
-fill = 1
-fill_from = Vector2(0.39756945, 0.27604166)
-fill_to = Vector2(0.49479166, 1)
+[sub_resource type="SpriteFrames" id="SpriteFrames_80txl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rv3pe")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_37pjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rv3pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6gby4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_e8xrv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uxtxa")
+}, {
+"duration": 8.0,
+"texture": ExtResource("7_012qs")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 8.0,
+"texture": ExtResource("7_012qs")
+}],
+"loop": true,
+"name": &"sitting_only",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_8c7y2"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -31,18 +71,58 @@ position = Vector2(1, 0)
 scale = Vector2(1, 1.5191612)
 shape = SubResource("RectangleShape2D_6lkcx")
 
-[node name="BG" type="Sprite2D" parent="." unique_id=475693684]
-position = Vector2(1.0000001, -1.0000029)
-scale = Vector2(1.53125, 2.9375)
-texture = SubResource("GradientTexture2D_6lkcx")
+[node name="BG" type="AnimatedSprite2D" parent="." unique_id=602342363]
+texture_filter = 1
+position = Vector2(1.0000001, 4.166664)
+scale = Vector2(1.36, 1.36)
+sprite_frames = SubResource("SpriteFrames_80txl")
+animation = &"sitting_only"
 
-[node name="Foreground" type="Sprite2D" parent="." unique_id=1011438571]
-z_index = 70
+[node name="Shaft" type="Sprite2D" parent="." unique_id=1312191585]
+z_index = -5
 texture_filter = 1
 texture_repeat = 2
-position = Vector2(0.43920898, -102.756836)
+position = Vector2(0.51275635, 0.4089203)
 rotation = -1.5707964
-scale = Vector2(0.063997, 159.39687)
+scale = Vector2(0.79747295, 120.1357)
+texture = SubResource("GradientTexture1D_b8sc4")
+
+[node name="RightBorder" type="Sprite2D" parent="." unique_id=2036396641]
+z_index = 10
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(55.55552, -23.611095)
+rotation = 4.712389
+scale = Vector2(1, 11.125365)
+skew = -1.5258789e-05
+texture = SubResource("GradientTexture1D_b8sc4")
+
+[node name="LeftBorder" type="Sprite2D" parent="." unique_id=721387054]
+z_index = 10
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-54.16664, -23.611097)
+rotation = 4.712389
+scale = Vector2(1, 11.125365)
+skew = -1.5258789e-05
+texture = SubResource("GradientTexture1D_b8sc4")
+
+[node name="TopBorder" type="Sprite2D" parent="." unique_id=1011438571]
+z_index = 10
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0.51275444, -153.19818)
+rotation = -1.5707964
+scale = Vector2(0.45790687, 120.1357)
+texture = SubResource("GradientTexture1D_b8sc4")
+
+[node name="BottomBorder" type="Sprite2D" parent="." unique_id=997446689]
+z_index = 10
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0.7413206, 102.77772)
+rotation = -1.5707964
+scale = Vector2(0.019820204, 120.644104)
 texture = SubResource("GradientTexture1D_b8sc4")
 
 [node name="LeftFrontDoor" type="Sprite2D" parent="." unique_id=1782289956]
