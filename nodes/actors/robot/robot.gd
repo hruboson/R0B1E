@@ -5,6 +5,9 @@ class_name Robot
 @export var walk_sound: AudioStream
 @export var interact_sound: AudioStream
 
+@export var sound_on_texture: Texture2D
+@export var sound_off_texture: Texture2D
+
 ########## NODES ###########
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -147,10 +150,6 @@ func update_audio(state: State) -> void:
 			if audio.stream != interact_sound or not audio.playing:
 				audio.stream = interact_sound
 				audio.play()
-
-
-func _on_audio_disable_pressed() -> void:
-	pass # Replace with function body.
 	
 ################
 #    SLOTS     #
@@ -161,4 +160,10 @@ func _on_fade_finished(anim_name: String) -> void:
 		$CanvasLayer/FadeRect.hide()
 
 func _on_sound_button_pressed() -> void:
-	pass # Replace with function body.
+	var bus_index := AudioServer.get_bus_index("Master")
+	var is_muted := AudioServer.is_bus_mute(bus_index)
+	AudioServer.set_bus_mute(bus_index, !is_muted)
+	if is_muted:
+		$CanvasLayer/HBoxContainer/SoundButton.icon = sound_on_texture
+	else:
+		$CanvasLayer/HBoxContainer/SoundButton.icon = sound_off_texture	

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_cqmxv"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
 [ext_resource type="Texture2D" uid="uid://yelqvhc6wa73" path="res://assets/robot/idle_left/idle_left_1.png" id="3_u01i4"]
+[ext_resource type="Texture2D" uid="uid://bw7jg8yxc5smr" path="res://assets/ui/sound_off.png" id="4_0y5s3"]
 [ext_resource type="Texture2D" uid="uid://lkbqijaiw6mo" path="res://assets/robot/idle_left/idle_left_2.png" id="4_b7ats"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
 [ext_resource type="Texture2D" uid="uid://diysujk7gog0r" path="res://assets/robot/idle_right/idle_right_1.png" id="5_bujui"]
@@ -183,6 +184,8 @@ _data = {
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
 walk_sound = ExtResource("7_jslpc")
+sound_on_texture = ExtResource("23_t36he")
+sound_off_texture = ExtResource("4_0y5s3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-2.499999, -4.5)
@@ -235,7 +238,7 @@ offset_bottom = 119.0
 grow_horizontal = 0
 scale = Vector2(0.11999896, 0.11999896)
 
-[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=130474000]
+[node name="SoundButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=130474000]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -244,4 +247,4 @@ icon = ExtResource("23_t36he")
 flat = true
 icon_alignment = 1
 
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button" to="." method="_on_sound_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
