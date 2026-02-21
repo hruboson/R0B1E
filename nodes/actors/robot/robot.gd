@@ -33,6 +33,7 @@ var last_state: State = State.IDLE
 var input_enabled: bool = true
 
 var is_intro_sequence: bool = false
+var tablet_open: bool = false
 
 func _ready() -> void:
 	update_battery()
@@ -54,8 +55,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
+		
+	if not input_enabled:
+		velocity.x = 0
+		move_and_slide()
+		return
 	
-
 	if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
 		if input_enabled: # disabled during cutscenes
 			move_and_slide()
@@ -142,6 +147,19 @@ func update_battery() -> void:
 	
 	# Update the health bar size
 	health_bar.size.x = full_width * energy_ratio
+	
+func show_tablet() -> void:
+	var tablet_anim: AnimationPlayer = $CanvasLayer/Tablet/Texture/AnimationTree
+	
+	if tablet_open:
+		tablet_anim.play("slide_down")
+		input_enabled = true
+		tablet_open = false
+	else:
+		tablet_anim.play("slide_up")
+		input_enabled = false
+		velocity = Vector2.ZERO
+		tablet_open = true
 
 ########################
 #	WORLD INTERACTION  #
@@ -159,8 +177,19 @@ func play_fade(fade_type: String) -> void:
 func init_landord_quest() -> void:
 	pass
 
-func init_tenant_quest() -> void:
-	pass
+func init_tenant_quest(subtitles: String, subtitles_optional: String, sub_length: float, sub_optional_length: float, audio_callable_name: String) -> void:
+	if not input_enabled:
+		return
+
+	if audio_callable_name != "" and AudioManager.has_method(audio_callable_name):
+		AudioManager.call(audio_callable_name)
+
+	show_text(subtitles, sub_length)
+	await get_tree().create_timer(sub_length).timeout
+
+	if subtitles_optional != "":
+		show_text(subtitles_optional, sub_optional_length)
+		await get_tree().create_timer(sub_optional_length).timeout
 	
 func take_energy(amount: int) -> void:
 	GameManager.player_energy = max(GameManager.player_energy - amount, 0)

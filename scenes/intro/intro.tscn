@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://qo0u332dbke5" path="res://assets/robot/boot_up/boot6.png" id="10_nvap7"]
 [ext_resource type="AudioStream" uid="uid://vh7dovptchs7" path="res://audio/robot/boot_up.mp3" id="11_hs2o6"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
+[ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
@@ -166,8 +167,37 @@ scale = Vector2(0.22802913, 0.53689337)
 zoom = Vector2(6.885, 6.885)
 position_smoothing_enabled = true
 
+[node name="Area2D2" type="Area2D" parent="." unique_id=1891272300]
+z_index = 10
+position = Vector2(34, 517)
+scale = Vector2(0.2177115, 0.2177115)
+script = ExtResource("29_rx8h1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=334198749]
+texture_filter = 1
+texture = ExtResource("29_gvbtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1053450876]
+position = Vector2(-4.1625977, 101.98389)
+shape = SubResource("RectangleShape2D_gvbtx")
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=292973980]
+z_index = 10
+position = Vector2(131.00002, 539.00006)
+scale = Vector2(0.13066846, 0.13066846)
+script = ExtResource("29_rx8h1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3" unique_id=488170080]
+texture_filter = 1
+texture = ExtResource("29_gvbtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1641419028]
+position = Vector2(-4.1625977, 101.98389)
+shape = SubResource("RectangleShape2D_gvbtx")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=541886280]
-position = Vector2(329, 474)
+z_index = 10
+position = Vector2(353, 504)
 scale = Vector2(0.24023342, 0.24023342)
 script = ExtResource("29_rx8h1")
 
@@ -201,20 +231,20 @@ texture = SubResource("GradientTexture2D_2ypwg")
 height = 50.0
 
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
-position = Vector2(328, 503.00003)
+position = Vector2(631, 503.00003)
 scale = Vector2(0.82, 0.82)
 leads_to = "uid://dcot3r0u63dg1"
 
-[node name="Door2" parent="." unique_id=2027733701 instance=ExtResource("28_gvbtx")]
-position = Vector2(1238, 503.00003)
-scale = Vector2(0.82, 0.82)
-leads_to = "uid://bkb02noniiet1"
-
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
 position = Vector2(-3, 518)
+subtitles = "Pst hej pojd jsem, hej notak..."
+subtitles_optional = "Hej prosím tě potřebuju od tebe něco ale neboj vyplatí se ti to dám ti nějakou energie té vy plechovky přece nemáte moc ne. Vymaž my historii z heveans gázu."
+sub_length = 3.0
+sub_optional_length = 8.0
+audio_func_name = "play_1A"
 
 [node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
-position = Vector2(634.00006, 503)
+position = Vector2(331, 503.00003)
 scale = Vector2(0.82, 0.82)
 
 [node name="DoorLocked2" parent="." unique_id=2120954987 instance=ExtResource("14_2ypwg")]
@@ -223,6 +253,10 @@ scale = Vector2(0.82, 0.82)
 
 [node name="DoorLocked3" parent="." unique_id=488626148 instance=ExtResource("14_2ypwg")]
 position = Vector2(1542, 503)
+scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked4" parent="." unique_id=1737481723 instance=ExtResource("14_2ypwg")]
+position = Vector2(1238, 503)
 scale = Vector2(0.82, 0.82)
 
 [node name="InitialShade" type="Sprite2D" parent="." unique_id=1328266598]
@@ -234,7 +268,14 @@ texture = SubResource("GradientTexture2D_xyqjm")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="InitialShade" unique_id=1256003869]
 libraries/ = SubResource("AnimationLibrary_jbxqg")
 
+[node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("19_ivhsj")]
+position = Vector2(138, 544)
+
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D3" to="Area2D3" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D3" to="Area2D3" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

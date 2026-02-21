@@ -30,7 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://b25ntj3avn5kv" path="res://assets/robot/walk_left/walk_left_4.png" id="11_45idf"]
 [ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="11_fsb0y"]
 [ext_resource type="Texture2D" uid="uid://dhntjhimmcp60" path="res://assets/ui/sound_on.png" id="23_t36he"]
-[ext_resource type="FontFile" uid="uid://cpur1n1mugtnj" path="res://assets/fonts/small_pixel.ttf" id="31_7pgbg"]
+[ext_resource type="PackedScene" uid="uid://dncuhwxfmtqd1" path="res://nodes/interactable/tablet/tablet.tscn" id="31_g465r"]
+[ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="32_g465r"]
 [ext_resource type="Texture2D" uid="uid://c08xauovd8ngq" path="res://assets/robot/battery.png" id="32_ipoti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
@@ -250,6 +251,8 @@ bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327289935]
 
+[node name="Tablet" parent="CanvasLayer" unique_id=268050011 instance=ExtResource("31_g465r")]
+
 [node name="FadeRect" type="ColorRect" parent="CanvasLayer" unique_id=1727608487]
 visible = false
 anchors_preset = 15
@@ -291,14 +294,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -316.0
+offset_top = -138.0
+offset_right = 408.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("31_7pgbg")
+theme_override_fonts/font = ExtResource("32_g465r")
 theme_override_font_sizes/font_size = 20
+text = "asd"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="Battery" type="Control" parent="CanvasLayer" unique_id=603888392]
 texture_filter = 1

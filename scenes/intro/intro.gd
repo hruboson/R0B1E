@@ -90,3 +90,10 @@ func spawn_controllable_robot() -> void:
 	robot_camera.enabled = true
 	robot_camera.make_current()
 	robot_instance.input_enabled = true
+	
+###############################################################
+# On left doors
+#  -
+# Voice line - come to the left door
+# 	Zadá quest - jít deletnout historii
+# Landlord zadá jdi aktualizovat systém - tablet na stěně

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ckeb8xmxjngvj"]
+
+[ext_resource type="Script" uid="uid://c8agmreyn1b2i" path="res://nodes/interactable/tablet/tablet_init.gd" id="1_43nqf"]
+[ext_resource type="Texture2D" uid="uid://dmwao14qf03ug" path="res://assets/hallway/tablet_icon.png" id="2_rne52"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs2o6"]
+size = Vector2(42.5, 169)
+
+[node name="TabletMiniuature" type="Area2D" unique_id=846197649]
+script = ExtResource("1_43nqf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=619063060]
+texture_filter = 1
+position = Vector2(4, 4)
+texture = ExtResource("2_rne52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1975826316]
+position = Vector2(1, -6)
+shape = SubResource("RectangleShape2D_hs2o6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
