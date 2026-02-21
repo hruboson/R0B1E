@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_ir5dn"]
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="2_kfk32"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_1rrv8"]
+[ext_resource type="AudioStream" uid="uid://ckh3uuwgj7fxq" path="res://audio/music/ambient_best.mp3" id="3_14p5w"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_8yty6"]
 [ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_exgwc"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="6_8yty6"]
@@ -59,6 +60,7 @@ fill_to = Vector2(0.33043477, 0.6347826)
 [node name="Intro" type="Node2D" unique_id=1952824044]
 script = ExtResource("1_qeukb")
 robot_scene = ExtResource("2_kfk32")
+ambience = ExtResource("3_14p5w")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1731893187]
 z_index = -20

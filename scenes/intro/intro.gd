@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var robot_scene: PackedScene # the controllable Robot
+@export var ambience: AudioStream
 
 @onready var dummy_robot: Node2D = $DummyRobot  # the robot that plays the wake-up animation
 @onready var anim_player: AnimatedSprite2D = $DummyRobot/Animation2D
@@ -9,7 +10,7 @@ extends Node2D
 var robot_spawned: bool = false
 
 func _ready() -> void:
-	pass # Replace with function body.
+	AudioManager.play_ambience(ambience)
 
 func _process(delta: float) -> void:
 	if robot_spawned:

@@ -4,3 +4,5 @@
 
 [node name="AudioManager" type="Node" unique_id=1233375728]
 script = ExtResource("1_ue1sc")
+
+[node name="AmbienceBest" type="AudioStreamPlayer" parent="." unique_id=777494513]
