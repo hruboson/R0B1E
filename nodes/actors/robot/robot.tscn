@@ -289,6 +289,7 @@ flat = true
 icon_alignment = 1
 
 [node name="SubtitleLabel" type="Label" parent="CanvasLayer" unique_id=1374063158]
+texture_filter = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -302,7 +303,6 @@ grow_vertical = 0
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("32_g465r")
 theme_override_font_sizes/font_size = 20
-text = "asd"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2

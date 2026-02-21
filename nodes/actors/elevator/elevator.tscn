@@ -164,6 +164,7 @@ offset_bottom = 40.0
 
 [node name="Continue" type="Label" parent="Control" unique_id=589685436]
 z_index = 30
+texture_filter = 1
 layout_mode = 0
 offset_left = 44.44442
 offset_top = 19.444427
@@ -174,6 +175,7 @@ text = "Ano [E]"
 
 [node name="Back" type="Label" parent="Control" unique_id=217121585]
 z_index = 30
+texture_filter = 1
 layout_mode = 0
 offset_left = -91.66661
 offset_top = 19.444431
@@ -184,6 +186,7 @@ text = "Ne [Q]"
 
 [node name="Question" type="Label" parent="Control" unique_id=441078994]
 z_index = 50
+texture_filter = 1
 layout_mode = 0
 offset_left = -51.388855
 offset_top = -4.1666636
