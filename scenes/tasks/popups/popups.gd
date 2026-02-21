@@ -38,6 +38,7 @@ func _connect_begin_popup():
 
 func _on_begin_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
+		$Audio.play()
 		if game_started:
 			return
 
@@ -72,7 +73,7 @@ func _connect_popup(popup: Sprite2D):
 
 func _on_success_clicked(viewport, event, shape_idx, popup):
 	if event is InputEventMouseButton and event.pressed and not game_finished:
-
+		$Audio.play()
 		popup.queue_free()
 		success_count += 1
 
@@ -84,7 +85,8 @@ func _on_success_clicked(viewport, event, shape_idx, popup):
 
 func _on_failure_clicked(viewport, event, shape_idx, popup):
 	if event is InputEventMouseButton and event.pressed and not game_finished:
-
+		$Audio.play()
+		
 		# duplicate more popups to increase difficulty
 		for i in randi() % 3 + 1:
 			_spawn_random_popup()

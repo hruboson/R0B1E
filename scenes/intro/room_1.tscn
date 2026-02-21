@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c61eqpfd3qku7" path="res://assets/room/server_room_front.png" id="3_0k63i"]
 [ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
 [ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="6_3iq2o"]
+[ext_resource type="Script" uid="uid://xon25ejmiik0" path="res://nodes/interactable/tasks/Breakers/Breakers_init.gd" id="7_i6wg6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
 distance = 116.0
@@ -57,7 +58,7 @@ leads_to = "uid://dvvpiqjsmtl0n"
 inward = true
 pop_room = true
 
-[node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]
+[node name="Popups" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]
 visible = false
 position = Vector2(238, -7)
 
@@ -65,6 +66,8 @@ position = Vector2(238, -7)
 scale = Vector2(1, 8)
 color = Color(0.17785347, 0.17785347, 0.17785347, 1)
 
-[node name="Area2D2" parent="." unique_id=603462997 instance=ExtResource("6_3iq2o")]
+[node name="Breakers" parent="." unique_id=603462997 instance=ExtResource("6_3iq2o")]
+visible = false
 z_index = 77
 position = Vector2(-321, 4)
+script = ExtResource("7_i6wg6")
