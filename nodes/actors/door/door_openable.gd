@@ -5,12 +5,16 @@ extends Area2D
 @export var inward: bool = false
 @export var pop_room: bool = false
 
+########## NODES ###########
+@onready var audio: AudioStreamPlayer2D = $Audio
+
 var player: Robot = null
 
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):	
 		var scene: PackedScene = load(leads_to)	
 		$AnimatedSprite2D.play("default")
+		audio.play()
 		
 		player.play_fade("fade_in")
 		if !inward:

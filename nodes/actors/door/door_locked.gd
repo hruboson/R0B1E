@@ -1,16 +1,14 @@
 extends Area2D
 
-########## EXPORTS ###########
-@export var locked_audio: AudioStream
-
 ########## NODES ############
 @onready var hint: Sprite2D = $Hint
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player: Robot = null
 
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):	
-		#locked_audio.play()
+		audio.play()
 		player.show_text("Locked")
 
 ############################

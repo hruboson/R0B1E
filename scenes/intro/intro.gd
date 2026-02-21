@@ -14,6 +14,7 @@ func _ready() -> void:
 	if !GameManager.initialSequenceCompleted:
 		$InitialShade.show()
 	else:
+		AudioManager.play_ambience(ambience)
 		var robot_instance = robot_scene.instantiate() as Robot
 		
 		robot_instance.is_intro_sequence = false
@@ -29,8 +30,6 @@ func _ready() -> void:
 		$InitialShade.queue_free()
 		dummy_robot.queue_free()
 		scene_camera.queue_free()
-		
-	AudioManager.play_ambience(ambience)
 
 func _process(delta: float) -> void:
 	if robot_spawned:
@@ -38,6 +37,7 @@ func _process(delta: float) -> void:
 		
 	if (Input.is_action_pressed("interact") or Input.is_action_pressed("left") or Input.is_action_pressed("right")) and !GameManager.initialSequenceCompleted:
 		set_process(false)
+		AudioManager.play_ambience(ambience)
 		await play_dummy_animation()
 		await spawn_controllable_robot()
 		robot_spawned = true

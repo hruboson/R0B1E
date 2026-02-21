@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1o8omwsj7yy4" path="res://assets/door/door2.png" id="3_o65gg"]
 [ext_resource type="Texture2D" uid="uid://b15codi4elj1h" path="res://assets/door/door3.png" id="4_bjegg"]
 [ext_resource type="Texture2D" uid="uid://cb735ud80slu3" path="res://assets/door/door4.png" id="5_4yi0l"]
+[ext_resource type="AudioStream" uid="uid://bl4wgiy12j52" path="res://audio/door/door_open.mp3" id="6_o65gg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ke773"]
 animations = [{
@@ -40,6 +41,10 @@ sprite_frames = SubResource("SpriteFrames_ke773")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=864438064]
 position = Vector2(2, -66)
 shape = SubResource("RectangleShape2D_hj45k")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=1142255304]
+stream = ExtResource("6_o65gg")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
