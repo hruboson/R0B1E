@@ -150,7 +150,8 @@ height = 50.0
 position = Vector2(-3, 518)
 
 [node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
-position = Vector2(629, 488)
+position = Vector2(634.00006, 503)
+scale = Vector2(0.82, 0.82)
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

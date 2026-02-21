@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://xa6iswqpdjyj"]
 
 [ext_resource type="Script" uid="uid://d0gui27umulyn" path="res://nodes/actors/door/door_locked.gd" id="1_t1ro3"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_msr3v"]
+[ext_resource type="Texture2D" uid="uid://1lmqbsf2q7i3" path="res://assets/door/door1.png" id="2_0c8pr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af3hu"]
 size = Vector2(100, 686)
@@ -13,8 +12,7 @@ script = ExtResource("1_t1ro3")
 [node name="Hint" type="Sprite2D" parent="." unique_id=1668103505]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=800715694]
-scale = Vector2(100, 170)
-texture = SubResource("PlaceholderTexture2D_msr3v")
+texture = ExtResource("2_0c8pr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063673062]
 shape = SubResource("RectangleShape2D_af3hu")
