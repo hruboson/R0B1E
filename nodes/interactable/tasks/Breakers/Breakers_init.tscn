@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ukp0wgvfyrnx"]
+
+[ext_resource type="Script" uid="uid://dnp1f3gmxiv3" path="res://nodes/interactable/tasks/popups/popups_init.gd" id="1_udey8"]
+[ext_resource type="Texture2D" uid="uid://lc5br3y0k14i" path="res://assets/tasks/Breakers/breaker_icon.png" id="2_nvr86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btc0d"]
+size = Vector2(33, 350)
+
+[node name="Area2D" type="Area2D" unique_id=565336411]
+script = ExtResource("1_udey8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172139722]
+position = Vector2(622.5, 443)
+shape = SubResource("RectangleShape2D_btc0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1892031335]
+position = Vector2(623, 445.00003)
+scale = Vector2(0.20901558, 0.17432275)
+texture = ExtResource("2_nvr86")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

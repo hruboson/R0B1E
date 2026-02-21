@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://cfdb0gud6txqm"]
+
+[ext_resource type="Script" uid="uid://bkllku8fqmj2w" path="res://scenes/tasks/popups.gd" id="1_757ox"]
+[ext_resource type="Script" uid="uid://ckuye71oav34j" path="res://scenes/tasks/Breakers/breaker_logic.gd" id="3_502vs"]
+
+[node name="Breakers" type="Node2D" unique_id=427699113]
+script = ExtResource("1_757ox")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1832985514]
+position = Vector2(576, 325)
+
+[node name="BreakerLogic" type="Node2D" parent="." unique_id=696744139]
+script = ExtResource("3_502vs")
+
+[node name="MessageBegin" type="Sprite2D" parent="BreakerLogic" unique_id=1570294100]
+
+[node name="Area2D" type="Area2D" parent="BreakerLogic/MessageBegin" unique_id=1763740053]
+
+[node name="MessageComplete" type="Sprite2D" parent="BreakerLogic" unique_id=27195162]
+
+[node name="BreakerPanel" type="Node2D" parent="BreakerLogic" unique_id=270579098]
+
+[node name="Small1" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=1169715576]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small1" unique_id=1756708264]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small1" unique_id=1337642715]
+
+[node name="Small2" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=957412715]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small2" unique_id=742972624]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small2" unique_id=7842049]
+
+[node name="Small3" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=1272508153]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small3" unique_id=249192071]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small3" unique_id=1948467303]
+
+[node name="Small4" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=1678448584]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small4" unique_id=2029303642]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small4" unique_id=717365920]
+
+[node name="Small5" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=229681649]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small5" unique_id=719944775]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small5" unique_id=1737224010]
+
+[node name="Small6" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=126972250]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small6" unique_id=686336353]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small6" unique_id=346893335]
+
+[node name="Small7" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=732583264]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small7" unique_id=1265345769]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small7" unique_id=2062279187]
+
+[node name="Small8" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=1901248710]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small8" unique_id=699616667]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small8" unique_id=1683661616]
+
+[node name="Small9" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=785717307]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small9" unique_id=1551475107]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small9" unique_id=1703059538]
+
+[node name="Small10" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=559263030]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Small10" unique_id=1221502218]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Small10" unique_id=1915423363]
+
+[node name="Big" type="Area2D" parent="BreakerLogic/BreakerPanel" unique_id=2126523129]
+
+[node name="Sprite2D" type="Sprite2D" parent="BreakerLogic/BreakerPanel/Big" unique_id=1444924165]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakerLogic/BreakerPanel/Big" unique_id=1074097037]
+
+[node name="TimerUI" type="Control" parent="BreakerLogic" unique_id=2076927307]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="BreakerLogic/TimerUI" unique_id=1285881295]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
