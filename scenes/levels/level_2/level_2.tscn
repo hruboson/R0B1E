@@ -9,6 +9,16 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
 
+[sub_resource type="Gradient" id="Gradient_kfk32"]
+offsets = PackedFloat32Array(0, 0.7379808, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hopjm"]
+gradient = SubResource("Gradient_kfk32")
+fill = 1
+fill_from = Vector2(0.5043478, 0.14347826)
+fill_to = Vector2(0.33043477, 0.6347826)
+
 [node name="Level1" type="Node2D" unique_id=1400742347]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
@@ -48,3 +58,11 @@ scale = Vector2(0.63275325, 0.63275325)
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]
 position = Vector2(198, 557)
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1942344040]
+position = Vector2(1196, 476)
+scale = Vector2(65.26563, 27.129457)
+color = Color(1, 0.6627451, 0.28627452, 1)
+energy = 0.65
+texture = SubResource("GradientTexture2D_hopjm")
+height = 50.0
