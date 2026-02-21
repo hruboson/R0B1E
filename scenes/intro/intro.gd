@@ -11,17 +11,37 @@ extends Node2D
 var robot_spawned: bool = false
 
 func _ready() -> void:
+	if !GameManager.initialSequenceCompleted:
+		$InitialShade.show()
+	else:
+		var robot_instance = robot_scene.instantiate() as Robot
+		
+		robot_instance.is_intro_sequence = false
+		robot_instance.z_index = 50
+		
+		if GameManager.player_return_position != null:
+			robot_instance.global_position = GameManager.player_return_position
+		else:
+			robot_instance.global_position = dummy_robot.global_position
+		add_child(robot_instance)
+		robot_instance.last_state = Robot.State.IDLE
+		
+		$InitialShade.queue_free()
+		dummy_robot.queue_free()
+		scene_camera.queue_free()
+		
 	AudioManager.play_ambience(ambience)
 
 func _process(delta: float) -> void:
 	if robot_spawned:
 		return
 		
-	if Input.is_action_pressed("interact") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+	if (Input.is_action_pressed("interact") or Input.is_action_pressed("left") or Input.is_action_pressed("right")) and !GameManager.initialSequenceCompleted:
 		set_process(false)
 		await play_dummy_animation()
 		await spawn_controllable_robot()
 		robot_spawned = true
+		GameManager.initialSequenceCompleted = true
 		
 	# --check for input until possible key is pressed
 	# --wake up robot (sitting in corner) -> animation

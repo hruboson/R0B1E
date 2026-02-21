@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dcot3r0u63dg1"]
+
+[ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
+[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
+[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
+
+[sub_resource type="Gradient" id="Gradient_20voq"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d7bms"]
+gradient = SubResource("Gradient_20voq")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
+distance = 116.0
+
+[node name="Room1" type="Node2D" unique_id=580597860]
+
+[node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_d7bms")]
+position = Vector2(572, 488)
+
+[node name="BG" type="Sprite2D" parent="." unique_id=179545343]
+z_index = -1000
+position = Vector2(597, 206.00002)
+scale = Vector2(-6.0348625, 768.2464)
+texture = SubResource("GradientTexture1D_d7bms")
+metadata/_edit_lock_ = true
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1896617816]
+position = Vector2(0, -14)
+scale = Vector2(0.9904169, 0.96029466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=1779408204]
+position = Vector2(573, 666)
+shape = SubResource("WorldBoundaryShape2D_d7bms")
+
+[node name="Door" parent="." unique_id=821589660 instance=ExtResource("2_fowph")]
+modulate = Color(1, 1, 1, 0.4117647)
+z_index = 100
+position = Vector2(470, 449)
+leads_to = "uid://cmsjbwrfeweag"
+inward = true
+pop_room = true
+
+[node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]

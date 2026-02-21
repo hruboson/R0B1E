@@ -1,8 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://bm8s4slp4balm"]
 
 [resource]
-bus/0/bypass_fx = true
-bus/0/volume_db = -10.254384
+bus/0/volume_db = -20.376356
 bus/1/name = &"Ambient"
 bus/1/solo = false
 bus/1/mute = false

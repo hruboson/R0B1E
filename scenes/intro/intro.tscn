@@ -163,11 +163,6 @@ scale = Vector2(0.22802913, 0.53689337)
 zoom = Vector2(6.885, 6.885)
 position_smoothing_enabled = true
 
-[node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
-position = Vector2(328, 503.00003)
-scale = Vector2(0.82, 0.82)
-leads_to = "uid://cmsjbwrfeweag"
-
 [node name="Area2D" type="Area2D" parent="." unique_id=541886280]
 position = Vector2(329, 474)
 scale = Vector2(0.24023342, 0.24023342)
@@ -202,6 +197,16 @@ energy = 2.55
 texture = SubResource("GradientTexture2D_2ypwg")
 height = 50.0
 
+[node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
+position = Vector2(328, 503.00003)
+scale = Vector2(0.82, 0.82)
+leads_to = "uid://bom8sythunarm"
+
+[node name="Door2" parent="." unique_id=2027733701 instance=ExtResource("28_gvbtx")]
+position = Vector2(1238, 503.00003)
+scale = Vector2(0.82, 0.82)
+leads_to = "uid://bkb02noniiet1"
+
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
 position = Vector2(-3, 518)
 
@@ -209,7 +214,16 @@ position = Vector2(-3, 518)
 position = Vector2(634.00006, 503)
 scale = Vector2(0.82, 0.82)
 
+[node name="DoorLocked2" parent="." unique_id=2120954987 instance=ExtResource("14_2ypwg")]
+position = Vector2(936, 503)
+scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked3" parent="." unique_id=488626148 instance=ExtResource("14_2ypwg")]
+position = Vector2(1542, 503)
+scale = Vector2(0.82, 0.82)
+
 [node name="InitialShade" type="Sprite2D" parent="." unique_id=1328266598]
+visible = false
 position = Vector2(173, 547)
 scale = Vector2(7.96, 7.96)
 texture = SubResource("GradientTexture2D_xyqjm")
