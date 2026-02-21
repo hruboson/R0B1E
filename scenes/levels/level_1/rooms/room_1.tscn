@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
+[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
 
 [sub_resource type="Gradient" id="Gradient_20voq"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
@@ -38,3 +39,5 @@ z_index = 100
 position = Vector2(470, 449)
 leads_to = "uid://cmsjbwrfeweag"
 inward = true
+
+[node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]

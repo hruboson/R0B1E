@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://cqcm1oagley8a"]
+
+[ext_resource type="Script" uid="uid://bkllku8fqmj2w" path="res://scenes/tasks/popups.gd" id="1_757ox"]
+[ext_resource type="Texture2D" uid="uid://cb4xtrxjlxfq4" path="res://assets/tasks/popups/bg.png" id="1_hybnp"]
+[ext_resource type="Texture2D" uid="uid://d1cvfunfojif6" path="res://assets/tasks/popups/message_complete.png" id="3_l8k28"]
+[ext_resource type="Texture2D" uid="uid://cxxtaqb2vtsxg" path="res://assets/tasks/popups/message_1.png" id="4_sddw7"]
+[ext_resource type="Texture2D" uid="uid://0vahkqh4ryrp" path="res://assets/tasks/popups/message_2.png" id="5_g45oo"]
+[ext_resource type="Texture2D" uid="uid://bruk8uhunqct0" path="res://assets/tasks/popups/message_3.png" id="6_wr4rb"]
+[ext_resource type="Texture2D" uid="uid://ed1k0ulxqtah" path="res://assets/tasks/popups/message_4.png" id="7_qdeir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ami1"]
+size = Vector2(9, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8k28"]
+size = Vector2(42, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sddw7"]
+size = Vector2(40, 10)
+
+[node name="Popups" type="Node2D" unique_id=427699113]
+script = ExtResource("1_757ox")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1608526517]
+texture_filter = 1
+position = Vector2(590.75, 326)
+scale = Vector2(1.3849432, 1.4573863)
+texture = ExtResource("1_hybnp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1832985514]
+position = Vector2(576, 325)
+
+[node name="MessageComplete" type="Sprite2D" parent="." unique_id=625906335]
+texture_filter = 1
+position = Vector2(599, 282)
+texture = ExtResource("3_l8k28")
+
+[node name="Success" type="Area2D" parent="MessageComplete" unique_id=135137753]
+position = Vector2(34, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MessageComplete/Success" unique_id=1769768204]
+position = Vector2(45, 65)
+shape = SubResource("RectangleShape2D_1ami1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MessageComplete/Success" unique_id=730532388]
+position = Vector2(10, 122)
+shape = SubResource("RectangleShape2D_l8k28")
+
+[node name="Failure" type="Area2D" parent="MessageComplete" unique_id=128998964]
+position = Vector2(-24, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MessageComplete/Failure" unique_id=1916175160]
+position = Vector2(-3, 105)
+shape = SubResource("RectangleShape2D_sddw7")
+
+[node name="Message1" type="Sprite2D" parent="." unique_id=1747814396]
+texture_filter = 1
+position = Vector2(521, 234)
+texture = ExtResource("4_sddw7")
+
+[node name="Success" type="Area2D" parent="Message1" unique_id=1118439667]
+position = Vector2(34, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message1/Success" unique_id=602116024]
+position = Vector2(45, 76)
+shape = SubResource("RectangleShape2D_1ami1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Message1/Success" unique_id=1187924707]
+position = Vector2(0, 113)
+shape = SubResource("RectangleShape2D_l8k28")
+
+[node name="Failure" type="Area2D" parent="Message1" unique_id=724782359]
+position = Vector2(-24, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message1/Failure" unique_id=1534573793]
+position = Vector2(-16, 96)
+shape = SubResource("RectangleShape2D_sddw7")
+
+[node name="Message2" type="Sprite2D" parent="." unique_id=1223582695]
+texture_filter = 1
+position = Vector2(545, 314)
+texture = ExtResource("5_g45oo")
+
+[node name="Success" type="Area2D" parent="Message2" unique_id=424944512]
+position = Vector2(34, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message2/Success" unique_id=1902700723]
+position = Vector2(45, 74)
+shape = SubResource("RectangleShape2D_1ami1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Message2/Success" unique_id=23608721]
+position = Vector2(-2, 115)
+shape = SubResource("RectangleShape2D_l8k28")
+
+[node name="Failure" type="Area2D" parent="Message2" unique_id=588476663]
+position = Vector2(-24, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message2/Failure" unique_id=1048090203]
+position = Vector2(-15, 97)
+shape = SubResource("RectangleShape2D_sddw7")
+
+[node name="Message3" type="Sprite2D" parent="." unique_id=2053051604]
+texture_filter = 1
+position = Vector2(675, 262)
+texture = ExtResource("6_wr4rb")
+
+[node name="Success" type="Area2D" parent="Message3" unique_id=673576434]
+position = Vector2(34, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message3/Success" unique_id=1446391313]
+position = Vector2(18, 66)
+shape = SubResource("RectangleShape2D_1ami1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Message3/Success" unique_id=263863660]
+position = Vector2(-6, 122)
+shape = SubResource("RectangleShape2D_l8k28")
+
+[node name="Failure" type="Area2D" parent="Message3" unique_id=1859510374]
+position = Vector2(-24, -80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Message3/Failure" unique_id=1932797199]
+position = Vector2(7, 105)
+shape = SubResource("RectangleShape2D_sddw7")
+
+[node name="MessageBegin" type="Sprite2D" parent="." unique_id=153030265]
+texture_filter = 1
+position = Vector2(597, 286)
+texture = ExtResource("7_qdeir")
+
+[node name="Success" type="Area2D" parent="MessageBegin" unique_id=823244040]
+position = Vector2(34, -98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MessageBegin/Success" unique_id=505712580]
+position = Vector2(24, 73)
+shape = SubResource("RectangleShape2D_1ami1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MessageBegin/Success" unique_id=1911475906]
+position = Vector2(-12, 117)
+shape = SubResource("RectangleShape2D_l8k28")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MessageBegin/Success" unique_id=1590918401]
+position = Vector2(-58, 117)
+shape = SubResource("RectangleShape2D_l8k28")
