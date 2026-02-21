@@ -1,7 +1,8 @@
 extends Node2D
 
 ########## EXPORTS ###########
-@export var leads_to: PackedScene
+@export_file("*.tscn") var leads_to: String
+@export var television_scene: PackedScene
 @export var is_closed: bool = false
 
 ########## NODES ###########
@@ -97,20 +98,20 @@ func open_doors(leads_to_direct) -> void:
 	audio.stop()
 		
 	if(leads_to_direct):
-		transition_to(leads_to_direct)
+		go_to_scene(leads_to_direct)
 	else:
-		transition_to(leads_to)
+		go_to_scene(leads_to)
 	
 #####
 # @func close_doors
 # @param leads_to_direct: PackedScene (optional)
 #		Overrides the default leads_to variable. This parameter is only used in menu so far.
-func close_doors(leads_to_direct: PackedScene) -> void:
+func close_doors(leads_to_direct: String) -> void:
 	# TODO get the timing right
 	if(leads_to_direct):
-		transition_to(leads_to_direct)
+		go_to_scene(leads_to_direct)
 	else:
-		transition_to(leads_to)
+		go_to_scene(leads_to)
 	return
 	
 	audio.play()
@@ -138,12 +139,19 @@ func close_doors(leads_to_direct: PackedScene) -> void:
 	audio.stop()
 	
 	if(leads_to_direct):
-		transition_to(leads_to_direct)
+		go_to_scene(leads_to_direct)
 	else:
-		transition_to(leads_to)
+		go_to_scene(leads_to)
 	
 func transition_to(to: PackedScene) -> void:
 	get_tree().change_scene_to_packed(to)
+	
+func go_to_scene(target_path: String):
+	var tv_instance = television_scene.instantiate()
+	tv_instance.next_scene = target_path
+	get_tree().current_scene.queue_free()
+	get_tree().root.add_child(tv_instance)
+	get_tree().current_scene = tv_instance
 
 ############################
 #          SIGNALS         #

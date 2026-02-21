@@ -8,6 +8,10 @@ class_name Robot
 @export var sound_on_texture: Texture2D
 @export var sound_off_texture: Texture2D
 
+@export var task1: String
+@export var task2: String
+@export var task3: String
+
 ########## NODES ###########
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -40,6 +44,9 @@ func _ready() -> void:
 	$CanvasLayer/FadeRect.show()
 	play_fade("fade_out")
 	fade_anim.connect("animation_finished", Callable(self, "_on_fade_finished"))
+	set_task1(task1)
+	set_task2(task2)
+	set_task3(task3)
 		
 	if not is_intro_sequence:
 		$Camera2D.enabled = true
@@ -160,6 +167,15 @@ func show_tablet() -> void:
 		input_enabled = false
 		velocity = Vector2.ZERO
 		tablet_open = true
+		
+func set_task1(str: String) -> void:
+	$CanvasLayer/Tablet.set_task1(str)
+	
+func set_task2(str: String) -> void:
+	$CanvasLayer/Tablet.set_task2(str)
+	
+func set_task3(str: String) -> void:
+	$CanvasLayer/Tablet.set_task3(str)
 
 ########################
 #	WORLD INTERACTION  #
