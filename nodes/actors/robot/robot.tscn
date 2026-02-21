@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="11_fsb0y"]
 [ext_resource type="Texture2D" uid="uid://dhntjhimmcp60" path="res://assets/ui/sound_on.png" id="23_t36he"]
 [ext_resource type="FontFile" uid="uid://cpur1n1mugtnj" path="res://assets/fonts/small_pixel.ttf" id="31_7pgbg"]
+[ext_resource type="Texture2D" uid="uid://c08xauovd8ngq" path="res://assets/robot/battery.png" id="32_ipoti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(89.02239, 77.9035)
@@ -210,6 +211,12 @@ _data = {
 &"fade_out": SubResource("Animation_0y5s3")
 }
 
+[sub_resource type="Gradient" id="Gradient_ipoti"]
+colors = PackedColorArray(0, 1, 0, 1, 0.050980393, 1, 0.050980393, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g465r"]
+gradient = SubResource("Gradient_ipoti")
+
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
@@ -292,5 +299,31 @@ grow_vertical = 0
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("31_7pgbg")
 theme_override_font_sizes/font_size = 20
+
+[node name="Battery" type="Control" parent="CanvasLayer" unique_id=603888392]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 339.0
+offset_bottom = 186.0
+
+[node name="Health" type="TextureRect" parent="CanvasLayer/Battery" unique_id=477424854]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 30.0
+offset_right = 104.0
+offset_bottom = 54.0
+texture = SubResource("GradientTexture1D_g465r")
+expand_mode = 1
+
+[node name="Outline" type="TextureRect" parent="CanvasLayer/Battery" unique_id=186438046]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.162
+anchor_bottom = 0.162
+offset_right = 89.2397
+offset_bottom = 55.868
+texture = ExtResource("32_ipoti")
+expand_mode = 1
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]

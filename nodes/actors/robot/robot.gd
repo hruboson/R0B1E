@@ -30,12 +30,12 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 
 var current_state: State = State.IDLE
 var last_state: State = State.IDLE
-var energy: int = 10 # TODO balance this
 var input_enabled: bool = true
 
 var is_intro_sequence: bool = false
 
 func _ready() -> void:
+	update_battery()
 	$CanvasLayer/FadeRect.show()
 	play_fade("fade_out")
 	fade_anim.connect("animation_finished", Callable(self, "_on_fade_finished"))
@@ -49,6 +49,7 @@ func _ready() -> void:
 	text_timer.one_shot = true
 	text_timer.timeout.connect(_on_text_timeout)
 	label.hide()
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
@@ -127,6 +128,20 @@ func update_animation(state: State):
 	# Update last_state if the player is walking
 	if state in [State.WALK_LEFT, State.WALK_RIGHT]:
 		last_state = state
+		
+func update_battery() -> void:
+	var health_bar: TextureRect = $CanvasLayer/Battery/Health
+	var outline: TextureRect = $CanvasLayer/Battery/Outline
+
+	# Maximum energy
+	var max_energy: int = 10
+	var energy_ratio: float = clamp(float(GameManager.player_energy) / float(max_energy), 0.0, 1.0)
+
+	# Get the full width of the battery inner area
+	var full_width: float = outline.size.x - (health_bar.position.x * 2.0)
+	
+	# Update the health bar size
+	health_bar.size.x = full_width * energy_ratio
 
 ########################
 #	WORLD INTERACTION  #
@@ -146,6 +161,14 @@ func init_landord_quest() -> void:
 
 func init_tenant_quest() -> void:
 	pass
+	
+func take_energy(amount: int) -> void:
+	GameManager.player_energy = max(GameManager.player_energy - amount, 0)
+	update_battery()
+	
+func heal_energy(amount: int) -> void:
+	GameManager.player_energy = max(GameManager.player_energy + amount, 0)
+	update_battery()
 	
 func show_text(text_content: String, duration: float = 3.0) -> void:
 	label.text = text_content

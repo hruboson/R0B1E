@@ -6,4 +6,4 @@ var previous_scene_path: String = ""
 var previous_room_scene_path: String = ""
 var player_return_position: Vector2 = Vector2.ZERO
 
-var player_energy: int = 3
+var player_energy: int = 10

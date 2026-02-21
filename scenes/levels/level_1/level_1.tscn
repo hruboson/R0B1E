@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmsjbwrfeweag"]
 
+[ext_resource type="Texture2D" uid="uid://qaa50iiglex7" path="res://assets/hallway/hallway_13.png" id="1_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
-[ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="1_spwf2"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
@@ -12,8 +12,9 @@ distance = 1.0
 [node name="Level1" type="Node2D" unique_id=1400742347]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
+texture_filter = 1
 position = Vector2(1281, 544)
-texture = ExtResource("1_spwf2")
+texture = ExtResource("1_7uxs1")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
 position = Vector2(-213, -32)
@@ -42,7 +43,7 @@ z_index = 50
 position = Vector2(339, 601)
 
 [node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("5_7uxs1")]
-position = Vector2(2036, 551)
+position = Vector2(2038.9999, 551)
 scale = Vector2(0.63275325, 0.63275325)
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]

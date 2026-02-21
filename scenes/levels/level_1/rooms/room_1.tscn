@@ -2,9 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
-[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
+[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/tubes/tubes_init.tscn" id="3_2gxi1"]
 [ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="4_btc0d"]
-[ext_resource type="Script" uid="uid://xon25ejmiik0" path="res://nodes/interactable/tasks/Breakers/Breakers_init.gd" id="5_aw2g5"]
 
 [sub_resource type="Gradient" id="Gradient_20voq"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
@@ -43,7 +42,7 @@ leads_to = "uid://cmsjbwrfeweag"
 inward = true
 
 [node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]
+position = Vector2(21, -56)
 
 [node name="Area2D2" parent="." unique_id=646201143 instance=ExtResource("4_btc0d")]
 position = Vector2(-309, 20)
-script = ExtResource("5_aw2g5")

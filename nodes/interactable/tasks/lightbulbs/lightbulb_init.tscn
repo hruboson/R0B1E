@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dsi5cwygjdqwr"]
+
+[ext_resource type="Script" uid="uid://dnp1f3gmxiv3" path="res://nodes/interactable/tasks/popups/popups_init.gd" id="1_udey8"]
+[ext_resource type="Texture2D" uid="uid://bflq6dicqjepr" path="res://assets/tasks/tubes/tubes.png" id="2_ykcbq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btc0d"]
+size = Vector2(33, 350)
+
+[node name="Area2D" type="Area2D" unique_id=565336411]
+script = ExtResource("1_udey8")
+
+[node name="PopupsInit" type="Sprite2D" parent="." unique_id=1252352900]
+z_index = -10
+texture_filter = 1
+position = Vector2(633, 464.00003)
+rotation = 1.5707964
+scale = Vector2(0.7274482, -0.39628485)
+texture = ExtResource("2_ykcbq")
+
+[node name="PopupsInit2" type="Sprite2D" parent="." unique_id=1907095328]
+z_index = -10
+texture_filter = 1
+position = Vector2(614, 464)
+rotation = -1.5707964
+scale = Vector2(0.72617656, -0.41411805)
+texture = ExtResource("2_ykcbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=172139722]
+position = Vector2(623.5, 443)
+scale = Vector2(3.6810946, 1)
+shape = SubResource("RectangleShape2D_btc0d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -15,6 +15,7 @@ func _process(delta):
 		var scene: PackedScene = load(leads_to)	
 		$AnimatedSprite2D.play("default")
 		audio.play()
+		player.take_energy(1)
 		
 		player.play_fade("fade_in")
 		if !inward:

@@ -6,7 +6,7 @@ extends Node2D
 
 @onready var message_begin: Sprite2D = $MessageBegin
 @onready var message_complete: Sprite2D = $MessageComplete
-@onready var message_confirm: Sprite2D = $MessageConfirm
+#@onready var message_confirm: Sprite2D = $MessageConfirm
 @onready var bg: Sprite2D = $BG
 
 @onready var popup_templates := [
