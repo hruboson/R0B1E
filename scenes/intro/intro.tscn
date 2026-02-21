@@ -57,6 +57,53 @@ fill = 1
 fill_from = Vector2(0.5043478, 0.14347826)
 fill_to = Vector2(0.33043477, 0.6347826)
 
+[sub_resource type="Gradient" id="Gradient_14p5w"]
+offsets = PackedFloat32Array(0, 0.8389423)
+colors = PackedColorArray(0, 0, 0, 0.12941177, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xyqjm"]
+gradient = SubResource("Gradient_14p5w")
+fill = 1
+fill_from = Vector2(0.49131945, 0.5434028)
+fill_to = Vector2(0.5017361, 0.7239583)
+
+[sub_resource type="Animation" id="Animation_14p5w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xyqjm"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbxqg"]
+_data = {
+&"RESET": SubResource("Animation_14p5w"),
+&"default": SubResource("Animation_xyqjm")
+}
+
 [node name="Intro" type="Node2D" unique_id=1952824044]
 script = ExtResource("1_qeukb")
 robot_scene = ExtResource("2_kfk32")
@@ -103,7 +150,7 @@ leads_to = ExtResource("26_4uilh")
 is_closed = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=173830378]
-position = Vector2(173, 552.00006)
+position = Vector2(174, 559.00006)
 scale = Vector2(0.22802913, 0.53689337)
 zoom = Vector2(6.885, 6.885)
 position_smoothing_enabled = true
@@ -153,6 +200,14 @@ position = Vector2(-3, 518)
 [node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
 position = Vector2(634.00006, 503)
 scale = Vector2(0.82, 0.82)
+
+[node name="InitialShade" type="Sprite2D" parent="." unique_id=1328266598]
+position = Vector2(173, 547)
+scale = Vector2(7.96, 7.96)
+texture = SubResource("GradientTexture2D_xyqjm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InitialShade" unique_id=1256003869]
+libraries/ = SubResource("AnimationLibrary_jbxqg")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

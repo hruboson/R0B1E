@@ -5,6 +5,7 @@ extends Node2D
 
 @onready var dummy_robot: Node2D = $DummyRobot  # the robot that plays the wake-up animation
 @onready var anim_player: AnimatedSprite2D = $DummyRobot/Animation2D
+@onready var shade_player: AnimationPlayer = $InitialShade/AnimationPlayer
 @onready var scene_camera: Camera2D = $Camera2D
 
 var robot_spawned: bool = false
@@ -31,6 +32,7 @@ func play_dummy_animation() -> void:
 	#var tween = get_tree().create_tween()
 	#tween.tween_property($DummyRobot, "brightness", 0, 4)
 	anim_player.play("default")
+	shade_player.play("default")
 	await anim_player.animation_finished
 
 func spawn_controllable_robot() -> void:
@@ -53,7 +55,7 @@ func spawn_controllable_robot() -> void:
 	tween.set_parallel(true)
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.set_ease(Tween.EASE_IN_OUT)
-	
+
 	tween.tween_property(scene_camera, "global_position", target_position, 2.5)
 	tween.tween_property(scene_camera, "zoom", target_zoom, 2.5)
 	tween.tween_property(scene_camera, "offset", target_offset, 2.5)
