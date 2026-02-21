@@ -1,11 +1,12 @@
-[gd_scene format=3 uid="uid://bkb02noniiet1"]
+[gd_scene format=3 uid="uid://bm7ie27cgpyyd"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
-[ext_resource type="PackedScene" uid="uid://b4r67xhlvxd30" path="res://nodes/interactable/tasks/messages/messages_init.tscn" id="3_tfrw4"]
+[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/tubes/tubes_init.tscn" id="3_2gxi1"]
+[ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="4_btc0d"]
 
 [sub_resource type="Gradient" id="Gradient_20voq"]
-colors = PackedColorArray(0, 0.63926136, 0.35366505, 1, 1, 1, 1, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_d7bms"]
 gradient = SubResource("Gradient_20voq")
@@ -37,9 +38,11 @@ shape = SubResource("WorldBoundaryShape2D_d7bms")
 modulate = Color(1, 1, 1, 0.4117647)
 z_index = 100
 position = Vector2(470, 449)
-leads_to = "uid://dvvpiqjsmtl0n"
+leads_to = "uid://cmsjbwrfeweag"
 inward = true
-pop_room = true
 
-[node name="MessagesInit" parent="." unique_id=1528771923 instance=ExtResource("3_tfrw4")]
-position = Vector2(352, 466)
+[node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]
+position = Vector2(21, -56)
+
+[node name="Area2D2" parent="." unique_id=646201143 instance=ExtResource("4_btc0d")]
+position = Vector2(-309, 20)

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://djtdphru6fqsw"]
+
+[ext_resource type="Texture2D" uid="uid://qaa50iiglex7" path="res://assets/hallway/hallway_13.png" id="1_7uxs1"]
+[ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
+[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
+[ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
+[ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
+distance = 1.0
+
+[node name="Level1" type="Node2D" unique_id=1400742347]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=950983732]
+texture_filter = 1
+position = Vector2(1281, 544)
+texture = ExtResource("1_7uxs1")
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
+position = Vector2(-213, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=841574515]
+position = Vector2(574.75, 661)
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBorder" unique_id=438188767]
+position = Vector2(441, 585)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="WorldBorder" unique_id=1013054047]
+position = Vector2(2548, 584)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="DoorR1" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
+position = Vector2(1128, 542)
+scale = Vector2(0.82, 0.82)
+leads_to = "uid://bm7ie27cgpyyd"
+
+[node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
+z_index = 50
+position = Vector2(339, 601)
+
+[node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("5_7uxs1")]
+position = Vector2(2038.9999, 551)
+scale = Vector2(0.63275325, 0.63275325)
+
+[node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]
+position = Vector2(198, 557)

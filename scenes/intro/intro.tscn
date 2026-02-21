@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
-[ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
+[ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_3/level_3.tscn" id="26_4uilh"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
 [ext_resource type="Texture2D" uid="uid://d2k1isv5hiyyb" path="res://assets/hallway/e.png" id="29_gvbtx"]
@@ -258,6 +258,11 @@ scale = Vector2(0.82, 0.82)
 [node name="DoorLocked4" parent="." unique_id=1737481723 instance=ExtResource("14_2ypwg")]
 position = Vector2(1238, 503)
 scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked5" parent="." unique_id=977672901 instance=ExtResource("14_2ypwg")]
+visible = false
+position = Vector2(2148, 505.99997)
+scale = Vector2(0.6724, 0.6724)
 
 [node name="InitialShade" type="Sprite2D" parent="." unique_id=1328266598]
 visible = false
