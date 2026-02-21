@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b25ntj3avn5kv" path="res://assets/robot/walk_left/walk_left_4.png" id="11_45idf"]
 [ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="11_fsb0y"]
 [ext_resource type="Texture2D" uid="uid://dhntjhimmcp60" path="res://assets/ui/sound_on.png" id="23_t36he"]
+[ext_resource type="FontFile" uid="uid://cpur1n1mugtnj" path="res://assets/fonts/small_pixel.ttf" id="31_7pgbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(89.02239, 77.9035)
@@ -266,6 +267,7 @@ offset_right = 116.0
 offset_bottom = 119.0
 grow_horizontal = 0
 scale = Vector2(0.11999896, 0.11999896)
+pivot_offset = Vector2(0, -1.46)
 
 [node name="SoundButton" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=130474000]
 layout_mode = 2
@@ -287,5 +289,8 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("31_7pgbg")
+theme_override_font_sizes/font_size = 20
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]
