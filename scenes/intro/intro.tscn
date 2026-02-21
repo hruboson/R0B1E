@@ -104,7 +104,8 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
-position = Vector2(326, 487)
+position = Vector2(328, 503.00003)
+scale = Vector2(0.82, 0.82)
 leads_to = "uid://cmsjbwrfeweag"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=541886280]

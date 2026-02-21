@@ -9,6 +9,7 @@ var player: Robot = null
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):	
 		var scene: PackedScene = load(leads_to)	
+		$AnimatedSprite2D.play("default")
 		
 		player.play_fade("fade_in")
 		if !inward:
