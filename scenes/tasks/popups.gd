@@ -94,10 +94,11 @@ func _show_final_message():
 	message_complete.z_index = 0   # popups are higher so final message is behind
 
 	var success_area = message_complete.get_node("Success")
-	success_area.input_event.connect(_on_final_success_clicked)
+	if not success_area.input_event.is_connected(_on_final_success_clicked):
+		success_area.input_event.connect(_on_final_success_clicked)
 
 	var failure_area = message_complete.get_node_or_null("Failure")
-	if failure_area:
+	if failure_area and not failure_area.input_event.is_connected(_on_final_failure_clicked):
 		failure_area.input_event.connect(_on_final_failure_clicked)
 
 func _finish_game():
