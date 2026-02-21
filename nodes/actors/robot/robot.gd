@@ -8,6 +8,7 @@ class_name Robot
 ########## NODES ###########
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var fade_anim: AnimationPlayer = $CanvasLayer/FadeRect/FadeAnim
 
 ##########################
 # 		CONSTANTS        #
@@ -24,6 +25,11 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 var current_state: State = State.IDLE
 var last_state: State = State.IDLE
 var energy: int = 10 # TODO balance this
+
+func _ready() -> void:
+	$CanvasLayer/FadeRect.show()
+	play_fade("fade_out")
+	fade_anim.connect("animation_finished", Callable(self, "_on_fade_finished"))
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
@@ -120,3 +126,20 @@ func update_audio(state: State) -> void:
 
 func _on_audio_disable_pressed() -> void:
 	pass # Replace with function body.
+	
+################
+#    SLOTS     #
+################
+func play_fade(fade_type: String) -> void:
+	$CanvasLayer/FadeRect.show()
+	match fade_type:
+		"fade_in":
+			fade_anim.play("fade_in")
+		"fade_out":
+			fade_anim.play("fade_out")
+		_:
+			push_warning("Unknown fade_type: " + fade_type)
+				
+func _on_fade_finished(anim_name: String) -> void:
+	if anim_name in ["fade_in", "fade_out"]:
+		$CanvasLayer/FadeRect.hide()

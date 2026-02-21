@@ -15,13 +15,14 @@ distance = 116.0
 [node name="Room1" type="Node2D" unique_id=580597860]
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_d7bms")]
-position = Vector2(572, 480)
+position = Vector2(572, 488)
 
 [node name="BG" type="Sprite2D" parent="." unique_id=179545343]
 z_index = -1000
-position = Vector2(587.00006, 200.00002)
+position = Vector2(597, 206.00002)
 scale = Vector2(-6.0348625, 768.2464)
 texture = SubResource("GradientTexture1D_d7bms")
+metadata/_edit_lock_ = true
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1896617816]
 position = Vector2(0, -14)
