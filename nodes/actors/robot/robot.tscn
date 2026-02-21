@@ -198,6 +198,7 @@ shape = SubResource("RectangleShape2D_02wwk")
 position = Vector2(-2, -58)
 scale = Vector2(4.0197024, -378.68054)
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1732482102]
 texture_filter = 1

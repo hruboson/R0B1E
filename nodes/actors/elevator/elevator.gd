@@ -2,6 +2,7 @@ extends Node2D
 
 ########## EXPORTS ###########
 @export var leads_to: PackedScene
+@export var is_closed: bool = false
 
 ########## NODES ###########
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -11,15 +12,41 @@ extends Node2D
 ###########################
 var player_inside: bool = false
 
+const len_from_center_back: int = 50
+const len_from_center_front: int = 80
+
 func _ready() -> void:
-	pass # Replace with function body.
+	if is_closed:
+		$LeftBackDoor.position.x += len_from_center_back
+		$RightBackDoor.position.x -= len_from_center_back
+		$LeftFrontDoor.position.x += len_from_center_front
+		$RightFrontDoor.position.x -= len_from_center_front
 
 func _process(delta):
 	if player_inside and Input.is_action_just_pressed("interact"):
 		close_doors(leads_to)
 
 func open_doors() -> void:
-	pass
+	var tween_front = get_tree().create_tween()
+	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x - len_from_center_front, 2.5) # object, property, value, time
+	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x + len_from_center_front, 2.5)
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	var tween_back = get_tree().create_tween()
+	tween_back.tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x + len_from_center_back, 2.5)
+	tween_back.parallel().tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x - len_from_center_back, 2.5)
+	
+	await tween_back.finished
+	await get_tree().create_timer(.5).timeout
+	
+	var tween_elevator = get_tree().create_tween()
+	tween_elevator.tween_property($BG, "position:y", $BG.position.y - 500, 7.0)
+	tween_elevator.parallel().tween_property($RightBackDoor, "position:y", $RightBackDoor.position.y - 500, 7.0)
+	tween_elevator.parallel().tween_property($LeftBackDoor, "position:y", $LeftBackDoor.position.y - 500, 7.0)
+	
+	await get_tree().create_timer(7.0).timeout
+	audio.stop()
 	
 #####
 # @func close_doors
@@ -37,14 +64,14 @@ func close_doors(leads_to_direct: PackedScene) -> void:
 	await get_tree().create_timer(.5).timeout
 	
 	var tween_front = get_tree().create_tween()
-	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x + 80, 2.5) # object, property, value, time
-	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x - 80, 2.5)
+	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x + len_from_center_front, 2.5) # object, property, value, time
+	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x - len_from_center_front, 2.5)
 	
 	await get_tree().create_timer(0.5).timeout
 	
 	var tween_back = get_tree().create_tween()
-	tween_back.tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x - 50, 2.5)
-	tween_back.parallel().tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x + 50, 2.5)
+	tween_back.tween_property($RightBackDoor, "position:x", $RightBackDoor.position.x - len_from_center_back, 2.5)
+	tween_back.parallel().tween_property($LeftBackDoor, "position:x", $LeftBackDoor.position.x + len_from_center_back, 2.5)
 	
 	await tween_back.finished
 	await get_tree().create_timer(.5).timeout

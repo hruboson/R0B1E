@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Karavana"
-run/main_scene="uid://bjvk15f836be8"
+run/main_scene="uid://dvvpiqjsmtl0n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

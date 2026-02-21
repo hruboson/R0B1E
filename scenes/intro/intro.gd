@@ -1,0 +1,68 @@
+extends Node2D
+
+@export var robot_scene: PackedScene # the controllable Robot
+
+@onready var dummy_robot: Node2D = $DummyRobot  # the robot that plays the wake-up animation
+@onready var anim_player: AnimatedSprite2D = $DummyRobot/Animation2D
+@onready var scene_camera: Camera2D = $Camera2D
+
+var robot_spawned: bool = false
+
+func _ready() -> void:
+	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+	if robot_spawned:
+		return
+		
+	if Input.is_action_pressed("interact") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		set_process(false)
+		await play_dummy_animation()
+		await spawn_controllable_robot()
+		robot_spawned = true
+		
+	# --check for input until possible key is pressed
+	# --wake up robot (sitting in corner) -> animation
+	# --level starts on wake up
+	# on first level symbols on doors (E)
+
+func play_dummy_animation() -> void:
+	#var tween = get_tree().create_tween()
+	#tween.tween_property($DummyRobot, "brightness", 0, 4)
+	anim_player.play("default")
+	await anim_player.animation_finished
+
+func spawn_controllable_robot() -> void:
+	# TODO fix the "jump" at the end
+	var robot_instance = robot_scene.instantiate() as CharacterBody2D
+	
+	robot_instance.global_position = anim_player.global_position 
+	get_parent().add_child(robot_instance)
+	
+	dummy_robot.queue_free()
+	
+	var robot_camera: Camera2D = robot_instance.get_node("Camera2D")
+	var target_zoom: Vector2 = robot_camera.zoom
+	var target_position: Vector2 = robot_camera.global_position
+	var target_offset = robot_camera.offset
+	
+	scene_camera.set_position_smoothing_enabled(false)
+	robot_camera.enabled = false
+	robot_camera.set_position_smoothing_enabled(false)
+
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	
+	tween.tween_property(scene_camera, "global_position", target_position, 2.5)
+	tween.tween_property(scene_camera, "zoom", target_zoom, 2.5)
+	tween.tween_property(scene_camera, "offset", target_offset, 2.5)
+	
+	await tween.finished
+	
+	scene_camera.global_position = robot_camera.global_position
+	scene_camera.offset = robot_camera.offset
+	
+	robot_camera.enabled = true
+	scene_camera.queue_free()

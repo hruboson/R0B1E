@@ -23,6 +23,7 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_8c7y2")
 
 [node name="Elevator" type="Area2D" unique_id=1698083802]
+scale = Vector2(0.72000045, 0.72000045)
 script = ExtResource("1_6lkcx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1237220481]
