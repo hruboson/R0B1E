@@ -13,6 +13,9 @@ class_name Robot
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var fade_anim: AnimationPlayer = $CanvasLayer/FadeRect/FadeAnim
 
+@onready var label: Label = $CanvasLayer/SubtitleLabel
+@onready var text_timer: Timer = Timer.new()
+
 ##########################
 # 		CONSTANTS        #
 ##########################
@@ -39,6 +42,11 @@ func _ready() -> void:
 	if not is_intro_sequence:
 		$Camera2D.enabled = true
 		$Camera2D.make_current()
+		
+	add_child(text_timer)
+	text_timer.one_shot = true
+	text_timer.timeout.connect(_on_text_timeout)
+	label.hide()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
@@ -133,7 +141,14 @@ func init_landord_quest() -> void:
 
 func init_tenant_quest() -> void:
 	pass
-
+	
+func show_text(text_content: String, duration: float = 3.0) -> void:
+	label.text = text_content
+	label.show()
+	
+	# Reset timer if text is called again before finishing
+	text_timer.start(duration)
+	
 ######################
 # 		AUDIO 		 #
 ######################
@@ -167,3 +182,6 @@ func _on_sound_button_pressed() -> void:
 		$CanvasLayer/HBoxContainer/SoundButton.icon = sound_on_texture
 	else:
 		$CanvasLayer/HBoxContainer/SoundButton.icon = sound_off_texture	
+		
+func _on_text_timeout() -> void:
+	label.hide()

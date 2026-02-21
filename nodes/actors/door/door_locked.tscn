@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://ld0332n6kdd2"]
+[gd_scene format=3 uid="uid://xa6iswqpdjyj"]
 
-[ext_resource type="Script" path="res://nodes/actors/door/door_quest.gd" id="1_af3hu"]
+[ext_resource type="Script" uid="uid://d0gui27umulyn" path="res://nodes/actors/door/door_locked.gd" id="1_t1ro3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_msr3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af3hu"]
 size = Vector2(100, 686)
 
-[node name="DoorQuest" type="Area2D" unique_id=2027972157]
-script = ExtResource("1_af3hu")
+[node name="DoorLocked" type="Area2D" unique_id=2027972157]
+script = ExtResource("1_t1ro3")
 
 [node name="Hint" type="Sprite2D" parent="." unique_id=1668103505]
 

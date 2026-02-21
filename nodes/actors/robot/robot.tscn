@@ -247,4 +247,16 @@ icon = ExtResource("23_t36he")
 flat = true
 icon_alignment = 1
 
+[node name="SubtitleLabel" type="Label" parent="CanvasLayer" unique_id=1374063158]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]

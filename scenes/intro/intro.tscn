@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_8yty6"]
 [ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_exgwc"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="6_8yty6"]
+[ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
-[ext_resource type="PackedScene" uid="uid://cqnek0521s4y5" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
+[ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
 [ext_resource type="Texture2D" uid="uid://d2k1isv5hiyyb" path="res://assets/hallway/e.png" id="29_gvbtx"]
 [ext_resource type="Script" uid="uid://der33aoeo4hkr" path="res://scenes/intro/post_it.gd" id="29_rx8h1"]
@@ -102,9 +103,6 @@ position = Vector2(171, 538)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
-[node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
-position = Vector2(1, 516)
-
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
 position = Vector2(326, 487)
 leads_to = "uid://cmsjbwrfeweag"
@@ -142,6 +140,12 @@ color = Color(1, 0.6627451, 0.28627452, 1)
 energy = 2.55
 texture = SubResource("GradientTexture2D_2ypwg")
 height = 50.0
+
+[node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
+position = Vector2(-3, 518)
+
+[node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
+position = Vector2(629, 488)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
