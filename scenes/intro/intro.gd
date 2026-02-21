@@ -33,9 +33,10 @@ func play_dummy_animation() -> void:
 	await anim_player.animation_finished
 
 func spawn_controllable_robot() -> void:
-	# TODO fix the "jump" at the end
+	# TODO fix the camera "jump" at the end
 	var robot_instance = robot_scene.instantiate() as Robot
 	robot_instance.is_intro_sequence = true
+	robot_instance.z_index = 50
 	
 	robot_instance.global_position = anim_player.global_position 
 	add_child(robot_instance)

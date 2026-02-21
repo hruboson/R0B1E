@@ -31,6 +31,7 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 var current_state: State = State.IDLE
 var last_state: State = State.IDLE
 var energy: int = 10 # TODO balance this
+var input_enabled: bool = true
 
 var is_intro_sequence: bool = false
 
@@ -52,15 +53,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
 		
-	if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
-		move_and_slide()
-		update_animation(current_state)
-		return
+	if input_enabled: # disabled during cutscenes
+		if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
+			move_and_slide()
+			update_animation(current_state)
+			return
 
-	current_state = get_input()
-	move_and_slide()
-	update_audio(current_state)
-	update_animation(current_state)
+		current_state = get_input()
+		move_and_slide()
+		update_audio(current_state)
+		update_animation(current_state)
 
 ###
 # @func get_input

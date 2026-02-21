@@ -61,6 +61,7 @@ script = ExtResource("1_qeukb")
 robot_scene = ExtResource("2_kfk32")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1731893187]
+z_index = -20
 texture_filter = 1
 position = Vector2(1087, 504)
 texture = ExtResource("24_qwu4n")
@@ -94,6 +95,7 @@ sprite_frames = SubResource("SpriteFrames_xk0cr")
 position = Vector2(172, 555)
 
 [node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("6_8yty6")]
+z_index = -5
 position = Vector2(1842.9999, 502.00003)
 leads_to = ExtResource("26_4uilh")
 is_closed = true
@@ -148,5 +150,7 @@ position = Vector2(-3, 518)
 [node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
 position = Vector2(629, 488)
 
+[connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
+[connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

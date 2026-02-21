@@ -42,7 +42,7 @@ texture_filter = 1
 texture_repeat = 2
 position = Vector2(0.43920898, -102.756836)
 rotation = -1.5707964
-scale = Vector2(0.063997, 320.1283)
+scale = Vector2(0.063997, 159.39687)
 texture = SubResource("GradientTexture1D_b8sc4")
 
 [node name="LeftFrontDoor" type="Sprite2D" parent="." unique_id=1782289956]

@@ -34,7 +34,7 @@ position = Vector2(573, 666)
 shape = SubResource("WorldBoundaryShape2D_d7bms")
 
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("2_fowph")]
-modulate = Color(1, 1, 1, 0.13333334)
+modulate = Color(1, 1, 1, 0.4117647)
 z_index = 100
 position = Vector2(470, 449)
 leads_to = "uid://cmsjbwrfeweag"

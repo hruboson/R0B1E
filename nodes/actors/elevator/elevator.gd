@@ -10,7 +10,7 @@ extends Node2D
 ###########################
 # 		PROPERTIES		  #
 ###########################
-var player_inside: bool = false
+var player: Robot = null
 
 const len_from_center_back: int = 50
 const len_from_center_front: int = 80
@@ -23,10 +23,15 @@ func _ready() -> void:
 		$RightFrontDoor.position.x -= len_from_center_front
 
 func _process(delta):
-	if player_inside and Input.is_action_just_pressed("interact"):
-		close_doors(leads_to)
+	if player != null and Input.is_action_just_pressed("interact"):
+		player.input_enabled = false		
+		if is_closed:
+			await open_doors(leads_to)
+		else:
+			await close_doors(leads_to)
+		player.queue_free()
 
-func open_doors() -> void:
+func open_doors(leads_to_direct) -> void:
 	var tween_front = get_tree().create_tween()
 	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x - len_from_center_front, 2.5) # object, property, value, time
 	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x + len_from_center_front, 2.5)
@@ -40,13 +45,21 @@ func open_doors() -> void:
 	await tween_back.finished
 	await get_tree().create_timer(.5).timeout
 	
-	var tween_elevator = get_tree().create_tween()
-	tween_elevator.tween_property($BG, "position:y", $BG.position.y - 500, 7.0)
-	tween_elevator.parallel().tween_property($RightBackDoor, "position:y", $RightBackDoor.position.y - 500, 7.0)
-	tween_elevator.parallel().tween_property($LeftBackDoor, "position:y", $LeftBackDoor.position.y - 500, 7.0)
+	player.hide()
+	await get_tree().create_timer(.2).timeout
 	
-	await get_tree().create_timer(7.0).timeout
+	#var tween_elevator = get_tree().create_tween()
+	#tween_elevator.tween_property($BG, "position:y", $BG.position.y - 500, 7.0)
+	#tween_elevator.parallel().tween_property($RightBackDoor, "position:y", $RightBackDoor.position.y - 500, 7.0)
+	#tween_elevator.parallel().tween_property($LeftBackDoor, "position:y", $LeftBackDoor.position.y - 500, 7.0)
+	
+	await get_tree().create_timer(2.0).timeout
 	audio.stop()
+		
+	if(leads_to_direct):
+		transition_to(leads_to_direct)
+	else:
+		transition_to(leads_to)
 	
 #####
 # @func close_doors
@@ -98,8 +111,8 @@ func transition_to(to: PackedScene) -> void:
 	
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		player_inside = true
+		player = body
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
-		player_inside = false
+		player = body
