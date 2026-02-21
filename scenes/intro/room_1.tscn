@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/popups/popups_init.tscn" id="3_2gxi1"]
 [ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="6_3iq2o"]
 [ext_resource type="Script" uid="uid://xon25ejmiik0" path="res://nodes/interactable/tasks/Breakers/Breakers_init.gd" id="7_i6wg6"]
+[ext_resource type="PackedScene" uid="uid://b4r67xhlvxd30" path="res://nodes/interactable/tasks/messages/messages_init.tscn" id="8_8mnq5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
 distance = 116.0
@@ -71,3 +72,8 @@ visible = false
 z_index = 77
 position = Vector2(-321, 4)
 script = ExtResource("7_i6wg6")
+
+[node name="MessagesInit" parent="." unique_id=1528771923 instance=ExtResource("8_8mnq5")]
+z_index = -15
+position = Vector2(733, 487.00003)
+scale = Vector2(1.36, 1.36)

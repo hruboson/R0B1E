@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbia531hsqayj" path="res://assets/tasks/Breakers/breaker_backboard.png" id="2_0j3v1"]
 [ext_resource type="Texture2D" uid="uid://catwr2cqerooi" path="res://assets/tasks/Breakers/breaker_normal_off.png" id="3_qlnw1"]
 [ext_resource type="Texture2D" uid="uid://caivi1e2awxv1" path="res://assets/tasks/Breakers/breaker_main_off.png" id="4_1uhlh"]
+[ext_resource type="FontFile" uid="uid://cpur1n1mugtnj" path="res://assets/fonts/small_pixel.ttf" id="5_qlnw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m6nq3"]
 size = Vector2(52, 122)
@@ -204,12 +205,14 @@ shape = SubResource("RectangleShape2D_qtbfy")
 [node name="TimerUI" type="Control" parent="." unique_id=2076927307]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 15.0
-offset_top = 14.0
-offset_right = 55.0
-offset_bottom = 54.0
+offset_left = 595.0
+offset_top = 253.0
+offset_right = 635.0
+offset_bottom = 293.0
 
 [node name="ProgressBar" type="ProgressBar" parent="TimerUI" unique_id=1285881295]
 layout_mode = 0
 offset_right = 4.0
 offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("5_qlnw1")
+theme_override_font_sizes/font_size = 68

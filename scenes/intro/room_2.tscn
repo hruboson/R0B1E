@@ -37,7 +37,7 @@ shape = SubResource("WorldBoundaryShape2D_d7bms")
 modulate = Color(1, 1, 1, 0.4117647)
 z_index = 100
 position = Vector2(470, 449)
-leads_to = "uid://cmsjbwrfeweag"
+leads_to = "uid://dvvpiqjsmtl0n"
 inward = true
 pop_room = true
 

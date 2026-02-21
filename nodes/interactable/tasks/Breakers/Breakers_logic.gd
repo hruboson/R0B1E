@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var time_limit: float = 15.0
+@export var time_limit: float = 30.0
 var current_time: float
 var game_started: bool = false
 var game_finished: bool = false
@@ -77,25 +77,24 @@ func _update_visual(idx: int) -> void:
 	if spr:
 		var tex = "on" if active_states[idx] else "off"
 		spr.texture = load(PATH + "breaker_normal_" + tex + ".png")
-
+		
 func _on_main_clicked(_viewport, event, _shape_idx) -> void:
-	if event is InputEventMouseButton and event.pressed and not game_finished:
+	if event is InputEventMouseButton and event.pressed:
 		_evaluate_game()
 
 func _evaluate_game() -> void:
-	# Prohra při zapnutí sabotovaného
+	# Check for failure: any broken switch ON
 	for idx in broken_indices:
 		if active_states[idx]:
 			_fail_effect()
 			return
-	
-	# Kontrola, zda jsou všechny zdravé zapnuté
-	var win = true
+
+	# Check for win: all healthy switches ON
 	for i in range(small_breaker_areas.size()):
-		if not i in broken_indices and not active_states[i]:
-			win = false
-	
-	if win: _win_effect()
+		if i not in broken_indices and not active_states[i]:
+			return
+
+	_win_effect()
 
 func _fail_effect() -> void:
 	current_time -= 3.0
@@ -119,6 +118,7 @@ func _win_effect() -> void:
 	_close_game()
 
 func _close_game() -> void:
-	var p = get_tree().get_first_node_in_group("player")
-	if p: p.set_physics_process(true)
+	if GameManager.previous_scene_path != "":
+		get_tree().change_scene_to_file(GameManager.previous_scene_path)
+	
 	queue_free()

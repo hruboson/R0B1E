@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b4r67xhlvxd30"]
 
-[ext_resource type="Texture2D" uid="uid://cb4xtrxjlxfq4" path="res://assets/tasks/popups/bg.png" id="1_acnng"]
 [ext_resource type="Script" uid="uid://c0f7f6jh7pmc3" path="res://nodes/interactable/tasks/messages/messages_init.gd" id="1_hwxhr"]
+[ext_resource type="Texture2D" uid="uid://bwr1q8hh1wivu" path="res://assets/tasks/messages/computer.png" id="2_hwxhr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acnng"]
 size = Vector2(40, 517)
@@ -10,8 +10,9 @@ size = Vector2(40, 517)
 script = ExtResource("1_hwxhr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=530692151]
-scale = Vector2(0.119999945, 0.119999945)
-texture = ExtResource("1_acnng")
+texture_filter = 1
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_hwxhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290753155]
 position = Vector2(0, 2.5)
