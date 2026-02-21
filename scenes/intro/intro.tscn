@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="23_gpn0k"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
+[ext_resource type="PackedScene" uid="uid://cqnek0521s4y5" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
+[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(89.02239, 77.9035)
@@ -204,9 +206,11 @@ _bundled = {
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_abt3p"]
+resource_local_to_scene = true
 distance = 1.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qwu4n"]
+resource_local_to_scene = true
 distance = 295.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xk0cr"]
@@ -234,23 +238,25 @@ script = ExtResource("1_qeukb")
 robot_scene = SubResource("PackedScene_pgosf")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1731893187]
+texture_filter = 1
 position = Vector2(1087, 504)
 texture = ExtResource("24_qwu4n")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=493420509]
 position = Vector2(-259, -77)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=1378769372]
-position = Vector2(483, 668)
+position = Vector2(483, 667)
 shape = SubResource("WorldBoundaryShape2D_abt3p")
 
 [node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBorder" unique_id=1028604202]
-position = Vector2(0, 599)
+position = Vector2(0, 598)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_qwu4n")
 
 [node name="CollisionShape2DRight" type="CollisionShape2D" parent="WorldBorder" unique_id=1913932725]
-position = Vector2(2694, 593)
+position = Vector2(2694, 592)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_qwu4n")
 
@@ -270,6 +276,13 @@ leads_to = ExtResource("26_4uilh")
 is_closed = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=173830378]
-position = Vector2(170, 538)
+position = Vector2(171, 538)
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
+
+[node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
+position = Vector2(0, 516)
+
+[node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
+position = Vector2(326, 487)
+leads_to = "uid://cmsjbwrfeweag"

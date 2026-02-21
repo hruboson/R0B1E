@@ -195,9 +195,9 @@ scale = Vector2(0.5279571, 0.7573472)
 shape = SubResource("RectangleShape2D_02wwk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2028687310]
-position = Vector2(-2, -58)
+position = Vector2(-2, -73.00001)
 scale = Vector2(4.0197024, -378.68054)
-zoom = Vector2(3, 3)
+zoom = Vector2(3.2, 3.2)
 position_smoothing_enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1732482102]

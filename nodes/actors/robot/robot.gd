@@ -26,10 +26,18 @@ var current_state: State = State.IDLE
 var last_state: State = State.IDLE
 var energy: int = 10 # TODO balance this
 
+var is_intro_sequence: bool = false
+
 func _ready() -> void:
 	$CanvasLayer/FadeRect.show()
 	play_fade("fade_out")
 	fade_anim.connect("animation_finished", Callable(self, "_on_fade_finished"))
+		
+	if not is_intro_sequence:
+		$Camera2D.enabled = true
+		$Camera2D.make_current()
+		
+	$Camera2D.zoom = Vector2(3.2, 3.2)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity

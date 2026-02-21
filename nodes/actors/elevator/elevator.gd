@@ -58,7 +58,7 @@ func close_doors(leads_to_direct: PackedScene) -> void:
 		transition_to(leads_to_direct)
 	else:
 		transition_to(leads_to)
-	return 
+	return
 	
 	audio.play()
 	await get_tree().create_timer(.5).timeout
@@ -89,8 +89,8 @@ func close_doors(leads_to_direct: PackedScene) -> void:
 	else:
 		transition_to(leads_to)
 	
-func transition_to(leads_to: PackedScene) -> void:
-	get_tree().change_scene_to_packed(leads_to)
+func transition_to(to: PackedScene) -> void:
+	get_tree().change_scene_to_packed(to)
 
 ############################
 #          SIGNALS         #

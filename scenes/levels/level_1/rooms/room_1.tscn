@@ -37,3 +37,4 @@ modulate = Color(1, 1, 1, 0.13333334)
 z_index = 100
 position = Vector2(470, 449)
 leads_to = "uid://cmsjbwrfeweag"
+inward = true

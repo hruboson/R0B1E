@@ -35,9 +35,10 @@ func play_dummy_animation() -> void:
 func spawn_controllable_robot() -> void:
 	# TODO fix the "jump" at the end
 	var robot_instance = robot_scene.instantiate() as CharacterBody2D
+	robot_instance.is_intro_sequence = true
 	
 	robot_instance.global_position = anim_player.global_position 
-	get_parent().add_child(robot_instance)
+	add_child(robot_instance)
 	
 	dummy_robot.queue_free()
 	
@@ -45,10 +46,6 @@ func spawn_controllable_robot() -> void:
 	var target_zoom: Vector2 = robot_camera.zoom
 	var target_position: Vector2 = robot_camera.global_position
 	var target_offset = robot_camera.offset
-	
-	scene_camera.set_position_smoothing_enabled(false)
-	robot_camera.enabled = false
-	robot_camera.set_position_smoothing_enabled(false)
 
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
@@ -61,8 +58,9 @@ func spawn_controllable_robot() -> void:
 	
 	await tween.finished
 	
-	scene_camera.global_position = robot_camera.global_position
-	scene_camera.offset = robot_camera.offset
+	#scene_camera.global_position = robot_camera.global_position
+	#scene_camera.offset = robot_camera.offset
 	
-	robot_camera.enabled = true
 	scene_camera.queue_free()
+	robot_camera.enabled = true
+	robot_camera.make_current()

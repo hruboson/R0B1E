@@ -12,7 +12,7 @@ distance = 1.0
 [node name="Level1" type="Node2D" unique_id=1400742347]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
-position = Vector2(1279, 544)
+position = Vector2(1281, 544)
 texture = ExtResource("1_spwf2")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
@@ -22,11 +22,20 @@ position = Vector2(-213, -32)
 position = Vector2(574.75, 661)
 shape = SubResource("WorldBoundaryShape2D_014kd")
 
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBorder" unique_id=438188767]
+position = Vector2(441, 585)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="WorldBorder" unique_id=1013054047]
+position = Vector2(2548, 584)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
 [node name="DoorR1" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
-position = Vector2(520, 544)
+position = Vector2(520, 546)
 scale = Vector2(0.8, 0.8)
 leads_to = "uid://dhvvkf1kxgksw"
-inward = false
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 z_index = 50
