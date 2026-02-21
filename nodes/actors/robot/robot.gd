@@ -43,7 +43,8 @@ func _ready() -> void:
 	if not is_intro_sequence:
 		$Camera2D.enabled = true
 		$Camera2D.make_current()
-		
+
+	update_animation(State.IDLE)
 	add_child(text_timer)
 	text_timer.one_shot = true
 	text_timer.timeout.connect(_on_text_timeout)
@@ -52,14 +53,16 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
-		
-	if input_enabled: # disabled during cutscenes
-		if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
+	
+
+	if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
+		if input_enabled: # disabled during cutscenes
 			move_and_slide()
 			update_animation(current_state)
-			return
+		return
 
-		current_state = get_input()
+	current_state = get_input()
+	if input_enabled: # disabled during cutscenes
 		move_and_slide()
 		update_audio(current_state)
 		update_animation(current_state)

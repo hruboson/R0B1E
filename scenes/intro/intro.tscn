@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://dvvpiqjsmtl0n"]
 
 [ext_resource type="Script" uid="uid://75uylpgt3iwv" path="res://scenes/intro/intro.gd" id="1_qeukb"]
-[ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_ir5dn"]
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="2_kfk32"]
-[ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_1rrv8"]
 [ext_resource type="AudioStream" uid="uid://ckh3uuwgj7fxq" path="res://audio/music/ambient_best.mp3" id="3_14p5w"]
-[ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_8yty6"]
-[ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_exgwc"]
+[ext_resource type="Texture2D" uid="uid://cakifg5njpwyw" path="res://assets/robot/boot_up/boot1.png" id="5_jbxqg"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="6_8yty6"]
+[ext_resource type="Texture2D" uid="uid://chw3uom8k557n" path="res://assets/robot/boot_up/boot2.png" id="6_hs2o6"]
+[ext_resource type="Texture2D" uid="uid://bbmoi4l0vl0ad" path="res://assets/robot/boot_up/boot3.png" id="7_ivhsj"]
+[ext_resource type="Texture2D" uid="uid://dddm4u811wdkc" path="res://assets/robot/boot_up/boot4.png" id="8_pykff"]
+[ext_resource type="Texture2D" uid="uid://dccvwjq27ne72" path="res://assets/robot/boot_up/boot5.png" id="9_ixtfl"]
+[ext_resource type="Texture2D" uid="uid://qo0u332dbke5" path="res://assets/robot/boot_up/boot6.png" id="10_nvap7"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
@@ -27,17 +29,23 @@ distance = 295.0
 [sub_resource type="SpriteFrames" id="SpriteFrames_xk0cr"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ir5dn")
+"duration": 2.0,
+"texture": ExtResource("5_jbxqg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1rrv8")
+"texture": ExtResource("6_hs2o6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_ivhsj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_8yty6")
+"texture": ExtResource("8_pykff")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_exgwc")
+"texture": ExtResource("9_ixtfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nvap7")
 }],
 "loop": false,
 "name": &"default",

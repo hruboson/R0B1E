@@ -43,6 +43,7 @@ func spawn_controllable_robot() -> void:
 	
 	robot_instance.global_position = anim_player.global_position 
 	add_child(robot_instance)
+	robot_instance.last_state = Robot.State.IDLE
 	
 	dummy_robot.queue_free()
 	
@@ -60,6 +61,7 @@ func spawn_controllable_robot() -> void:
 	tween.tween_property(scene_camera, "zoom", target_zoom, 2.5)
 	tween.tween_property(scene_camera, "offset", target_offset, 2.5)
 	
+	robot_instance.input_enabled = false
 	await tween.finished
 	
 	#scene_camera.global_position = robot_camera.global_position
@@ -68,3 +70,4 @@ func spawn_controllable_robot() -> void:
 	scene_camera.queue_free()
 	robot_camera.enabled = true
 	robot_camera.make_current()
+	robot_instance.input_enabled = true

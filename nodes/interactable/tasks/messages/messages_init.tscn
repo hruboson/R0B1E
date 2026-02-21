@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b4r67xhlvxd30"]
+
+[ext_resource type="Texture2D" uid="uid://cb4xtrxjlxfq4" path="res://assets/tasks/popups/bg.png" id="1_acnng"]
+[ext_resource type="Script" uid="uid://c0f7f6jh7pmc3" path="res://nodes/interactable/tasks/messages/messages_init.gd" id="1_hwxhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acnng"]
+size = Vector2(40, 517)
+
+[node name="MessagesInit" type="Area2D" unique_id=1528771923]
+script = ExtResource("1_hwxhr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=530692151]
+scale = Vector2(0.119999945, 0.119999945)
+texture = ExtResource("1_acnng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1290753155]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_acnng")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
