@@ -3,7 +3,6 @@ extends Area2D
 ########## EXPORTS ###########
 @export_file("*.tscn") var leads_to: String
 @export var inward: bool = true
-#@export var fade: 
 
 var player: Robot = null
 

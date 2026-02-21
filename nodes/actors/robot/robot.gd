@@ -14,7 +14,7 @@ class_name Robot
 # 		CONSTANTS        #
 ##########################
 
-const SPEED: float = 300.0
+const SPEED: float = 150.0
 const JUMP_VELOCITY: float = -400.0
 enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 
@@ -105,7 +105,26 @@ func update_animation(state: State):
 	# Update last_state if the player is walking
 	if state in [State.WALK_LEFT, State.WALK_RIGHT]:
 		last_state = state
-		
+
+########################
+#	WORLD INTERACTION  #
+########################
+func play_fade(fade_type: String) -> void:
+	$CanvasLayer/FadeRect.show()
+	match fade_type:
+		"fade_in":
+			fade_anim.play("fade_in")
+		"fade_out":
+			fade_anim.play("fade_out")
+		_:
+			push_warning("Unknown fade_type: " + fade_type)
+
+func init_landord_quest() -> void:
+	pass
+
+func init_tenant_quest() -> void:
+	pass
+
 ######################
 # 		AUDIO 		 #
 ######################
@@ -130,15 +149,6 @@ func _on_audio_disable_pressed() -> void:
 ################
 #    SLOTS     #
 ################
-func play_fade(fade_type: String) -> void:
-	$CanvasLayer/FadeRect.show()
-	match fade_type:
-		"fade_in":
-			fade_anim.play("fade_in")
-		"fade_out":
-			fade_anim.play("fade_out")
-		_:
-			push_warning("Unknown fade_type: " + fade_type)
 				
 func _on_fade_finished(anim_name: String) -> void:
 	if anim_name in ["fade_in", "fade_out"]:

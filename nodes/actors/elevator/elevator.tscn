@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bft7wd33cas4w" path="res://audio/elevator/elevator.mp3" id="2_m5435"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lkcx"]
-size = Vector2(98, 142)
+size = Vector2(98, 381.7896)
 
 [sub_resource type="Gradient" id="Gradient_rlb0w"]
 colors = PackedColorArray(0.23300542, 0.14182666, 6.6341954e-08, 1, 0.3254902, 0.24313726, 0.11764706, 1)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmmjl7kvy4hc6"]
 
-[ext_resource type="Script" uid="uid://b7pmwevlgfh0o" path="res://nodes/actors/door/door.gd" id="1_hj45k"]
+[ext_resource type="Script" uid="uid://b7pmwevlgfh0o" path="res://nodes/actors/door/door_openable.gd" id="1_hj45k"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s7ca3"]
 
@@ -20,3 +20,4 @@ position = Vector2(2, -66)
 shape = SubResource("RectangleShape2D_hj45k")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

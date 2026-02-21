@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://cmsjbwrfeweag"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
-[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door.tscn" id="2_fngju"]
+[ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="1_spwf2"]
+[ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
+[ext_resource type="PackedScene" uid="uid://cqnek0521s4y5" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
+[ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
 
-[sub_resource type="Gradient" id="Gradient_fngju"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5o1mp"]
-gradient = SubResource("Gradient_fngju")
-
 [node name="Level1" type="Node2D" unique_id=1400742347]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=950983732]
+position = Vector2(1279, 544)
+texture = ExtResource("1_spwf2")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
 position = Vector2(-213, -32)
@@ -21,17 +23,19 @@ position = Vector2(574.75, 661)
 shape = SubResource("WorldBoundaryShape2D_014kd")
 
 [node name="DoorR1" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
-position = Vector2(411, 523)
+position = Vector2(520, 544)
+scale = Vector2(0.8, 0.8)
 leads_to = "uid://dhvvkf1kxgksw"
 inward = false
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
+z_index = 50
 position = Vector2(339, 601)
 
-[node name="BG" type="TextureRect" parent="." unique_id=1188483454]
-z_index = -30
-offset_left = -17.0
-offset_top = 326.0
-offset_right = 2686.0
-offset_bottom = 725.0
-texture = SubResource("GradientTexture1D_5o1mp")
+[node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]
+position = Vector2(205.00006, 562)
+scale = Vector2(0.8, 0.8)
+
+[node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("5_7uxs1")]
+position = Vector2(2036, 551)
+scale = Vector2(0.63275325, 0.63275325)
