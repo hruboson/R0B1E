@@ -59,10 +59,11 @@ func spawn_controllable_robot() -> void:
 	var robot_instance = robot_scene.instantiate() as Robot
 	robot_instance.is_intro_sequence = true
 	robot_instance.z_index = 50
-	
 	robot_instance.global_position = anim_player.global_position 
 	add_child(robot_instance)
 	robot_instance.last_state = Robot.State.IDLE
+	robot_instance.task1 = "Update servers"
+	robot_instance.set_task1("Update servers")
 	
 	dummy_robot.queue_free()
 	

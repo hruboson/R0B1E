@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d37junt5bj7xp" path="res://nodes/interactable/tablet/tablet.gd" id="1_gel1g"]
 [ext_resource type="Texture2D" uid="uid://dotlasqpyb06p" path="res://assets/hallway/tablet_full.png" id="2_djgad"]
+[ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="3_3dq7t"]
 
 [sub_resource type="Animation" id="Animation_djgad"]
 length = 0.001
@@ -75,3 +76,39 @@ texture = ExtResource("2_djgad")
 
 [node name="AnimationTree" type="AnimationPlayer" parent="Texture" unique_id=1467455427]
 libraries/ = SubResource("AnimationLibrary_n7xfm")
+
+[node name="Task1" type="Label" parent="Texture" unique_id=1191206605]
+z_index = 10
+texture_filter = 1
+layout_mode = 0
+offset_left = 38.730568
+offset_top = 50.65892
+offset_right = 78.730576
+offset_bottom = 73.65892
+theme_override_fonts/font = ExtResource("3_3dq7t")
+theme_override_font_sizes/font_size = 12
+text = "Text"
+
+[node name="Task2" type="Label" parent="Texture" unique_id=1397228050]
+z_index = 10
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.180706
+offset_top = 65.668945
+offset_right = 79.18071
+offset_bottom = 88.668945
+theme_override_fonts/font = ExtResource("3_3dq7t")
+theme_override_font_sizes/font_size = 12
+text = "Text"
+
+[node name="Task3" type="Label" parent="Texture" unique_id=904448839]
+z_index = 10
+texture_filter = 1
+layout_mode = 0
+offset_left = 38.73056
+offset_top = 81.49032
+offset_right = 78.73056
+offset_bottom = 104.49032
+theme_override_fonts/font = ExtResource("3_3dq7t")
+theme_override_font_sizes/font_size = 12
+text = "Text"

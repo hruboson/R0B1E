@@ -7,7 +7,7 @@ func _process(delta):
 		GameManager.previous_scene_path = get_tree().current_scene.scene_file_path
 		GameManager.player_return_position = player.global_position
 		player.take_energy(1)
-		get_tree().change_scene_to_file("res://scenes/tasks/tubes/tubes.tscn")
+		get_tree().change_scene_to_file("res://scenes/tasks/popups/popups.tscn")
 
 ############################
 #          SIGNALS         #
