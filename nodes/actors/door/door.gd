@@ -1,14 +1,21 @@
 extends Area2D
 
 ########## EXPORTS ###########
-@export var leads_to: PackedScene
+@export_file("*.tscn") var leads_to: String
+@export var inward: bool = true
+#@export var fade: 
 
 var player: Robot = null
 
 func _process(delta):
-	if player != null and Input.is_action_just_pressed("interact"):
-		await player.walk_in()
-		get_tree().change_scene_to_packed(leads_to)
+	if player != null and Input.is_action_just_pressed("interact"):	
+		var scene: PackedScene = load(leads_to)	
+		if !inward:
+			await player.walk_in()
+		else:
+			await player.walk_out()
+			
+		get_tree().change_scene_to_packed(scene)
 
 ############################
 #          SIGNALS         #

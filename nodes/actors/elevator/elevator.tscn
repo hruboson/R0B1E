@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcqb5a21u54oh"]
 
 [ext_resource type="Script" uid="uid://fojbu0s3e1gg" path="res://nodes/actors/elevator/elevator.gd" id="1_6lkcx"]
+[ext_resource type="Texture2D" uid="uid://gw577u4rfmlh" path="res://assets/elevator/door.png" id="2_8c7y2"]
 [ext_resource type="AudioStream" uid="uid://bft7wd33cas4w" path="res://audio/elevator/elevator.mp3" id="2_m5435"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6lkcx"]
@@ -11,18 +12,15 @@ colors = PackedColorArray(0.23300542, 0.14182666, 6.6341954e-08, 1, 0.3254902, 0
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6lkcx"]
 gradient = SubResource("Gradient_rlb0w")
-
-[sub_resource type="Gradient" id="Gradient_6lkcx"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m5435"]
-gradient = SubResource("Gradient_6lkcx")
+fill = 1
+fill_from = Vector2(0.39756945, 0.27604166)
+fill_to = Vector2(0.49479166, 1)
 
 [sub_resource type="Gradient" id="Gradient_8c7y2"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b8sc4"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b8sc4"]
 gradient = SubResource("Gradient_8c7y2")
-fill_from = Vector2(1, 0.022569444)
-fill_to = Vector2(0, 0.09548611)
 
 [node name="Elevator" type="Area2D" unique_id=1698083802]
 script = ExtResource("1_6lkcx")
@@ -33,30 +31,44 @@ scale = Vector2(1, 1.5191612)
 shape = SubResource("RectangleShape2D_6lkcx")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=475693684]
-scale = Vector2(1.53125, 3.3706388)
+position = Vector2(1.0000001, -1.0000029)
+scale = Vector2(1.53125, 2.9375)
 texture = SubResource("GradientTexture2D_6lkcx")
+
+[node name="Foreground" type="Sprite2D" parent="." unique_id=1011438571]
+z_index = 70
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0.43920898, -102.756836)
+rotation = -1.5707964
+scale = Vector2(0.063997, 320.1283)
+texture = SubResource("GradientTexture1D_b8sc4")
 
 [node name="LeftFrontDoor" type="Sprite2D" parent="." unique_id=1782289956]
 z_index = 10
-position = Vector2(-119.5, 0.4999975)
-scale = Vector2(1.2968751, 3.3943756)
-texture = SubResource("GradientTexture2D_m5435")
+texture_filter = 1
+position = Vector2(-112, 0)
+scale = Vector2(1, 1.6)
+texture = ExtResource("2_8c7y2")
 
 [node name="LeftBackDoor" type="Sprite2D" parent="." unique_id=1321720682]
-position = Vector2(-73, 0.4999975)
-scale = Vector2(0.78125, 3.3943756)
-texture = SubResource("GradientTexture2D_m5435")
+texture_filter = 1
+position = Vector2(-80, 0)
+scale = Vector2(1, 1.6)
+texture = ExtResource("2_8c7y2")
 
 [node name="RightFrontDoor" type="Sprite2D" parent="." unique_id=1952482422]
 z_index = 10
-position = Vector2(123.25, -1.5497209e-06)
-scale = Vector2(1.3984376, 3.3706388)
-texture = SubResource("GradientTexture2D_b8sc4")
+texture_filter = 1
+position = Vector2(114, 0)
+scale = Vector2(1, 1.6)
+texture = ExtResource("2_8c7y2")
 
 [node name="RightBackDoor" type="Sprite2D" parent="." unique_id=329642075]
-position = Vector2(74.00001, -1.5497209e-06)
-scale = Vector2(0.7656251, 3.3706388)
-texture = SubResource("GradientTexture2D_b8sc4")
+texture_filter = 1
+position = Vector2(82, 0)
+scale = Vector2(1, 1.6)
+texture = ExtResource("2_8c7y2")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1684523772]
 position = Vector2(4, 0)

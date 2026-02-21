@@ -15,7 +15,7 @@ class_name Robot
 
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -400.0
-enum State { IDLE, WALK_LEFT, WALK_RIGHT, INTERACT }
+enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 
 ###########################
 # 		PROPERTIES		  #
@@ -28,11 +28,16 @@ var energy: int = 10 # TODO balance this
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
 		velocity += get_gravity() * delta
+		
+	if current_state == State.WALK_IN or current_state == State.WALK_OUT: # lock state
+		move_and_slide()
+		update_animation(current_state)
+		return
 
-	var state = get_input()
+	current_state = get_input()
 	move_and_slide()
-	update_audio(state)
-	update_animation(state)
+	update_audio(current_state)
+	update_animation(current_state)
 
 ###
 # @func get_input
@@ -50,9 +55,24 @@ func get_input() -> State:
 		return State.IDLE
 
 func walk_in() -> void:
+	current_state = State.WALK_IN
+	velocity = Vector2.ZERO
+	sprite.play("walk_in")
+	
 	var animation = get_tree().create_tween()
-	animation.tween_property(self, "scale", self.scale * 0.7, 2.5) # object, property, value, time
-	animation.parallel().tween_property(self, "position:y", self.position.y - 15, 2.5)
+	animation.tween_property(self, "scale", self.scale * 0.7, 0.7) # object, property, value, time
+	animation.parallel().tween_property(self, "position:y", self.position.y - 15, 0.7)
+	
+	await animation.finished
+	
+func walk_out() -> void:
+	current_state = State.WALK_OUT
+	velocity = Vector2.ZERO
+	sprite.play("walk_forward")
+	
+	var animation = get_tree().create_tween()
+	animation.tween_property(self, "scale", self.scale * 1.3, 0.7) # object, property, value, time
+	animation.parallel().tween_property(self, "position:y", self.position.y + 15, 0.7)
 	
 	await animation.finished
 		
@@ -62,6 +82,8 @@ func update_animation(state: State):
 			sprite.play("walk_left")
 		State.WALK_RIGHT:
 			sprite.play("walk_right")
+		State.WALK_IN:
+			sprite.play("walk_in")
 		State.INTERACT:
 			sprite.play("interact")
 		State.IDLE:
