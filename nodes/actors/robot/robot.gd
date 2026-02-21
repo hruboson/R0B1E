@@ -36,8 +36,6 @@ func _ready() -> void:
 	if not is_intro_sequence:
 		$Camera2D.enabled = true
 		$Camera2D.make_current()
-		
-	$Camera2D.zoom = Vector2(3.2, 3.2)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor(): # gravity
@@ -161,3 +159,6 @@ func _on_audio_disable_pressed() -> void:
 func _on_fade_finished(anim_name: String) -> void:
 	if anim_name in ["fade_in", "fade_out"]:
 		$CanvasLayer/FadeRect.hide()
+
+func _on_sound_button_pressed() -> void:
+	pass # Replace with function body.

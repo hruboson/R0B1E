@@ -2,208 +2,17 @@
 
 [ext_resource type="Script" uid="uid://75uylpgt3iwv" path="res://scenes/intro/intro.gd" id="1_qeukb"]
 [ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_ir5dn"]
-[ext_resource type="Script" uid="uid://cb05fmubw5qc2" path="res://nodes/actors/robot/robot.gd" id="2_qwu4n"]
+[ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="2_kfk32"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_1rrv8"]
-[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="3_4uilh"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_8yty6"]
-[ext_resource type="Texture2D" uid="uid://yelqvhc6wa73" path="res://assets/robot/idle_left/idle_left_1.png" id="4_ana14"]
 [ext_resource type="Texture2D" uid="uid://beiipjlghxny7" path="res://assets/robot/walk_forward/front4.png" id="5_exgwc"]
-[ext_resource type="Texture2D" uid="uid://lkbqijaiw6mo" path="res://assets/robot/idle_left/idle_left_2.png" id="5_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="6_8yty6"]
-[ext_resource type="Texture2D" uid="uid://diysujk7gog0r" path="res://assets/robot/idle_right/idle_right_1.png" id="6_gvbtx"]
-[ext_resource type="Texture2D" uid="uid://c1u7qw04nde7p" path="res://assets/robot/idle_right/idle_right_2.png" id="7_rx8h1"]
-[ext_resource type="Texture2D" uid="uid://c5sd6pf6gucr6" path="res://assets/robot/walk_back/back1.png" id="12_o8w3o"]
-[ext_resource type="Texture2D" uid="uid://dw1usykgflk4h" path="res://assets/robot/walk_back/back2.png" id="13_6or84"]
-[ext_resource type="Texture2D" uid="uid://e8b6nnskjryv" path="res://assets/robot/walk_back/back3.png" id="14_gf7x0"]
-[ext_resource type="Texture2D" uid="uid://dyy67qxawo3c0" path="res://assets/robot/walk_back/back4.png" id="15_j6p2c"]
-[ext_resource type="Texture2D" uid="uid://dgx8rxgmfs27u" path="res://assets/robot/walk_left/walk_left_1.png" id="16_opidu"]
-[ext_resource type="Texture2D" uid="uid://5tnxu8nss7v3" path="res://assets/robot/walk_left/walk_left_2.png" id="17_32s1t"]
-[ext_resource type="Texture2D" uid="uid://ctr30m75mtcqy" path="res://assets/robot/walk_left/walk_left_3.png" id="18_bsd2m"]
-[ext_resource type="Texture2D" uid="uid://b25ntj3avn5kv" path="res://assets/robot/walk_left/walk_left_4.png" id="19_2lh7s"]
-[ext_resource type="Texture2D" uid="uid://ba7b0w0vysy0b" path="res://assets/robot/walk_right/walk1.png" id="20_p068v"]
-[ext_resource type="Texture2D" uid="uid://b8d7gigkr2a7e" path="res://assets/robot/walk_right/walk2.png" id="21_k0f2l"]
-[ext_resource type="Texture2D" uid="uid://civwqqoccpqhj" path="res://assets/robot/walk_right/walk3.png" id="22_7gps0"]
-[ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="23_gpn0k"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
 [ext_resource type="PackedScene" uid="uid://cqnek0521s4y5" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
-size = Vector2(89.02239, 77.9035)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_im0kw"]
-animations = [{
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("4_ana14")
-}, {
-"duration": 2.0,
-"texture": ExtResource("5_m56ce")
-}],
-"loop": true,
-"name": &"idle_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 2.0,
-"texture": ExtResource("6_gvbtx")
-}, {
-"duration": 2.0,
-"texture": ExtResource("7_rx8h1")
-}],
-"loop": true,
-"name": &"idle_right",
-"speed": 5.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"interact",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ir5dn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_1rrv8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_8yty6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_exgwc")
-}],
-"loop": true,
-"name": &"walk_forward",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_o8w3o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_6or84")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_gf7x0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_j6p2c")
-}],
-"loop": true,
-"name": &"walk_in",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_opidu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_32s1t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_bsd2m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_2lh7s")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("20_p068v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_k0f2l")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_7gps0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_gpn0k")
-}],
-"loop": true,
-"name": &"walk_right",
-"speed": 5.0
-}]
-
-[sub_resource type="AudioStream" id="AudioStream_83y4m"]
-
-[sub_resource type="Animation" id="Animation_7an7b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_t36he"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_0y5s3"]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0y5s3"]
-_data = {
-&"RESET": SubResource("Animation_7an7b"),
-&"fade_in": SubResource("Animation_t36he"),
-&"fade_out": SubResource("Animation_0y5s3")
-}
-
-[sub_resource type="Gradient" id="Gradient_u01i4"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b7ats"]
-gradient = SubResource("Gradient_u01i4")
-width = 20
-
-[sub_resource type="PackedScene" id="PackedScene_pgosf"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Robot", "CharacterBody2D", "player", "floor_constant_speed", "script", "walk_sound", "CollisionShape2D", "CollisionShape2D", "position", "scale", "shape", "Camera2D", "Camera2D", "position", "scale", "zoom", "AnimatedSprite", "AnimatedSprite2D", "texture_filter", "texture_repeat", "position", "sprite_frames", "animation", "AudioStreamPlayer2D", "AudioStreamPlayer2D", "position", "stream", "pitch_scale", "bus", "CanvasLayer", "CanvasLayer", "FadeRect", "ColorRect", "visible", "anchors_preset", "anchor_right", "anchor_bottom", "offset_left", "offset_right", "grow_horizontal", "grow_vertical", "color", "FadeAnim", "AnimationPlayer", "root_node", "libraries/", "HBoxContainer", "HBoxContainer", "anchors_preset", "anchor_left", "anchor_right", "offset_left", "offset_bottom", "grow_horizontal", "Button", "Button", "layout_mode", "text", "icon", "flat"),
-"node_count": 10,
-"node_ids": PackedInt32Array(2042197399, 882163359, 2028687310, 1732482102, 1857384157, 1327289935, 1727608487, 8380251, 2057537116, 130474000),
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./CanvasLayer"), NodePath("./CanvasLayer/FadeRect"), NodePath("./CanvasLayer"), NodePath("./CanvasLayer/HBoxContainer")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 3, 0, 4, 1, 5, 2, 1, 2, 1073741824, 0, 7, 6, -1, 3, 8, 3, 9, 4, 10, 5, 0, 1073741825, 0, 12, 11, -1, 3, 13, 6, 14, 7, 15, 8, 0, 1073741826, 0, 17, 16, -1, 5, 18, 9, 19, 10, 20, 11, 21, 12, 22, 13, 0, 1073741827, 0, 24, 23, -1, 4, 25, 14, 26, 15, 27, 16, 28, 17, 0, 1073741828, 0, 30, 29, -1, 0, 0, 1073741829, 0, 32, 31, -1, 9, 33, 18, 34, 19, 35, 20, 36, 21, 37, 22, 38, 23, 39, 24, 40, 25, 41, 26, 0, 1073741830, 0, 43, 42, -1, 2, 44, 27, 45, 28, 0, 1073741831, 0, 47, 46, -1, 6, 48, 29, 49, 30, 50, 31, 51, 32, 52, 33, 53, 34, 0, 1073741832, 0, 55, 54, -1, 4, 56, 35, 57, 36, 58, 37, 59, 38, 0),
-"variants": [true, ExtResource("2_qwu4n"), ExtResource("3_4uilh"), Vector2(-2.499999, -4.5), Vector2(0.5279571, 0.7573472), SubResource("RectangleShape2D_02wwk"), Vector2(-2, -58), Vector2(4.0197024, -378.68054), Vector2(3, 3), 1, 1, Vector2(0, -7), SubResource("SpriteFrames_im0kw"), &"walk_forward", Vector2(0, -7), SubResource("AudioStream_83y4m"), 0.7, &"SFX", false, 15, 1.0, 1.0, 1.0, 1.0, 2, 2, Color(0, 0, 0, 1), NodePath("../../.."), SubResource("AnimationLibrary_0y5s3"), 1, 1.0, 1.0, -19.0, 31.0, 0, 2, "Sound", SubResource("GradientTexture1D_b7ats"), true],
-"version": 3
-}
+[ext_resource type="Texture2D" uid="uid://d2k1isv5hiyyb" path="res://assets/hallway/e.png" id="29_gvbtx"]
+[ext_resource type="Script" uid="uid://der33aoeo4hkr" path="res://scenes/intro/post_it.gd" id="29_rx8h1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_abt3p"]
 resource_local_to_scene = true
@@ -233,9 +42,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvbtx"]
+size = Vector2(416.26172, 1119.7444)
+
+[sub_resource type="Gradient" id="Gradient_kfk32"]
+offsets = PackedFloat32Array(0.61778843, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ypwg"]
+gradient = SubResource("Gradient_kfk32")
+fill = 1
+fill_from = Vector2(0.4982639, 0.22743055)
+fill_to = Vector2(0.41145834, 0.765625)
+
 [node name="Intro" type="Node2D" unique_id=1952824044]
 script = ExtResource("1_qeukb")
-robot_scene = SubResource("PackedScene_pgosf")
+robot_scene = ExtResource("2_kfk32")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1731893187]
 texture_filter = 1
@@ -281,8 +103,35 @@ zoom = Vector2(5, 5)
 position_smoothing_enabled = true
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
-position = Vector2(0, 516)
+position = Vector2(1, 516)
 
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
 position = Vector2(326, 487)
 leads_to = "uid://cmsjbwrfeweag"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=541886280]
+position = Vector2(329, 474)
+scale = Vector2(0.24023342, 0.24023342)
+script = ExtResource("29_rx8h1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=847421742]
+texture_filter = 1
+texture = ExtResource("29_gvbtx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1544589150]
+position = Vector2(-4.1625977, 101.98389)
+shape = SubResource("RectangleShape2D_gvbtx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=602061741]
+position = Vector2(-6, 7)
+color = Color(0.41368303, 0.4136831, 0.41368303, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=796211539]
+position = Vector2(171, 495.00003)
+scale = Vector2(5.0720005, 5.316563)
+energy = 0.7
+texture = SubResource("GradientTexture2D_2ypwg")
+height = 50.0
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

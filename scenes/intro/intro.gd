@@ -34,7 +34,7 @@ func play_dummy_animation() -> void:
 
 func spawn_controllable_robot() -> void:
 	# TODO fix the "jump" at the end
-	var robot_instance = robot_scene.instantiate() as CharacterBody2D
+	var robot_instance = robot_scene.instantiate() as Robot
 	robot_instance.is_intro_sequence = true
 	
 	robot_instance.global_position = anim_player.global_position 

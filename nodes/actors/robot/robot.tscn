@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://civwqqoccpqhj" path="res://assets/robot/walk_right/walk3.png" id="10_lbdxb"]
 [ext_resource type="Texture2D" uid="uid://b25ntj3avn5kv" path="res://assets/robot/walk_left/walk_left_4.png" id="11_45idf"]
 [ext_resource type="Texture2D" uid="uid://6gx0ckcyqg41" path="res://assets/robot/walk_right/walk4.png" id="11_fsb0y"]
+[ext_resource type="Texture2D" uid="uid://dhntjhimmcp60" path="res://assets/ui/sound_on.png" id="23_t36he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(89.02239, 77.9035)
@@ -178,12 +179,6 @@ _data = {
 &"fade_out": SubResource("Animation_0y5s3")
 }
 
-[sub_resource type="Gradient" id="Gradient_u01i4"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_b7ats"]
-gradient = SubResource("Gradient_u01i4")
-width = 20
-
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
@@ -195,7 +190,7 @@ scale = Vector2(0.5279571, 0.7573472)
 shape = SubResource("RectangleShape2D_02wwk")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2028687310]
-position = Vector2(-2, -73.00001)
+position = Vector2(-2, -60.000008)
 scale = Vector2(4.0197024, -378.68054)
 zoom = Vector2(3.2, 3.2)
 position_smoothing_enabled = true
@@ -234,12 +229,19 @@ libraries/ = SubResource("AnimationLibrary_0y5s3")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -19.0
-offset_bottom = 31.0
+offset_left = -16.0
+offset_right = 116.0
+offset_bottom = 119.0
 grow_horizontal = 0
+scale = Vector2(0.11999896, 0.11999896)
 
 [node name="Button" type="Button" parent="CanvasLayer/HBoxContainer" unique_id=130474000]
 layout_mode = 2
-text = "Sound"
-icon = SubResource("GradientTexture1D_b7ats")
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.25
+icon = ExtResource("23_t36he")
 flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Button" to="." method="_on_sound_button_pressed"]

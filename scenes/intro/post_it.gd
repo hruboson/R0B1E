@@ -1,15 +1,12 @@
 extends Area2D
 
-########## EXPORTS ###########
-
-########## NODES ############
-@onready var hint: Sprite2D = $Hint
-
 var player: Robot = null
 
-func _process(delta):
-	if player != null and Input.is_action_just_pressed("interact"):	
-		player.init_tenant_quest()
+func _process(delta: float) -> void:
+	if player != null:
+		$Sprite2D.show()
+	else:
+		$Sprite2D.hide()
 
 ############################
 #          SIGNALS         #
