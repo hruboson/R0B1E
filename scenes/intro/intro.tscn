@@ -203,7 +203,7 @@ height = 50.0
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("28_gvbtx")]
 position = Vector2(328, 503.00003)
 scale = Vector2(0.82, 0.82)
-leads_to = "uid://bom8sythunarm"
+leads_to = "uid://dcot3r0u63dg1"
 
 [node name="Door2" parent="." unique_id=2027733701 instance=ExtResource("28_gvbtx")]
 position = Vector2(1238, 503.00003)
