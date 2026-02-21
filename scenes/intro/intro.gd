@@ -11,6 +11,7 @@ extends Node2D
 var robot_spawned: bool = false
 
 func _ready() -> void:
+	GameState.last_level = GameState.LEVELS.LEVEL_1
 	if !GameManager.initialSequenceCompleted:
 		$InitialShade.show()
 	else:

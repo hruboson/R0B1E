@@ -55,6 +55,7 @@ func open_doors(leads_to_direct) -> void:
 	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x - len_from_center_front, 2.5) # object, property, value, time
 	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x + len_from_center_front, 2.5)
 	
+	audio.play()
 	await get_tree().create_timer(0.5).timeout
 	
 	var tween_back = get_tree().create_tween()

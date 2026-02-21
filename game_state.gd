@@ -1,5 +1,13 @@
 extends Node
 
+enum LEVELS {
+	LEVEL_1,
+	LEVEL_2,
+	LEVEL_3,
+}
+
+var last_level = LEVELS.LEVEL_1
+
 var level1 = {
 	# 1 room
 	"questLandlord": false, # update

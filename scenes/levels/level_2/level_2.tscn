@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qaa50iiglex7" path="res://assets/hallway/hallway_13.png" id="1_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://cnsoah7utple0" path="res://scenes/levels/level_2/level_2.gd" id="1_68es0"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
@@ -9,7 +10,8 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
 
-[node name="Level1" type="Node2D" unique_id=1400742347]
+[node name="Level2" type="Node2D" unique_id=1400742347]
+script = ExtResource("1_68es0")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
 texture_filter = 1
