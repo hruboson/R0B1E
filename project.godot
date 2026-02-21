@@ -28,6 +28,10 @@ AudioManager="*uid://c8as0fwwesqpr"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
+[dotnet]
+
+project/assembly_name="Karavana"
+
 [input]
 
 left={
