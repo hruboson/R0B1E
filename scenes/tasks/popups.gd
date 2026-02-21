@@ -19,13 +19,10 @@ var success_count: int = 0
 var game_started: bool = false
 var game_finished: bool = false
 
-# --------------------------------------------------
-# READY
-# --------------------------------------------------
 func _ready():
 	rng.randomize()
 	
-	# Hide everything except Begin
+	# hide everything except Begin
 	for popup in popup_templates:
 		popup.visible = false
 	message_complete.visible = false
@@ -33,10 +30,6 @@ func _ready():
 
 	_connect_begin_popup()
 
-
-# --------------------------------------------------
-# BEGIN CLICK
-# --------------------------------------------------
 func _connect_begin_popup():
 	var success_area = message_begin.get_node("Success")
 	success_area.input_event.connect(_on_begin_clicked)
@@ -53,11 +46,6 @@ func _on_begin_clicked(viewport, event, shape_idx):
 		for i in start_popup_count:
 			_spawn_random_popup()
 
-
-
-# --------------------------------------------------
-# SPAWNING GAME POPUPS
-# --------------------------------------------------
 func _spawn_random_popup():
 	if game_finished:
 		return
@@ -81,10 +69,6 @@ func _connect_popup(popup: Sprite2D):
 	if failure_area:
 		failure_area.input_event.connect(_on_failure_clicked.bind(popup))
 
-
-# --------------------------------------------------
-# SUCCESS
-# --------------------------------------------------
 func _on_success_clicked(viewport, event, shape_idx, popup):
 	if event is InputEventMouseButton and event.pressed and not game_finished:
 
@@ -92,52 +76,57 @@ func _on_success_clicked(viewport, event, shape_idx, popup):
 		success_count += 1
 
 		if success_count >= required_successes:
-			_finish_game()
+			_show_final_message()
 		else:
 			_spawn_random_popup()
 
 
-# --------------------------------------------------
-# FAILURE
-# --------------------------------------------------
 func _on_failure_clicked(viewport, event, shape_idx, popup):
 	if event is InputEventMouseButton and event.pressed and not game_finished:
 
 		# duplicate more popups to increase difficulty
-		for i in 2:
+		for i in randi() % 3 + 1:
 			_spawn_random_popup()
 
+func _show_final_message():
+	message_complete.visible = true
+	message_complete.global_position = bg.global_position
+	message_complete.z_index = 0   # popups are higher so final message is behind
 
-# --------------------------------------------------
-# FINISH GAME
-# --------------------------------------------------
+	var success_area = message_complete.get_node("Success")
+	success_area.input_event.connect(_on_final_success_clicked)
+
+	var failure_area = message_complete.get_node_or_null("Failure")
+	if failure_area:
+		failure_area.input_event.connect(_on_final_failure_clicked)
+
 func _finish_game():
 	game_finished = true
 
-	# remove all active popups
-	for child in get_children():
-		if child in popup_templates:
-			continue
-		if child != message_complete and child != message_begin and child != bg:
-			if child is Sprite2D:
-				child.queue_free()
-
 	message_complete.visible = true
-	message_complete.position = get_viewport_rect().size / 2
+	message_complete.global_position = bg.global_position
+	message_complete.z_index = -10
+
+	var success_area = message_complete.get_node("Success")
+	success_area.input_event.connect(_on_final_success_clicked)
 	
-	if GameManager.previous_scene_path != "":
-		get_tree().change_scene_to_file(GameManager.previous_scene_path)
+func _on_final_success_clicked(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
 
+		await get_tree().create_timer(0.5).timeout
 
-# --------------------------------------------------
-# RANDOM POSITION
-# --------------------------------------------------
+		if GameManager.previous_scene_path != "":
+			get_tree().change_scene_to_file(GameManager.previous_scene_path)
+
+func _on_final_failure_clicked(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		message_complete.global_position = _get_random_position(message_complete)
+
 func _get_random_position(popup: Sprite2D) -> Vector2:
 	var bg_size = bg.texture.get_size() * bg.scale
 	var bg_top_left = bg.global_position - bg_size / 2
 	var bg_bottom_right = bg.global_position + bg_size / 2
 
-	# Adjust for popup size so it stays fully inside
 	var popup_size = popup.texture.get_size() * popup.scale
 	var half_popup = popup_size / 2
 
