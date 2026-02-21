@@ -19,9 +19,9 @@ func _process(delta):
 			await player.walk_out()
 			
 		if pop_room and GameManager.previous_scene_path != "":
-			get_tree().change_scene_to_file(GameManager.previous_scene_path)
+			get_tree().change_scene_to_file(GameManager.previous_room_scene_path)
 		else:
-			GameManager.previous_scene_path = get_tree().current_scene.scene_file_path
+			GameManager.previous_room_scene_path = get_tree().current_scene.scene_file_path
 			GameManager.player_return_position = player.global_position
 			get_tree().change_scene_to_packed(scene)
 

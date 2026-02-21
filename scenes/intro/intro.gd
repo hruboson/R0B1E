@@ -49,8 +49,7 @@ func _process(delta: float) -> void:
 	# on first level symbols on doors (E)
 
 func play_dummy_animation() -> void:
-	#var tween = get_tree().create_tween()
-	#tween.tween_property($DummyRobot, "brightness", 0, 4)
+	$DummyRobot/Zwoom.play()
 	anim_player.play("default")
 	shade_player.play("default")
 	await anim_player.animation_finished

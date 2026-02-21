@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dddm4u811wdkc" path="res://assets/robot/boot_up/boot4.png" id="8_pykff"]
 [ext_resource type="Texture2D" uid="uid://dccvwjq27ne72" path="res://assets/robot/boot_up/boot5.png" id="9_ixtfl"]
 [ext_resource type="Texture2D" uid="uid://qo0u332dbke5" path="res://assets/robot/boot_up/boot6.png" id="10_nvap7"]
+[ext_resource type="AudioStream" uid="uid://vh7dovptchs7" path="res://audio/robot/boot_up.mp3" id="11_hs2o6"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://cmsjbwrfeweag" path="res://scenes/levels/level_1/level_1.tscn" id="26_4uilh"]
@@ -32,13 +33,13 @@ animations = [{
 "duration": 2.0,
 "texture": ExtResource("5_jbxqg")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("6_hs2o6")
 }, {
 "duration": 2.0,
 "texture": ExtResource("7_ivhsj")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": ExtResource("8_pykff")
 }, {
 "duration": 1.0,
@@ -150,6 +151,8 @@ sprite_frames = SubResource("SpriteFrames_xk0cr")
 
 [node name="Zwoom" type="AudioStreamPlayer2D" parent="DummyRobot" unique_id=1928092916]
 position = Vector2(172, 555)
+stream = ExtResource("11_hs2o6")
+bus = &"SFX"
 
 [node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("6_8yty6")]
 z_index = -5
