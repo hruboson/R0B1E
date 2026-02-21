@@ -46,14 +46,14 @@ animations = [{
 size = Vector2(416.26172, 1119.7444)
 
 [sub_resource type="Gradient" id="Gradient_kfk32"]
-offsets = PackedFloat32Array(0, 0.006024096, 1)
+offsets = PackedFloat32Array(0, 0.9879518, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2ypwg"]
 gradient = SubResource("Gradient_kfk32")
 fill = 1
-fill_from = Vector2(0.45652175, 0.2173913)
-fill_to = Vector2(0.2347826, 0.73478264)
+fill_from = Vector2(0.5043478, 0.14347826)
+fill_to = Vector2(0.33043477, 0.6347826)
 
 [node name="Intro" type="Node2D" unique_id=1952824044]
 script = ExtResource("1_qeukb")
@@ -126,10 +126,19 @@ shape = SubResource("RectangleShape2D_gvbtx")
 position = Vector2(-6, 7)
 color = Color(0.41368303, 0.4136831, 0.41368303, 1)
 
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=909564679]
+position = Vector2(1002.99994, 386.00006)
+scale = Vector2(65.26563, 29.508915)
+color = Color(1, 0.6627451, 0.28627452, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_2ypwg")
+height = 50.0
+
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=796211539]
-position = Vector2(179, 528)
+visible = false
+position = Vector2(209, 525)
 scale = Vector2(5.6297503, 5.316563)
-color = Color(1, 0.70980394, 0.38431373, 1)
+color = Color(1, 0.6627451, 0.28627452, 1)
 energy = 2.55
 texture = SubResource("GradientTexture2D_2ypwg")
 height = 50.0
