@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_cqmxv"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
 [ext_resource type="Texture2D" uid="uid://yelqvhc6wa73" path="res://assets/robot/idle_left/idle_left_1.png" id="3_u01i4"]
-[ext_resource type="Texture2D" uid="uid://bw7jg8yxc5smr" path="res://assets/ui/sound_off.png" id="4_0y5s3"]
 [ext_resource type="Texture2D" uid="uid://lkbqijaiw6mo" path="res://assets/robot/idle_left/idle_left_2.png" id="4_b7ats"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
 [ext_resource type="Texture2D" uid="uid://diysujk7gog0r" path="res://assets/robot/idle_right/idle_right_1.png" id="5_bujui"]
@@ -14,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c1u7qw04nde7p" path="res://assets/robot/idle_right/idle_right_2.png" id="6_l7h65"]
 [ext_resource type="Texture2D" uid="uid://c5sd6pf6gucr6" path="res://assets/robot/walk_back/back1.png" id="7_7an7b"]
 [ext_resource type="Texture2D" uid="uid://bbmoi4l0vl0ad" path="res://assets/robot/boot_up/boot3.png" id="7_ipoti"]
-[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="7_jslpc"]
 [ext_resource type="Texture2D" uid="uid://dgx8rxgmfs27u" path="res://assets/robot/walk_left/walk_left_1.png" id="8_fsb0y"]
 [ext_resource type="Texture2D" uid="uid://dddm4u811wdkc" path="res://assets/robot/boot_up/boot4.png" id="8_g465r"]
 [ext_resource type="Texture2D" uid="uid://ba7b0w0vysy0b" path="res://assets/robot/walk_right/walk1.png" id="8_rgfc7"]
@@ -222,9 +220,10 @@ gradient = SubResource("Gradient_ipoti")
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
-walk_sound = ExtResource("7_jslpc")
-sound_on_texture = ExtResource("23_t36he")
-sound_off_texture = ExtResource("4_0y5s3")
+waiting_for_quest = null
+is_enabled = null
+subtitles = null
+subtitle_len = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-2.499999, -4.5)
