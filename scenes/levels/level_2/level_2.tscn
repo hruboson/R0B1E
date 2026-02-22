@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://cnsoah7utple0" path="res://scenes/levels/level_2/level_2.gd" id="1_68es0"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
+[ext_resource type="AudioStream" uid="uid://ckh3uuwgj7fxq" path="res://audio/music/ambient_best.mp3" id="2_slc34"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="7_e74df"]
@@ -13,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://drey76aaeiu83" path="res://audio/Propaganda/VO_propaganda_2.wav" id="9_0xq57"]
 [ext_resource type="PackedScene" uid="uid://cd5ar0l3um0nt" path="res://nodes/actors/door/door_deliver_to.tscn" id="12_ses5c"]
 [ext_resource type="AudioStream" uid="uid://b04q7f3wb62nl" path="res://audio/Rezident/VO_Rezident B2.wav" id="13_up0v7"]
-[ext_resource type="AudioStream" uid="uid://bh1y2lyjdwwwi" path="res://audio/Landlord/VO_Lord_2.Úvodní řeč.wav" id="14_up0v7"]
+[ext_resource type="AudioStream" uid="uid://dln6qt2qfx55i" path="res://audio/Landlord/VO_Lord_1.wav" id="14_slc34"]
 [ext_resource type="AudioStream" uid="uid://ssve1ljfdcps" path="res://audio/Ambiance/KARAVA_ROBOTA_krysy.mp3" id="15_4xau6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
@@ -116,14 +117,19 @@ stream = ExtResource("9_0xq57")
 max_distance = 980.0
 bus = &"Background"
 
-[node name="LandLordS" type="AudioStreamPlayer" parent="." unique_id=1302965173]
-stream = ExtResource("14_up0v7")
+[node name="LandLordS" type="AudioStreamPlayer" parent="." unique_id=807088090]
+stream = ExtResource("14_slc34")
 
 [node name="KaravaRobotaKrysy" type="AudioStreamPlayer" parent="." unique_id=684442530]
 stream = ExtResource("15_4xau6")
 volume_db = 20.0
 autoplay = true
 bus = &"Ambient"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=2138582204]
+stream = ExtResource("2_slc34")
+volume_db = -35.0
+autoplay = true
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
