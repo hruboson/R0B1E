@@ -3,10 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameState.last_level = GameState.LEVELS.LEVEL_3
-	pass # Replace with function body.
+	if GameState.last_level != GameState.LEVELS.LEVEL_3:
+		GameState.last_level = GameState.LEVELS.LEVEL_3
+		$Landlord.stream = load("res://audio/Landlord/VO_Lord_3.Úvodní řeč.wav")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

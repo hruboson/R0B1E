@@ -88,5 +88,7 @@ autoplay = true
 max_distance = 235.0
 bus = &"SFX"
 
+[node name="Landlord" type="AudioStreamPlayer" parent="." unique_id=555936886]
+
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
