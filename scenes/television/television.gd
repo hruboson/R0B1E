@@ -81,7 +81,6 @@ func display_task_counts() -> void:
 	GameManager.heal_energy(tenant_done*2)
 	$Control/Passed.show()
 
-
 func _process(delta: float) -> void:
 	if Input.is_anything_pressed():
 		move_on()

@@ -346,7 +346,7 @@ offset_bottom = 55.868
 texture = ExtResource("32_ipoti")
 expand_mode = 1
 
-[node name="Letter" type="TextureRect" parent="CanvasLayer" unique_id=817466118]
+[node name="Letter" type="TextureRect" parent="CanvasLayer" unique_id=817466118 groups=["player"]]
 visible = false
 offset_left = 982.0
 offset_top = 571.0

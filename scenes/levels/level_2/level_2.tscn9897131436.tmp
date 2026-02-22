@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://lhu8lgejfpbx" path="res://audio/Rezident/VO_Rezident A2_Offer.wav" id="8_iup6o"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="8_tf87b"]
 [ext_resource type="AudioStream" uid="uid://drey76aaeiu83" path="res://audio/Propaganda/VO_propaganda_2.wav" id="9_0xq57"]
-[ext_resource type="AudioStream" uid="uid://b04q7f3wb62nl" path="res://audio/Rezident/VO_Rezident B2.wav" id="13_up0v7"]
 [ext_resource type="AudioStream" uid="uid://dln6qt2qfx55i" path="res://audio/Landlord/VO_Lord_1.wav" id="14_slc34"]
 [ext_resource type="AudioStream" uid="uid://ssve1ljfdcps" path="res://audio/Ambiance/KARAVA_ROBOTA_krysy.mp3" id="15_4xau6"]
 [ext_resource type="PackedScene" uid="uid://cwmq7mjrbe7cs" path="res://nodes/quests/letter/delivery_point.tscn" id="15_slc34"]
@@ -144,21 +143,10 @@ a_pickup_audio = ExtResource("8_iup6o")
 a_delivery_sub_length = 0.0
 a_delivery_sub_optional_length = 0.0
 b_delivery_sub_length = 0.0
-b_auto_pickup_sub_length = 0.0
 
 [node name="DeliveryPoint2" parent="." unique_id=2073108995 instance=ExtResource("15_slc34")]
 position = Vector2(2348, 517)
 point_type = "B"
-a_pickup_sub_length = 0.0
-a_pickup_sub_optional_length = 0.0
-a_delivery_sub_length = 0.0
-a_delivery_sub_optional_length = 0.0
-b_delivery_sub_length = 0.0
-b_auto_pickup_subtitles = "Cože? Ten hulvát, ten vagabund! Já mu ukážu! Hej, olejová opice, když zaneseš tenhle dopis tomu fenoménu, co má rodinný strom jako vlajkovou tyč, dám ti nějaký extra baterky."
-b_auto_pickup_sub_length = 18.0
-b_auto_pickup_audio = ExtResource("13_up0v7")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1582068936]
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

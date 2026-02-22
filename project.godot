@@ -27,6 +27,7 @@ buses/default_bus_layout="uid://bm8s4slp4balm"
 AudioManager="*uid://c8as0fwwesqpr"
 GameManager="*uid://dqks42veaispj"
 GameState="*uid://brgxa2ej4ftic"
+LetterQuest="*uid://b7bylivysl50c"
 
 [display]
 

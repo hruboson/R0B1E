@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cwmq7mjrbe7cs"]
+
+[ext_resource type="Script" uid="uid://b3dooq3kpw1j6" path="res://nodes/quests/letter/delivery_point.gd" id="1_rkfax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkfax"]
+size = Vector2(88, 612)
+
+[node name="DeliveryPoint" type="Area2D" unique_id=808102685]
+script = ExtResource("1_rkfax")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1518504049]
+shape = SubResource("RectangleShape2D_rkfax")

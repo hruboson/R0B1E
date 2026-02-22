@@ -81,11 +81,6 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		update_audio(current_state)
 		update_animation(current_state)
-	
-	if GameState.letter1Active or GameState.letter2Active:
-		$CanvasLayer/Letter.show()
-	else:
-		$CanvasLayer/Letter.hide()
 
 ###
 # @func get_input
@@ -165,6 +160,10 @@ func update_animation(state: State):
 	# Update last_state if the player is walking
 	if state in [State.WALK_LEFT, State.WALK_RIGHT]:
 		last_state = state
+		
+func set_letter_visible(visible: bool):
+	# Make sure this path matches your actual node structure
+	$CanvasLayer/Letter.visible = visible
 		
 func update_battery() -> void:
 	var health_bar: TextureRect = $CanvasLayer/Battery/Health
