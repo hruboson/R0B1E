@@ -50,7 +50,7 @@ func display_task_counts() -> void:
 	if landlord_done != landlord_total:
 		if GameState.last_level == GameState.LEVELS.LEVEL_1 or GameState.last_level == GameState.LEVELS.LEVEL_2:
 			$AudioFailure.stream = load("res://audio/Landlord/VO_Lord_zhodnocení_2.wav")
-		if GameState.last_level == GameState.LEVELS.LEVEL_1:
+		if GameState.last_level == GameState.LEVELS.LEVEL_3:
 			$AudioFailure.stream = load("res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav")
 		$Control/Failed.show()	
 		failed = true
