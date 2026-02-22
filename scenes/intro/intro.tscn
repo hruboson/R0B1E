@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
 [ext_resource type="AudioStream" uid="uid://6clgmlpj838i" path="res://audio/Propaganda/VO_propaganda_1.wav" id="21_ixtfl"]
 [ext_resource type="AudioStream" uid="uid://dln6qt2qfx55i" path="res://audio/Landlord/VO_Lord_1.wav" id="22_nvap7"]
+[ext_resource type="Texture2D" uid="uid://byqn313d6h6xa" path="res://assets/hallway/wall_light_on.png" id="23_t8y8d"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
@@ -294,6 +295,41 @@ bus = &"Background"
 
 [node name="LandLordS" type="AudioStreamPlayer" parent="." unique_id=1143012302]
 stream = ExtResource("22_nvap7")
+
+[node name="WallLightOn" type="Sprite2D" parent="." unique_id=532712791]
+position = Vector2(161, 448.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn2" type="Sprite2D" parent="." unique_id=1262934347]
+position = Vector2(486, 447.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn3" type="Sprite2D" parent="." unique_id=1020423975]
+position = Vector2(790, 449.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn4" type="Sprite2D" parent="." unique_id=1578073265]
+position = Vector2(1092, 450)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn5" type="Sprite2D" parent="." unique_id=2095602706]
+position = Vector2(1409, 450)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn6" type="Sprite2D" parent="." unique_id=961402687]
+position = Vector2(1668, 450)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
+
+[node name="WallLightOn7" type="Sprite2D" parent="." unique_id=915489777]
+position = Vector2(2046, 450)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("23_t8y8d")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

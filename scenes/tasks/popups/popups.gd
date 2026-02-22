@@ -119,6 +119,13 @@ func _finish_game():
 func _on_final_success_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
 		await get_tree().create_timer(0.5).timeout
+		#nová část
+		var exit_marker = get_tree().current_scene.find_child("TaskExitPoint_Popups", true)
+		if exit_marker:
+			# Uložíme pozici do GameManageru, aby ji mohl použít robot po načtení scény
+			GameManager.last_exit_position = exit_marker.global_position
+			print("Pozice pro návrat uložena: ", exit_marker.global_position)
+		#nová část
 		GameState.complete_quest()
 	
 		if GameManager.previous_scene_path != "":
