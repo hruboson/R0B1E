@@ -136,6 +136,8 @@ texture = ExtResource("17_5owdk")
 
 [node name="DeliveryPoint" parent="." unique_id=808102685 instance=ExtResource("15_slc34")]
 position = Vector2(205, 535)
+level_key = "level2"
+quest_key = "quest2A"
 a_pickup_subtitles = "Halo, máte moment, halo"
 a_pickup_subtitles_optional = "Dobrý den, potřeboval bych, abyste zanesl tuhle obálku mému sousedovi naproti, dám vám něco extra v energii, zadarmo už ani varná konvice nevaří.
 "
@@ -149,6 +151,8 @@ b_auto_pickup_sub_length = 0.0
 [node name="DeliveryPoint2" parent="." unique_id=2073108995 instance=ExtResource("15_slc34")]
 position = Vector2(2348, 517)
 point_type = "B"
+level_key = "level2"
+quest_key = "quest2B"
 a_pickup_sub_length = 0.0
 a_pickup_sub_optional_length = 0.0
 a_delivery_sub_length = 0.0

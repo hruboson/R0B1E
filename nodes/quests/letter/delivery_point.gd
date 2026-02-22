@@ -3,6 +3,11 @@ extends Area2D
 ########## EXPORTS ###########
 @export var point_type: String = "A"  # "A" or "B"
 
+# Quest completion exports
+@export_group("Quest Completion")
+@export var level_key: String = ""  # e.g., "level2"
+@export var quest_key: String = ""  # e.g., "quest2A"
+
 # Audio and subtitles for Point A
 @export_group("Point A - First Letter Pickup")
 @export_multiline var a_pickup_subtitles: String = ""
@@ -54,25 +59,38 @@ func handle_interaction():
 		if current_state == LetterQuest.QuestState.WAITING_FOR_FIRST_LETTER:
 			if LetterQuest.pickup_letter("A"):
 				play_audio_and_subtitles("pickup")
-				update_letter_visibility()  # Show letter after pickup
+				update_letter_visibility()
 				
 		elif current_state == LetterQuest.QuestState.HAS_SECOND_LETTER:
 			if LetterQuest.deliver_letter("A"):
 				play_audio_and_subtitles("delivery")
-				update_letter_visibility()  # Hide letter after delivery
+				update_letter_visibility()
+				# Complete quest when delivering return letter to Point A
+				complete_quest_in_gamestate()
 	
 	elif point_type == "B":
 		if current_state == LetterQuest.QuestState.HAS_FIRST_LETTER:
 			if LetterQuest.deliver_letter("B"):
 				play_audio_and_subtitles("delivery")
-				update_letter_visibility()  # Letter still visible? Will be hidden after auto-pickup?
+				update_letter_visibility()
+				# Complete the first part of the quest when delivering to Point B
+				complete_quest_in_gamestate()
 				await get_tree().create_timer(0.5).timeout
 				auto_pickup_return_letter()
 
 func auto_pickup_return_letter():
 	play_audio_and_subtitles("auto_pickup")
 	LetterQuest.pickup_letter("B")
-	update_letter_visibility()  # Show return letter
+	update_letter_visibility()
+
+func complete_quest_in_gamestate():
+	if level_key != "" and quest_key != "":
+		# Set the GameState level_key and quest_key
+		GameState.level_key = level_key
+		GameState.quest_key = quest_key
+		# Call complete_quest() which uses those keys by default
+		GameState.complete_quest()
+		print("Quest completed: ", level_key, " - ", quest_key)
 
 func play_audio_and_subtitles(action: String):
 	match point_type:
@@ -112,7 +130,6 @@ func play_audio_and_subtitles(action: String):
 					player.show_text(b_auto_pickup_subtitles, b_auto_pickup_sub_length)
 
 func update_letter_visibility():
-	# Always find the robot fresh from the scene tree
 	var robot = get_tree().get_first_node_in_group("player")
 	if robot:
 		update_robot_letter(robot)
@@ -122,12 +139,12 @@ func update_robot_letter(robot_node: Robot):
 	var should_show = (current_state == LetterQuest.QuestState.HAS_FIRST_LETTER or 
 					  current_state == LetterQuest.QuestState.HAS_SECOND_LETTER)
 	
-	# Directly access the TextureRect in CanvasLayer
+	# Find the TextureRect in CanvasLayer
 	var letter_texture_rect = robot_node.get_node_or_null("CanvasLayer/Letter")
 	if letter_texture_rect:
 		letter_texture_rect.visible = should_show
 	else:
-		print("Warning: Could not find CanvasLayer/TextureRect in robot node")
+		print("Warning: Could not find CanvasLayer/Letter in robot node")
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
