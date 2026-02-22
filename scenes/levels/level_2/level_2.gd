@@ -3,9 +3,9 @@ extends Node2D
 @export var music: AudioStream
 
 func _ready() -> void:
-	GameState.last_level = GameState.LEVELS.LEVEL_2
-	
-	$LandLordS.play()
-	await $LandLordS.finished
-	await get_tree().create_timer(3.0).timeout
-	$Propaganda.play()
+	if GameState.last_level != GameState.LEVELS.LEVEL_2:
+		GameState.last_level = GameState.LEVELS.LEVEL_2
+		$LandLordS.play()
+		await $LandLordS.finished
+		await get_tree().create_timer(3.0).timeout
+		$Propaganda.play()
