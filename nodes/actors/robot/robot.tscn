@@ -247,6 +247,7 @@ animation = &"boot_up"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1857384157]
 position = Vector2(0, -7)
 stream = SubResource("AudioStream_83y4m")
+volume_db = -15.0
 pitch_scale = 0.7
 bus = &"SFX"
 
