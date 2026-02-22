@@ -48,7 +48,11 @@ func display_task_counts() -> void:
 
 	# Fail if landlord tasks incomplete
 	if landlord_done != landlord_total:
-		$Control/Failed.show()
+		if GameState.last_level == GameState.LEVELS.LEVEL_1 or GameState.last_level == GameState.LEVELS.LEVEL_2:
+			$AudioFailure.stream = load("res://audio/Landlord/VO_Lord_zhodnocení_2.wav")
+		if GameState.last_level == GameState.LEVELS.LEVEL_1:
+			$AudioFailure.stream = load("res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav")
+		$Control/Failed.show()	
 		failed = true
 		$AudioFailure.play()
 		GameState.reset_game_state()
@@ -56,9 +60,21 @@ func display_task_counts() -> void:
 		return
 		
 	if tenant_done == tenant_total:
+		if GameState.last_level == GameState.LEVELS.LEVEL_1:
+			$AudioExcellent.stream = load("res://audio/Landlord/VO_Lord_zhodnocení_1.wav")
+		if GameState.last_level == GameState.LEVELS.LEVEL_2:
+			$AudioExcellent.stream = load("res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav")
+		if GameState.last_level == GameState.LEVELS.LEVEL_3:
+			$AudioExcellent.stream = null
 		$AudioExcellent.play()
 		await get_tree().create_timer(11).timeout
 	else:
+		if GameState.last_level == GameState.LEVELS.LEVEL_1:
+			$AudioSuccess.stream = load("res://audio/Landlord/VO_Lord_zhodnocení_1.wav")
+		if GameState.last_level == GameState.LEVELS.LEVEL_2:
+			$AudioSuccess.stream = load("res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav")
+		if GameState.last_level == GameState.LEVELS.LEVEL_3:
+			$AudioSuccess.stream = null
 		$AudioSuccess.play()
 		await get_tree().create_timer(11).timeout
 

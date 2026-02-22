@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="2_g465r"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
 [ext_resource type="Texture2D" uid="uid://yelqvhc6wa73" path="res://assets/robot/idle_left/idle_left_1.png" id="3_u01i4"]
+[ext_resource type="Texture2D" uid="uid://bw7jg8yxc5smr" path="res://assets/ui/sound_off.png" id="4_28qtx"]
 [ext_resource type="Texture2D" uid="uid://lkbqijaiw6mo" path="res://assets/robot/idle_left/idle_left_2.png" id="4_b7ats"]
 [ext_resource type="Texture2D" uid="uid://byndodebamgla" path="res://assets/robot/walk_forward/front3.png" id="4_jslpc"]
 [ext_resource type="Texture2D" uid="uid://diysujk7gog0r" path="res://assets/robot/idle_right/idle_right_1.png" id="5_bujui"]
@@ -222,6 +223,8 @@ gradient = SubResource("Gradient_ipoti")
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
 walk_sound = ExtResource("2_g465r")
+sound_on_texture = ExtResource("23_t36he")
+sound_off_texture = ExtResource("4_28qtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-2.499999, -4.5)
