@@ -11,7 +11,7 @@
 distance = 116.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0k63i"]
-distance = -951.1147
+distance = -937.9889
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3iq2o"]
 distance = 195.87714
@@ -79,8 +79,16 @@ level_key = "level1"
 quest_key = "questLandlord"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=569980619]
-position = Vector2(909, 390)
+position = Vector2(877, 392)
 shape = SubResource("RectangleShape2D_0k63i")
+
+[node name="TaskExitPoint_Popups" type="Marker2D" parent="." unique_id=501695029]
+position = Vector2(808, 486.00003)
+scale = Vector2(1.36, 1.36)
+
+[node name="TaskExitPoint_Messages" type="Marker2D" parent="." unique_id=1983709623]
+position = Vector2(697, 487.00003)
+scale = Vector2(1.36, 1.36)
 
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]

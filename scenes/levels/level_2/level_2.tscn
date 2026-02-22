@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://b04q7f3wb62nl" path="res://audio/Rezident/VO_Rezident B2.wav" id="13_up0v7"]
 [ext_resource type="AudioStream" uid="uid://dln6qt2qfx55i" path="res://audio/Landlord/VO_Lord_1.wav" id="14_slc34"]
 [ext_resource type="AudioStream" uid="uid://ssve1ljfdcps" path="res://audio/Ambiance/KARAVA_ROBOTA_krysy.mp3" id="15_4xau6"]
+[ext_resource type="Texture2D" uid="uid://byqn313d6h6xa" path="res://assets/hallway/wall_light_on.png" id="17_5owdk"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
@@ -130,6 +131,41 @@ bus = &"Ambient"
 stream = ExtResource("2_slc34")
 volume_db = -35.0
 autoplay = true
+
+[node name="WallLightOn" type="Sprite2D" parent="." unique_id=470043287]
+position = Vector2(367, 488.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn2" type="Sprite2D" parent="." unique_id=414928819]
+position = Vector2(680, 488.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn3" type="Sprite2D" parent="." unique_id=249701835]
+position = Vector2(983, 488)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn4" type="Sprite2D" parent="." unique_id=911548917]
+position = Vector2(1286, 486)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn5" type="Sprite2D" parent="." unique_id=1357092233]
+position = Vector2(1596, 487.00003)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn6" type="Sprite2D" parent="." unique_id=148019099]
+position = Vector2(1881, 484)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
+
+[node name="WallLightOn7" type="Sprite2D" parent="." unique_id=1226865971]
+position = Vector2(2215, 488)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("17_5owdk")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

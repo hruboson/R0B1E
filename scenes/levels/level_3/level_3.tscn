@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="8_83a0a"]
 [ext_resource type="AudioStream" uid="uid://5gvy8pplod33" path="res://audio/Ambiance/KARAVA_ROBOTA_AMB_Juicy_slashing.wav" id="9_rr702"]
 [ext_resource type="AudioStream" uid="uid://ce38bmul86svn" path="res://audio/Ambiance/KARAVA_ROBOTA_Door.wav" id="10_bm2i8"]
+[ext_resource type="Texture2D" uid="uid://byqn313d6h6xa" path="res://assets/hallway/wall_light_on.png" id="11_bm2i8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
@@ -95,6 +96,41 @@ bus = &"SFX"
 position = Vector2(156, 585)
 stream = ExtResource("10_bm2i8")
 autoplay = true
+
+[node name="WallLightOn" type="Sprite2D" parent="." unique_id=1001171473]
+position = Vector2(369, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn2" type="Sprite2D" parent="." unique_id=1479328416]
+position = Vector2(667, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn3" type="Sprite2D" parent="." unique_id=1275290550]
+position = Vector2(979, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn4" type="Sprite2D" parent="." unique_id=1948609490]
+position = Vector2(1282, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn5" type="Sprite2D" parent="." unique_id=1850847186]
+position = Vector2(1583, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn6" type="Sprite2D" parent="." unique_id=867016521]
+position = Vector2(1884, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
+
+[node name="WallLightOn7" type="Sprite2D" parent="." unique_id=130693808]
+position = Vector2(2223, 480)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_bm2i8")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
