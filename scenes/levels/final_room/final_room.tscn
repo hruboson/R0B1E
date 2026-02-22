@@ -2,13 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
 [ext_resource type="Script" uid="uid://bfv867iekkm8a" path="res://scenes/levels/final_room/final_room.gd" id="1_q83uc"]
-[ext_resource type="Texture2D" uid="uid://e2chrfby1vx8" path="res://assets/hallway/final_room.png" id="2_jhus7"]
+[ext_resource type="Texture2D" uid="uid://d0v2afbsrm5qh" path="res://assets/hallway/Final_room_new.png" id="2_5wop4"]
+[ext_resource type="Texture2D" uid="uid://4ykbc22s0oeo" path="res://assets/hallway/Final_room_front.png" id="3_likfs"]
 [ext_resource type="AudioStream" uid="uid://dr5wkaxm73grh" path="res://audio/music/fcuked_up.mp3" id="5_431fw"]
 [ext_resource type="PackedScene" uid="uid://buyr0an0utmrk" path="res://nodes/actors/door/door_final.tscn" id="5_q83uc"]
 [ext_resource type="AudioStream" uid="uid://no8w6gprp8sn" path="res://audio/robot/KARAVA_ROBOTA_Robot_bodies.mp3" id="6_431fw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
-distance = 1.0
+distance = 2.0
 
 [node name="FinalLevel" type="Node2D" unique_id=1400742347]
 script = ExtResource("1_q83uc")
@@ -16,7 +17,14 @@ script = ExtResource("1_q83uc")
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
 texture_filter = 1
 position = Vector2(1281, 544)
-texture = ExtResource("2_jhus7")
+texture = ExtResource("2_5wop4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=594959651]
+z_index = 117
+texture_filter = 1
+position = Vector2(1279, 531)
+scale = Vector2(1.0430729, 1.1104652)
+texture = ExtResource("3_likfs")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
 position = Vector2(-213, -32)
@@ -37,7 +45,7 @@ shape = SubResource("WorldBoundaryShape2D_014kd")
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 z_index = 50
-position = Vector2(2041, 601)
+position = Vector2(2043, 594)
 task2 = "Fix leaking tubes"
 
 [node name="DoorFinal" parent="." unique_id=1373273536 instance=ExtResource("5_q83uc")]
