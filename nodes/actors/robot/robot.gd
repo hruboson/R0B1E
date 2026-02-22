@@ -243,11 +243,11 @@ func init_tenant_quest(subtitles: String, subtitles_optional: String, sub_length
 		await get_tree().create_timer(sub_optional_length).timeout
 	
 func take_energy(amount: int) -> void:
-	GameManager.player_energy = max(GameManager.player_energy - amount, 0)
+	GameManager.take_energy(amount)
 	update_battery()
 	
 func heal_energy(amount: int) -> void:
-	GameManager.player_energy = max(GameManager.player_energy + amount, 0)
+	GameManager.heal_energy(amount)
 	update_battery()
 	
 func show_text(text_content: String, duration: float = 3.0) -> void:
