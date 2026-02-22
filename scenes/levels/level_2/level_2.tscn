@@ -7,11 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="7_e74df"]
+[ext_resource type="AudioStream" uid="uid://cijpxdu3de2uo" path="res://audio/Rezident/VO_Rezident A2_Tempting.wav" id="7_ugaie"]
+[ext_resource type="AudioStream" uid="uid://lhu8lgejfpbx" path="res://audio/Rezident/VO_Rezident A2_Offer.wav" id="8_iup6o"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="8_tf87b"]
 [ext_resource type="AudioStream" uid="uid://drey76aaeiu83" path="res://audio/Propaganda/VO_propaganda_2.wav" id="9_0xq57"]
+[ext_resource type="PackedScene" uid="uid://cd5ar0l3um0nt" path="res://nodes/actors/door/door_deliver_to.tscn" id="12_ses5c"]
+[ext_resource type="AudioStream" uid="uid://b04q7f3wb62nl" path="res://audio/Rezident/VO_Rezident B2.wav" id="13_up0v7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ses5c"]
+loop = false
+stream_count = 2
+stream_0 = ExtResource("7_ugaie")
+stream_1 = ExtResource("8_iup6o")
 
 [node name="Level2" type="Node2D" unique_id=1400742347]
 script = ExtResource("1_68es0")
@@ -55,7 +65,14 @@ leads_to = "uid://cmsjbwrfeweag"
 is_closed = true
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]
-position = Vector2(198, 557)
+position = Vector2(198, 561)
+priority = 10
+subtitles = "Halo, máte moment, halo"
+subtitles_optional = "Dobrý den, potřeboval bych, abyste zanesl tuhle obálku mému sousedovi naproti, dám vám něco extra v energii, zadarmo už ani varná konvice nevaří."
+activate_quest = 1
+sub_length = 6.0
+sub_optional_length = 11.0
+audio_stream = SubResource("AudioStreamPlaylist_ses5c")
 
 [node name="DoorLocked" parent="." unique_id=1081473609 instance=ExtResource("7_e74df")]
 position = Vector2(524, 545)
@@ -81,6 +98,21 @@ position = Vector2(257, 455)
 stream = ExtResource("9_0xq57")
 max_distance = 980.0
 bus = &"Background"
+
+[node name="DoorDeliverTo" parent="." unique_id=1810259843 node_paths=PackedStringArray("enable", "deactivate") instance=ExtResource("12_ses5c")]
+position = Vector2(2402, 498)
+waiting_for_quest = 1
+audio_stream = ExtResource("13_up0v7")
+is_enabled = true
+enable = NodePath("../DoorDeliverTo2")
+deactivate = NodePath("../DoorQuest")
+subtitles = "Cože? Ten hulvát, ten vagabund! Já mu ukážu! Hej, olejová opice, když zaneseš tenhle dopis tomu fenoménu, co má rodinný strom jako vlajkovou tyč, dám ti nějaký extra baterky."
+subtitle_len = 18.0
+
+[node name="DoorDeliverTo2" parent="." unique_id=2042609005 node_paths=PackedStringArray("deactivate") instance=ExtResource("12_ses5c")]
+position = Vector2(44, 546)
+waiting_for_quest = 2
+deactivate = NodePath("../DoorDeliverTo")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

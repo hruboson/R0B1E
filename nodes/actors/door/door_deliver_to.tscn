@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cd5ar0l3um0nt"]
+
+[ext_resource type="Script" uid="uid://tk35i308dsyx" path="res://nodes/actors/door/door_deliver_to.gd" id="1_vadpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xs85j"]
+size = Vector2(87.28817, 114.63416)
+
+[node name="DoorDeliverTo" type="Area2D" unique_id=1810259843]
+script = ExtResource("1_vadpy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1750186002]
+scale = Vector2(2.3599992, 6.5599995)
+shape = SubResource("RectangleShape2D_xs85j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=798475471]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

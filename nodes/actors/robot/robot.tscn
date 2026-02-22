@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dncuhwxfmtqd1" path="res://nodes/interactable/tablet/tablet.tscn" id="31_g465r"]
 [ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="32_g465r"]
 [ext_resource type="Texture2D" uid="uid://c08xauovd8ngq" path="res://assets/robot/battery.png" id="32_ipoti"]
+[ext_resource type="Texture2D" uid="uid://ex3nx0xprfe7" path="res://assets/tasks/letter.png" id="34_28qtx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02wwk"]
 size = Vector2(89.02239, 77.9035)
@@ -332,5 +333,13 @@ offset_right = 89.2397
 offset_bottom = 55.868
 texture = ExtResource("32_ipoti")
 expand_mode = 1
+
+[node name="Letter" type="TextureRect" parent="CanvasLayer" unique_id=817466118]
+visible = false
+offset_left = 982.0
+offset_top = 571.0
+offset_right = 1139.0
+offset_bottom = 635.0
+texture = ExtResource("34_28qtx")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/SoundButton" to="." method="_on_sound_button_pressed"]

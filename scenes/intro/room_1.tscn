@@ -26,11 +26,13 @@ position = Vector2(416, 488)
 
 [node name="BG" type="Sprite2D" parent="." unique_id=179545343]
 z_index = -1000
+texture_filter = 1
 position = Vector2(625, 421)
 texture = ExtResource("2_8b4e3")
 
 [node name="FG" type="Sprite2D" parent="." unique_id=1975849005]
 z_index = 600
+texture_filter = 1
 position = Vector2(646, 421)
 texture = ExtResource("3_0k63i")
 

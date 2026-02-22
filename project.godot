@@ -13,7 +13,8 @@ config_version=5
 config/name="R0B1E"
 run/main_scene="uid://dvvpiqjsmtl0n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/image="uid://bidmreerysmex"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://0qpmtd3j02ei"
 config/icon="uid://bidmreerysmex"
 config/image="uid://bidmreerysmex"
 

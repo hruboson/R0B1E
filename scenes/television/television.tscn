@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://srf0vo2y15kd" path="res://assets/fonts/consolas.ttf" id="3_awh82"]
 [ext_resource type="AudioStream" uid="uid://c2eoxhqgxf8jt" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav" id="5_edp5r"]
 [ext_resource type="AudioStream" uid="uid://bspw4q7at7w47" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav" id="5_frryk"]
-[ext_resource type="AudioStream" uid="uid://c8pbk2fy5r241" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_A tak přišel čas.wav" id="5_l784q"]
+[ext_resource type="AudioStream" uid="uid://dw6cq0jmwfou0" path="res://audio/Landlord/VO_Lord_zhodnocení_2.wav" id="6_edp5r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqles"]
 size = Vector2(1168, 667)
@@ -209,7 +209,7 @@ shape = SubResource("RectangleShape2D_wqles")
 stream = ExtResource("5_edp5r")
 
 [node name="AudioFailure" type="AudioStreamPlayer" parent="." unique_id=1305867416]
-stream = ExtResource("5_l784q")
+stream = ExtResource("6_edp5r")
 
 [node name="AudioExcellent" type="AudioStreamPlayer" parent="." unique_id=97466104]
 stream = ExtResource("5_frryk")

@@ -7,6 +7,7 @@ var transitioning := false
 func _ready():
 	# Start fully visible (normal brightness)
 	canvas_modulate.color = Color(1, 1, 1, 1)
+	AudioManager.stop_ambience()
 
 	# Connect all doors automatically
 	for door in get_tree().get_nodes_in_group("doors"):

@@ -129,7 +129,7 @@ func _win_effect() -> void:
 func _close_game() -> void:
 	if game_failed:
 		GameManager.take_energy(2)
-		get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
+		get_tree().change_scene_to_file(GameManager.previous_scene_path)
 	elif GameManager.previous_scene_path != "":
 		GameState.complete_quest()
 		get_tree().change_scene_to_file(GameManager.previous_scene_path)

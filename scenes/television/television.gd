@@ -51,6 +51,7 @@ func display_task_counts() -> void:
 		$Control/Failed.show()
 		failed = true
 		$AudioFailure.play()
+		GameState.reset_game_state()
 		await get_tree().create_timer(5).timeout
 		return
 		

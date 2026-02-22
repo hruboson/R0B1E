@@ -38,6 +38,7 @@ var input_enabled: bool = true
 
 var is_intro_sequence: bool = false
 var tablet_open: bool = false
+var tablet_locked: bool = false
 
 func _ready() -> void:
 	update_battery()
@@ -79,6 +80,11 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		update_audio(current_state)
 		update_animation(current_state)
+	
+	if GameState.letter1Active or GameState.letter2Active:
+		$CanvasLayer/Letter.show()
+	else:
+		$CanvasLayer/Letter.hide()
 
 ###
 # @func get_input
@@ -156,17 +162,27 @@ func update_battery() -> void:
 	health_bar.size.x = full_width * energy_ratio
 	
 func show_tablet() -> void:
+	if tablet_locked:
+		return
+
+	tablet_locked = true
+
 	var tablet_anim: AnimationPlayer = $CanvasLayer/Tablet/Texture/AnimationTree
-	
+
 	if tablet_open:
 		tablet_anim.play("slide_down")
-		input_enabled = true
 		tablet_open = false
 	else:
 		tablet_anim.play("slide_up")
-		input_enabled = false
 		velocity = Vector2.ZERO
 		tablet_open = true
+
+	# Lock ALL movement input while tablet is open
+	input_enabled = not tablet_open
+
+	# Wait a short moment so the key press cannot toggle again
+	await get_tree().create_timer(0.3).timeout
+	tablet_locked = false
 		
 func set_task1(str: String) -> void:
 	$CanvasLayer/Tablet.set_task1(str)

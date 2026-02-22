@@ -178,7 +178,7 @@ position_smoothing_enabled = true
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1891272300]
 z_index = 10
-position = Vector2(34, 517)
+position = Vector2(73, 513.00006)
 scale = Vector2(0.2177115, 0.2177115)
 script = ExtResource("29_rx8h1")
 
@@ -246,8 +246,8 @@ leads_to = "uid://dcot3r0u63dg1"
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("27_m56ce")]
 position = Vector2(-3, 518)
-subtitles = "Pst hej pojd jsem, hej notak..."
-subtitles_optional = "Hej prosím tě potřebuju od tebe něco ale neboj vyplatí se ti to dám ti nějakou energie té vy plechovky přece nemáte moc ne. Vymaž my historii z heveans gázu."
+subtitles = "Pst Hej, pojď sem, hej notak"
+subtitles_optional = "Hej prosím tě, potřebuju od tebe něco, ale neboj, vyplatí se ti to, dám ti nějakou energii, té vy plechovky přece nemáte moc, ne. Vymaž mi historii z heavens gate. Moje žena o tom nemůže vědět."
 sub_length = 5.0
 sub_optional_length = 15.0
 audio_stream = SubResource("AudioStreamPlaylist_ixtfl")
@@ -269,6 +269,7 @@ position = Vector2(1238, 503)
 scale = Vector2(0.82, 0.82)
 
 [node name="DoorLocked5" parent="." unique_id=977672901 instance=ExtResource("14_2ypwg")]
+visible = false
 position = Vector2(2148, 505.99997)
 scale = Vector2(0.6724, 0.6724)
 
