@@ -5,7 +5,7 @@ extends Node2D
 func _ready() -> void:
 	if GameState.last_level != GameState.LEVELS.LEVEL_3:
 		GameState.last_level = GameState.LEVELS.LEVEL_3
-		$Landlord.stream = load("res://audio/Landlord/VO_Lord_3.Úvodní řeč.wav")
+		$AudioStreamPlayer.play()
 
 func _process(delta: float) -> void:
 	pass
