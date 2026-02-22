@@ -13,6 +13,7 @@ config_version=5
 config/name="Karavana"
 run/main_scene="uid://dvvpiqjsmtl0n"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/image="uid://bidmreerysmex"
 config/icon="uid://bidmreerysmex"
 
 [audio]

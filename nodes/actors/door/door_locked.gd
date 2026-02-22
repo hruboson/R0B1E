@@ -9,7 +9,7 @@ var player: Robot = null
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):	
 		audio.play()
-		player.show_text("Locked")
+		player.show_text("Zamčeno")
 
 ############################
 #          SIGNALS         #

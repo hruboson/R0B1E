@@ -3,18 +3,10 @@
 [ext_resource type="Script" uid="uid://dr8cvnvdikc1i" path="res://nodes/actors/door/door_final.gd" id="1_pd584"]
 [ext_resource type="Texture2D" uid="uid://1lmqbsf2q7i3" path="res://assets/door/door1.png" id="1_x0dyw"]
 [ext_resource type="AudioStream" uid="uid://bl4wgiy12j52" path="res://audio/door/door_open.mp3" id="3_4opcr"]
-[ext_resource type="AudioStream" uid="uid://c2eoxhqgxf8jt" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav" id="4_i612i"]
-[ext_resource type="AudioStream" uid="uid://c8pbk2fy5r241" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_A tak přišel čas.wav" id="5_s3j4j"]
-[ext_resource type="AudioStream" uid="uid://bspw4q7at7w47" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav" id="6_dgktl"]
+[ext_resource type="AudioStream" uid="uid://bi8cj4dx7n1oe" path="res://audio/Landlord/VO_Lord_7_final.wav" id="4_icjka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd584"]
 size = Vector2(200, 544)
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_31058"]
-streams_count = 3
-stream_0/stream = ExtResource("4_i612i")
-stream_1/stream = ExtResource("5_s3j4j")
-stream_2/stream = ExtResource("6_dgktl")
 
 [node name="DoorFinal" type="Area2D" unique_id=1373273536]
 script = ExtResource("1_pd584")
@@ -35,7 +27,7 @@ flip_h = true
 stream = ExtResource("3_4opcr")
 
 [node name="Boss" type="AudioStreamPlayer2D" parent="." unique_id=503925810]
-stream = SubResource("AudioStreamRandomizer_31058")
+stream = ExtResource("4_icjka")
 max_distance = 437.0
 bus = &"SFX"
 

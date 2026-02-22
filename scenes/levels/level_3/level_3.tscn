@@ -85,7 +85,7 @@ color = Color(0.57700837, 0.5770084, 0.57700837, 1)
 position = Vector2(1128, 565)
 stream = ExtResource("9_qra2n")
 autoplay = true
-max_distance = 189.0
+max_distance = 235.0
 bus = &"SFX"
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]

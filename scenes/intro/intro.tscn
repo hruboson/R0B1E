@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://dlpmyp4sv6rp7" path="res://audio/Rezident/VO_Rezident A1_Offer.wav" id="17_ivhsj"]
 [ext_resource type="AudioStream" uid="uid://dlidsy3cgfvja" path="res://audio/Rezident/VO_Rezident A1_Tempting.wav" id="17_pykff"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
+[ext_resource type="AudioStream" uid="uid://6clgmlpj838i" path="res://audio/Propaganda/VO_propaganda_1.wav" id="21_ixtfl"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
@@ -284,8 +285,11 @@ libraries/ = SubResource("AnimationLibrary_jbxqg")
 [node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("19_ivhsj")]
 position = Vector2(138, 544)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=942467089]
+[node name="Propaganda" type="AudioStreamPlayer2D" parent="." unique_id=942467089]
 position = Vector2(62, 410)
+stream = ExtResource("21_ixtfl")
+max_distance = 718.0
+bus = &"Background"
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

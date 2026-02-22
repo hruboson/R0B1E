@@ -92,6 +92,8 @@ func spawn_controllable_robot() -> void:
 	robot_camera.enabled = true
 	robot_camera.make_current()
 	robot_instance.input_enabled = true
+	await get_tree().create_timer(5.0).timeout
+	$Propaganda.play()
 	
 ###############################################################
 # On left doors

@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://ca4ym4kro6qpg" path="res://assets/television/tv_conclusion.png" id="2_wqles"]
 [ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="2_wyu1r"]
 [ext_resource type="FontFile" uid="uid://srf0vo2y15kd" path="res://assets/fonts/consolas.ttf" id="3_awh82"]
+[ext_resource type="AudioStream" uid="uid://c2eoxhqgxf8jt" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav" id="5_edp5r"]
+[ext_resource type="AudioStream" uid="uid://bspw4q7at7w47" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav" id="5_frryk"]
+[ext_resource type="AudioStream" uid="uid://c8pbk2fy5r241" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_A tak přišel čas.wav" id="5_l784q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqles"]
 size = Vector2(1168, 667)
@@ -201,5 +204,14 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2055254550]
 position = Vector2(574, 323.5)
 shape = SubResource("RectangleShape2D_wqles")
+
+[node name="AudioSuccess" type="AudioStreamPlayer" parent="." unique_id=604854680]
+stream = ExtResource("5_edp5r")
+
+[node name="AudioFailure" type="AudioStreamPlayer" parent="." unique_id=1305867416]
+stream = ExtResource("5_l784q")
+
+[node name="AudioExcellent" type="AudioStreamPlayer" parent="." unique_id=97466104]
+stream = ExtResource("5_frryk")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

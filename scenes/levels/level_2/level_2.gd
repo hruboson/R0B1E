@@ -5,6 +5,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameState.last_level = GameState.LEVELS.LEVEL_2
+	await get_tree().create_timer(5.0).timeout
+	
 	pass # Replace with function body.
 
 

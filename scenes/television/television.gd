@@ -50,7 +50,16 @@ func display_task_counts() -> void:
 	if landlord_done != landlord_total:
 		$Control/Failed.show()
 		failed = true
+		$AudioFailure.play()
+		await get_tree().create_timer(5).timeout
 		return
+		
+	if tenant_done == tenant_total:
+		$AudioExcellent.play()
+		await get_tree().create_timer(11).timeout
+	else:
+		$AudioSuccess.play()
+		await get_tree().create_timer(11).timeout
 
 	GameManager.heal_energy(tenant_done*2)
 	$Control/Passed.show()

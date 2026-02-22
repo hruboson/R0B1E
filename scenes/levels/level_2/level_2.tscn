@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="7_e74df"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="8_tf87b"]
+[ext_resource type="AudioStream" uid="uid://drey76aaeiu83" path="res://audio/Propaganda/VO_propaganda_2.wav" id="9_0xq57"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
@@ -45,7 +46,7 @@ leads_to = "uid://biophsxxkm53h"
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 z_index = 50
 position = Vector2(339, 601)
-task2 = "Oprav unikající trubky"
+task1 = "Oprav unikající trubky"
 
 [node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("5_7uxs1")]
 position = Vector2(2038.9999, 551)
@@ -74,6 +75,12 @@ scale = Vector2(0.82, 0.82)
 
 [node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("8_tf87b")]
 position = Vector2(377, 571)
+
+[node name="Propaganda" type="AudioStreamPlayer2D" parent="." unique_id=497604031]
+position = Vector2(257, 455)
+stream = ExtResource("9_0xq57")
+max_distance = 980.0
+bus = &"Background"
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

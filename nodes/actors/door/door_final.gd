@@ -11,9 +11,10 @@ var transitioning := false
 
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):
+		player.show_text("Hm, tak jste až tady - snad bude příští generace mít větší zlepšení, vy se už ale zlepšit nestihnete.", 23)
 		emit_signal("transition_requested")
 		$Boss.play()
-		await get_tree().create_timer(10.0).timeout
+		await get_tree().create_timer(23.0).timeout
 		GameManager.initialSequenceCompleted = false
 		get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
 
