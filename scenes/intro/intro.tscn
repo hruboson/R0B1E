@@ -269,7 +269,6 @@ position = Vector2(1238, 503)
 scale = Vector2(0.82, 0.82)
 
 [node name="DoorLocked5" parent="." unique_id=977672901 instance=ExtResource("14_2ypwg")]
-visible = false
 position = Vector2(2148, 505.99997)
 scale = Vector2(0.6724, 0.6724)
 
