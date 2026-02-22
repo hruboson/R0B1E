@@ -6,7 +6,7 @@ var player: Robot = null
 @export var quest_key: String
 
 func _process(delta):
-	if player != null and Input.is_action_just_pressed("interact"):	
+	if player != null and Input.is_action_just_pressed("interact") and !GameState.levels_state[level_key][quest_key]:	
 		GameManager.previous_scene_path = get_tree().current_scene.scene_file_path
 		GameManager.player_return_position = player.global_position
 		GameState.level_key = level_key

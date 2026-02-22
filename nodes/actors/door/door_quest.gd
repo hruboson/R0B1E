@@ -26,15 +26,12 @@ func _process(delta):
 				audio_player.stream = audio_stream   # assign exported stream
 				audio_player.play()
 				
-			if GameState.levels_state["level1"]["quest1A"]:
-				player.show_text("...")
-			else:
-				player.init_tenant_quest(subtitles, subtitles_optional, sub_length, sub_optional_length)
-				await audio_player.finished
-				if activate_quest == 1:
-					GameState.letter1Active = true
-				if activate_quest == 2:
-					GameState.letter2Active = true
+			player.init_tenant_quest(subtitles, subtitles_optional, sub_length, sub_optional_length)
+			await audio_player.finished
+			if activate_quest == 1:
+				GameState.letter1Active = true
+			if activate_quest == 2:
+				GameState.letter2Active = true
 				
 ############################
 #          SIGNALS         #
