@@ -170,7 +170,7 @@ func update_battery() -> void:
 	var outline: TextureRect = $CanvasLayer/Battery/Outline
 
 	# Maximum energy
-	var max_energy: int = 10
+	var max_energy: int = 15
 	var energy_ratio: float = clamp(float(GameManager.player_energy) / float(max_energy), 0.0, 1.0)
 
 	# Get the full width of the battery inner area

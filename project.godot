@@ -28,6 +28,7 @@ AudioManager="*uid://c8as0fwwesqpr"
 GameManager="*uid://dqks42veaispj"
 GameState="*uid://brgxa2ej4ftic"
 LetterQuest="*uid://b7bylivysl50c"
+DeathHandler="*uid://ctr7syp8iy47y"
 
 [display]
 
