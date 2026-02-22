@@ -193,12 +193,12 @@ func play_fade(fade_type: String) -> void:
 func init_landord_quest() -> void:
 	pass
 
-func init_tenant_quest(subtitles: String, subtitles_optional: String, sub_length: float, sub_optional_length: float, audio_callable_name: String) -> void:
+func init_tenant_quest(subtitles: String, subtitles_optional: String, sub_length: float, sub_optional_length: float) -> void:
 	if not input_enabled:
 		return
 
-	if audio_callable_name != "" and AudioManager.has_method(audio_callable_name):
-		AudioManager.call(audio_callable_name)
+	#if audio_callable_name != "" and AudioManager.has_method(audio_callable_name):
+	#	AudioManager.call(audio_callable_name)
 
 	show_text(subtitles, sub_length)
 	await get_tree().create_timer(sub_length).timeout
@@ -258,3 +258,7 @@ func _on_sound_button_pressed() -> void:
 		
 func _on_text_timeout() -> void:
 	label.hide()
+
+
+func _on_breaker_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

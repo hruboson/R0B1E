@@ -2,6 +2,13 @@ extends Area2D
 
 var player: Robot = null
 
+@export var level_key: String
+@export var quest_key: String
+
+func _ready() -> void:
+	GameState.level_key = level_key
+	GameState.quest_key = quest_key
+
 func _process(delta):
 	if player != null and Input.is_action_just_pressed("interact"):	
 		GameManager.previous_scene_path = get_tree().current_scene.scene_file_path

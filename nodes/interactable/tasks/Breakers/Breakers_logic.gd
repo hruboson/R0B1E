@@ -1,6 +1,9 @@
 extends CanvasLayer
 
 @export var time_limit: float = 30.0
+@export var level_key: String = GameState.level_key
+@export var quest_key: String = GameState.quest_key
+
 var current_time: float
 var game_started: bool = false
 var game_finished: bool = false
@@ -16,6 +19,7 @@ const PATH = "res://assets/tasks/Breakers/"
 var broken_indices: Array = []
 var active_states: Array = [false, false, false, false, false, false, false, false, false, false]
 var small_breaker_areas: Array = []
+var game_failed: bool = false
 
 func _ready() -> void:
 	current_time = time_limit
@@ -51,11 +55,14 @@ func _process(delta: float) -> void:
 		current_time -= delta
 		if timer_bar: timer_bar.value = current_time
 		
-		# Blikání při docházejícím čase
 		if current_time < 5.0 and timer_bar:
 			timer_bar.modulate = Color.RED if Engine.get_frames_drawn() % 10 < 5 else Color.WHITE
 		
-		if current_time <= 0:
+		if current_time <= 0 and not game_finished:
+			game_failed = true
+			_fail_effect()
+			game_finished = true
+			await get_tree().create_timer(1.5).timeout
 			_close_game()
 
 func _start_logic() -> void:
@@ -64,7 +71,9 @@ func _start_logic() -> void:
 	var all = range(small_breaker_areas.size())
 	all.shuffle()
 	broken_indices = all.slice(0, randi_range(2, 4))
-	print("Hra běží. Sabotáž na indexech: ", broken_indices)
+	
+	var display_indices = broken_indices.map(func(x): return str(x + 1))
+	$TimerUI/Label.text = "Nezapínej jističe na pozicích:\n" + ", ".join(display_indices)
 
 func _on_small_clicked(_viewport, event, _shape_idx, idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and not game_finished:
@@ -83,21 +92,21 @@ func _on_main_clicked(_viewport, event, _shape_idx) -> void:
 		_evaluate_game()
 
 func _evaluate_game() -> void:
-	# Check for failure: any broken switch ON
 	for idx in broken_indices:
 		if active_states[idx]:
 			_fail_effect()
 			return
 
-	# Check for win: all healthy switches ON
 	for i in range(small_breaker_areas.size()):
 		if i not in broken_indices and not active_states[i]:
 			return
 
 	_win_effect()
 
-func _fail_effect() -> void:
-	current_time -= 3.0
+func _fail_effect(overall: bool = false) -> void:
+	game_failed = overall or game_failed
+	current_time = max(0, current_time - 3.0)
+	
 	if breaker_panel:
 		var t = create_tween()
 		breaker_panel.modulate = Color.RED
@@ -118,7 +127,11 @@ func _win_effect() -> void:
 	_close_game()
 
 func _close_game() -> void:
-	if GameManager.previous_scene_path != "":
+	if game_failed:
+		GameManager.take_energy(2)
+		get_tree().change_scene_to_file("res://scenes/intro/intro.tscn")
+	elif GameManager.previous_scene_path != "":
+		GameState.complete_quest()
 		get_tree().change_scene_to_file(GameManager.previous_scene_path)
 	
 	queue_free()

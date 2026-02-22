@@ -63,8 +63,8 @@ func spawn_controllable_robot() -> void:
 	robot_instance.global_position = anim_player.global_position 
 	add_child(robot_instance)
 	robot_instance.last_state = Robot.State.IDLE
-	robot_instance.task1 = "Update servers"
-	robot_instance.set_task1("Update servers")
+	robot_instance.task1 = "Aktualizuj servery"
+	robot_instance.set_task1("Aktualizuj servery")
 	
 	dummy_robot.queue_free()
 	

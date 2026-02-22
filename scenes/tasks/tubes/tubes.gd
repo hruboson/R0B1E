@@ -1,7 +1,9 @@
 extends Node2D
 
 @export var time_limit: float = 10.0 # seconds
-@export var fade_speed: float = 0.05 # how fast FG becomes opaque
+@export var fade_speed: float = 0.15 # how fast FG becomes opaque
+@export var level_key: String = GameState.level_key
+@export var quest_key: String = GameState.quest_key
 
 var timer: float
 var fg_sprite: Sprite2D
@@ -45,7 +47,7 @@ func _process(delta):
 			break
 
 	if all_done:
-		# success
+		GameState.complete_quest()
 		await get_tree().create_timer(0.5).timeout
 		if GameManager.previous_scene_path != "":
 			get_tree().change_scene_to_file(GameManager.previous_scene_path)

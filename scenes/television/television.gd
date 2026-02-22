@@ -9,23 +9,30 @@ func _ready() -> void:
 	display_task_counts()
 
 func display_task_counts() -> void:
-	var level_data = {}
-	
-	# Select the correct level dictionary
+	var level_key := ""
+
+	# Convert enum to dictionary key
 	match GameState.last_level:
 		GameState.LEVELS.LEVEL_1:
-			level_data = GameState.level1
+			level_key = "level1"
 		GameState.LEVELS.LEVEL_2:
-			level_data = GameState.level2
+			level_key = "level2"
 		GameState.LEVELS.LEVEL_3:
-			level_data = GameState.level3
-	
-	var landlord_done = 0
-	var landlord_total = 0
-	var tenant_done = 0
-	var tenant_total = 0
-	
-	# Count completed and total tasks per category
+			level_key = "level3"
+		GameState.LEVELS.FINAL:
+			level_key = "level3"
+
+	# Safety check
+	if not GameState.levels_state.has(level_key):
+		return
+
+	var level_data: Dictionary = GameState.levels_state[level_key]
+
+	var landlord_done := 0
+	var landlord_total := 0
+	var tenant_done := 0
+	var tenant_total := 0
+
 	for key in level_data.keys():
 		if key.begins_with("questLandlord"):
 			landlord_total += 1
@@ -35,15 +42,17 @@ func display_task_counts() -> void:
 			tenant_total += 1
 			if level_data[key]:
 				tenant_done += 1
-	
+
 	$Control/TaskLandlord/Score.text = str(landlord_done) + "/" + str(landlord_total)
 	$Control/TaskTenants/Score.text = str(tenant_done) + "/" + str(tenant_total)
-	
+
+	# Fail if landlord tasks incomplete
 	if landlord_done != landlord_total:
 		$Control/Failed.show()
 		failed = true
 		return
-					
+
+	GameManager.heal_energy(tenant_done*2)
 	$Control/Passed.show()
 
 

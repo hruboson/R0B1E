@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://y5migv7q5jr4"]
+
+[ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://bfv867iekkm8a" path="res://scenes/levels/final_room/final_room.gd" id="1_q83uc"]
+[ext_resource type="Texture2D" uid="uid://e2chrfby1vx8" path="res://assets/hallway/final_room.png" id="2_jhus7"]
+[ext_resource type="AudioStream" uid="uid://dr5wkaxm73grh" path="res://audio/music/fcuked_up.mp3" id="5_431fw"]
+[ext_resource type="PackedScene" uid="uid://buyr0an0utmrk" path="res://nodes/actors/door/door_final.tscn" id="5_q83uc"]
+[ext_resource type="AudioStream" uid="uid://no8w6gprp8sn" path="res://audio/robot/KARAVA_ROBOTA_Robot_bodies.mp3" id="6_431fw"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
+distance = 1.0
+
+[node name="FinalLevel" type="Node2D" unique_id=1400742347]
+script = ExtResource("1_q83uc")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=950983732]
+texture_filter = 1
+position = Vector2(1281, 544)
+texture = ExtResource("2_jhus7")
+
+[node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1952808896]
+position = Vector2(-213, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder" unique_id=841574515]
+position = Vector2(574.75, 661)
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBorder" unique_id=438188767]
+position = Vector2(1097, 585)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="WorldBorder" unique_id=1013054047]
+position = Vector2(2548, 584)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
+z_index = 50
+position = Vector2(2041, 601)
+task2 = "Fix leaking tubes"
+
+[node name="DoorFinal" parent="." unique_id=1373273536 instance=ExtResource("5_q83uc")]
+position = Vector2(1089, 544)
+scale = Vector2(0.82, 0.82)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2084439009]
+position = Vector2(736, 558)
+stream = ExtResource("5_431fw")
+autoplay = true
+max_distance = 1200.0
+bus = &"Special"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=661542146]
+position = Vector2(797, 573)
+stream = ExtResource("6_431fw")
+max_distance = 375.0
+bus = &"SFX"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1488767450]
+
+[connection signal="transition_requested" from="DoorFinal" to="." method="_on_door_final_transition_requested"]

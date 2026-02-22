@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btc0d"]
 size = Vector2(33, 350)
 
-[node name="Area2D" type="Area2D" unique_id=565336411]
+[node name="Popup" type="Area2D" unique_id=565336411]
 script = ExtResource("1_udey8")
 
 [node name="PopupsInit" type="Sprite2D" parent="." unique_id=1252352900]

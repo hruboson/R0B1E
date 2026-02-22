@@ -6,21 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fngju"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="3_5o1mp"]
 [ext_resource type="PackedScene" uid="uid://dcqb5a21u54oh" path="res://nodes/actors/elevator/elevator.tscn" id="5_7uxs1"]
+[ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="7_e74df"]
+[ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="8_tf87b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
 
-[sub_resource type="Gradient" id="Gradient_kfk32"]
-offsets = PackedFloat32Array(0, 0.7379808, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hopjm"]
-gradient = SubResource("Gradient_kfk32")
-fill = 1
-fill_from = Vector2(0.5043478, 0.14347826)
-fill_to = Vector2(0.33043477, 0.6347826)
-
-[node name="Level1" type="Node2D" unique_id=1400742347]
+[node name="Level2" type="Node2D" unique_id=1400742347]
+script = ExtResource("1_68es0")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=950983732]
 texture_filter = 1
@@ -47,23 +40,40 @@ shape = SubResource("WorldBoundaryShape2D_014kd")
 [node name="DoorR1" parent="." unique_id=930907932 instance=ExtResource("2_fngju")]
 position = Vector2(1128, 542)
 scale = Vector2(0.82, 0.82)
-leads_to = "uid://bm7ie27cgpyyd"
+leads_to = "uid://biophsxxkm53h"
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_014kd")]
 z_index = 50
 position = Vector2(339, 601)
+task2 = "Oprav unikající trubky"
 
 [node name="Elevator" parent="." unique_id=1698083802 instance=ExtResource("5_7uxs1")]
 position = Vector2(2038.9999, 551)
 scale = Vector2(0.63275325, 0.63275325)
+leads_to = "uid://cmsjbwrfeweag"
+is_closed = true
 
 [node name="DoorQuest" parent="." unique_id=2027972157 instance=ExtResource("3_5o1mp")]
 position = Vector2(198, 557)
 
-[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1942344040]
-position = Vector2(1196, 476)
-scale = Vector2(65.26563, 27.129457)
-color = Color(1, 0.6627451, 0.28627452, 1)
-energy = 0.65
-texture = SubResource("GradientTexture2D_hopjm")
-height = 50.0
+[node name="DoorLocked" parent="." unique_id=1081473609 instance=ExtResource("7_e74df")]
+position = Vector2(524, 545)
+scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked2" parent="." unique_id=462165791 instance=ExtResource("7_e74df")]
+position = Vector2(828, 545)
+scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked3" parent="." unique_id=740198798 instance=ExtResource("7_e74df")]
+position = Vector2(1434, 545)
+scale = Vector2(0.82, 0.82)
+
+[node name="DoorLocked4" parent="." unique_id=1601646527 instance=ExtResource("7_e74df")]
+position = Vector2(1736, 545)
+scale = Vector2(0.82, 0.82)
+
+[node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("8_tf87b")]
+position = Vector2(377, 571)
+
+[connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
+[connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

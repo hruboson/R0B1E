@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bspw4q7at7w47"
+path="res://.godot/imported/VO_Lord_řeč na zhodnocení_pokud všechno.wav-34209ad88a086106f9855b8e45b4ccd0.sample"
+
+[deps]
+
+source_file="res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav"
+dest_files=["res://.godot/imported/VO_Lord_řeč na zhodnocení_pokud všechno.wav-34209ad88a086106f9855b8e45b4ccd0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

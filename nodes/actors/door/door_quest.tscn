@@ -7,16 +7,14 @@ size = Vector2(100, 686)
 
 [node name="DoorQuest" type="Area2D" unique_id=2027972157]
 script = ExtResource("1_af3hu")
-subtitles = null
-subtitles_optional = null
-sub_length = null
-sub_optional_length = null
-audio_func_name = null
 
 [node name="Hint" type="Sprite2D" parent="." unique_id=1668103505]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2063673062]
 shape = SubResource("RectangleShape2D_af3hu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1511002896]
+max_distance = 351.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

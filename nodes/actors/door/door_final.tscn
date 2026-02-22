@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://buyr0an0utmrk"]
+
+[ext_resource type="Script" uid="uid://dr8cvnvdikc1i" path="res://nodes/actors/door/door_final.gd" id="1_pd584"]
+[ext_resource type="Texture2D" uid="uid://1lmqbsf2q7i3" path="res://assets/door/door1.png" id="1_x0dyw"]
+[ext_resource type="AudioStream" uid="uid://bl4wgiy12j52" path="res://audio/door/door_open.mp3" id="3_4opcr"]
+[ext_resource type="AudioStream" uid="uid://c2eoxhqgxf8jt" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_tak blízko.wav" id="4_i612i"]
+[ext_resource type="AudioStream" uid="uid://c8pbk2fy5r241" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_A tak přišel čas.wav" id="5_s3j4j"]
+[ext_resource type="AudioStream" uid="uid://bspw4q7at7w47" path="res://audio/Landlord/VO_Lord_řeč na zhodnocení_pokud všechno.wav" id="6_dgktl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd584"]
+size = Vector2(200, 544)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_31058"]
+streams_count = 3
+stream_0/stream = ExtResource("4_i612i")
+stream_1/stream = ExtResource("5_s3j4j")
+stream_2/stream = ExtResource("6_dgktl")
+
+[node name="DoorFinal" type="Area2D" unique_id=1373273536]
+script = ExtResource("1_pd584")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602485428]
+shape = SubResource("RectangleShape2D_pd584")
+
+[node name="LeftWing" type="Sprite2D" parent="." unique_id=126295955]
+position = Vector2(-50, 0)
+texture = ExtResource("1_x0dyw")
+
+[node name="RightWing" type="Sprite2D" parent="." unique_id=1940246571]
+position = Vector2(50, 0)
+texture = ExtResource("1_x0dyw")
+flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=157966864]
+stream = ExtResource("3_4opcr")
+
+[node name="Boss" type="AudioStreamPlayer2D" parent="." unique_id=503925810]
+stream = SubResource("AudioStreamRandomizer_31058")
+max_distance = 437.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

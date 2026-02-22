@@ -3,6 +3,8 @@ extends Node2D
 @export var spawn_margin: float = 200.0
 @export var required_successes: int = 8   # how many successful clicks to win
 @export var start_popup_count: int = 3   # minimum popups on start
+@export var level_key: String = GameState.level_key
+@export var quest_key: String = GameState.quest_key
 
 @onready var message_begin: Sprite2D = $MessageBegin
 @onready var message_complete: Sprite2D = $MessageComplete
@@ -116,14 +118,15 @@ func _finish_game():
 	
 func _on_final_success_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
-
 		await get_tree().create_timer(0.5).timeout
-
+		GameState.complete_quest()
+	
 		if GameManager.previous_scene_path != "":
 			get_tree().change_scene_to_file(GameManager.previous_scene_path)
 
 func _on_final_failure_clicked(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.pressed:
+		GameManager.take_energy(1)
 		message_complete.global_position = _get_random_position(message_complete)
 
 func _get_random_position(popup: Sprite2D) -> Vector2:

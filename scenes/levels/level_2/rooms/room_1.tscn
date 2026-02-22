@@ -1,30 +1,37 @@
-[gd_scene format=3 uid="uid://bm7ie27cgpyyd"]
+[gd_scene format=3 uid="uid://biophsxxkm53h"]
 
 [ext_resource type="PackedScene" uid="uid://cp7d0myjohxhn" path="res://nodes/actors/robot/robot.tscn" id="1_d7bms"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="2_fowph"]
-[ext_resource type="PackedScene" uid="uid://dsi5cwygjdqwr" path="res://nodes/interactable/tasks/tubes/tubes_init.tscn" id="3_2gxi1"]
-[ext_resource type="PackedScene" uid="uid://ukp0wgvfyrnx" path="res://nodes/interactable/tasks/Breakers/Breakers_init.tscn" id="4_btc0d"]
-
-[sub_resource type="Gradient" id="Gradient_20voq"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_d7bms"]
-gradient = SubResource("Gradient_20voq")
+[ext_resource type="Texture2D" uid="uid://bi52tl3yhvqss" path="res://assets/room/pipe_room_pre.png" id="2_iptb2"]
+[ext_resource type="Texture2D" uid="uid://dumco5kttetws" path="res://assets/room/pipe_room_front.png" id="3_b1am2"]
+[ext_resource type="Script" uid="uid://cpx2oe0iuhnda" path="res://scenes/levels/level_2/rooms/tubes.gd" id="5_iptb2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
 distance = 116.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0k63i"]
+distance = -951.1147
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3iq2o"]
+distance = 195.87714
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1am2"]
+size = Vector2(103, 181)
+
 [node name="Room1" type="Node2D" unique_id=580597860]
 
 [node name="Robot" parent="." unique_id=2042197399 instance=ExtResource("1_d7bms")]
-position = Vector2(572, 488)
+position = Vector2(506, 488)
 
 [node name="BG" type="Sprite2D" parent="." unique_id=179545343]
 z_index = -1000
-position = Vector2(597, 206.00002)
-scale = Vector2(-6.0348625, 768.2464)
-texture = SubResource("GradientTexture1D_d7bms")
-metadata/_edit_lock_ = true
+position = Vector2(625, 421)
+texture = ExtResource("2_iptb2")
+
+[node name="FG" type="Sprite2D" parent="." unique_id=1975849005]
+z_index = 600
+position = Vector2(707, 421)
+texture = ExtResource("3_b1am2")
 
 [node name="WorldBorder" type="StaticBody2D" parent="." unique_id=1896617816]
 position = Vector2(0, -14)
@@ -34,15 +41,35 @@ scale = Vector2(0.9904169, 0.96029466)
 position = Vector2(573, 666)
 shape = SubResource("WorldBoundaryShape2D_d7bms")
 
+[node name="CollisionShape2DRight" type="CollisionShape2D" parent="WorldBorder" unique_id=1717806615]
+position = Vector2(-62.599903, 508.17734)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_0k63i")
+
+[node name="CollisionShape2DLeft" type="CollisionShape2D" parent="WorldBorder" unique_id=928797205]
+position = Vector2(112.07402, 511.3014)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_3iq2o")
+
 [node name="Door" parent="." unique_id=821589660 instance=ExtResource("2_fowph")]
 modulate = Color(1, 1, 1, 0.4117647)
 z_index = 100
-position = Vector2(470, 449)
-leads_to = "uid://cmsjbwrfeweag"
+position = Vector2(578, 451)
+leads_to = "uid://djtdphru6fqsw"
 inward = true
+pop_room = true
 
-[node name="Area2D" parent="." unique_id=565336411 instance=ExtResource("3_2gxi1")]
-position = Vector2(21, -56)
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1495833004]
+scale = Vector2(1, 8)
 
-[node name="Area2D2" parent="." unique_id=646201143 instance=ExtResource("4_btc0d")]
-position = Vector2(-309, 20)
+[node name="Area2D" type="Area2D" parent="." unique_id=1284074404]
+script = ExtResource("5_iptb2")
+level_key = "level2"
+quest_key = "questLandlord2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=584867000]
+position = Vector2(420, 444)
+shape = SubResource("RectangleShape2D_b1am2")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

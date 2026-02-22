@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var associated_task: String
+@export var level_key: String = GameState.level_key
+@export var quest_key: String = GameState.quest_key
+
 const TOTAL_SLOTS := 10
 const MAX_MESSAGES := 16
 
@@ -7,7 +11,6 @@ var message_textures: Array[Texture2D] = []
 
 var required_slots: Array[int] = []
 var clicked_slots: Array[int] = []
-
 
 func _ready():
 	randomize()  # ensure randomness each run
@@ -61,6 +64,7 @@ func _on_slot_clicked(viewport, event, shape_idx, slot_number):
 
 			# Check if all required were clicked
 			if clicked_slots.size() == required_slots.size():
+				GameState.complete_quest()
 				await get_tree().create_timer(0.5).timeout
 
 				if GameManager.previous_scene_path != "":

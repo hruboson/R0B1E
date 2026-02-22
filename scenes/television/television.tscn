@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d3p5bun2lfs8q"]
 
-[ext_resource type="Texture2D" uid="uid://bo6rca43nd76j" path="res://assets/television/television.png" id="1_kdawp"]
 [ext_resource type="Script" uid="uid://snm2acppomba" path="res://scenes/television/television.gd" id="1_wqles"]
+[ext_resource type="Texture2D" uid="uid://ca4ym4kro6qpg" path="res://assets/television/tv_conclusion.png" id="2_wqles"]
 [ext_resource type="FontFile" uid="uid://dy46du8y2i8ig" path="res://assets/fonts/PixelifySans-Regular.ttf" id="2_wyu1r"]
 [ext_resource type="FontFile" uid="uid://srf0vo2y15kd" path="res://assets/fonts/consolas.ttf" id="3_awh82"]
 
@@ -18,7 +18,7 @@ position = Vector2(574, 325)
 texture_filter = 1
 position = Vector2(613, 319)
 scale = Vector2(1.4854071, 1.4854071)
-texture = ExtResource("1_kdawp")
+texture = ExtResource("2_wqles")
 
 [node name="Control" type="Control" parent="." unique_id=6263087]
 layout_mode = 3
@@ -95,6 +95,7 @@ text = "Failed"
 horizontal_alignment = 1
 
 [node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=775831928]
+z_index = -9
 
 [node name="LandlordBust" type="Label" parent="CanvasGroup" unique_id=1212543487]
 offset_left = 472.0

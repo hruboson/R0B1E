@@ -17,6 +17,7 @@ const len_from_center_back: int = 50
 const len_from_center_front: int = 80
 
 var awaiting_confirmation: bool = false
+var input_locked: bool = false
 
 func _ready() -> void:
 	$BG.play("empty")
@@ -28,7 +29,7 @@ func _ready() -> void:
 		$RightFrontDoor.position.x -= len_from_center_front
 
 func _process(delta):
-	if player == null:
+	if player == null or input_locked:
 		return
 
 	if not awaiting_confirmation and Input.is_action_just_pressed("interact"):
@@ -37,7 +38,7 @@ func _process(delta):
 		$Control.visible = true
 		return
 
-	if awaiting_confirmation:
+	if awaiting_confirmation and not input_locked:
 		# YES (E)
 		if Input.is_action_just_pressed("interact"):
 			awaiting_confirmation = false
@@ -51,6 +52,7 @@ func _process(delta):
 			player.input_enabled = true
 
 func open_doors(leads_to_direct) -> void:
+	input_locked = true  # prevent spamming
 	var tween_front = get_tree().create_tween()
 	tween_front.tween_property($LeftFrontDoor, "position:x", $LeftFrontDoor.position.x - len_from_center_front, 2.5) # object, property, value, time
 	tween_front.parallel().tween_property($RightFrontDoor, "position:x", $RightFrontDoor.position.x + len_from_center_front, 2.5)
@@ -97,6 +99,7 @@ func open_doors(leads_to_direct) -> void:
 	
 	await get_tree().create_timer(7.0).timeout
 	audio.stop()
+	input_locked = false
 		
 	if(leads_to_direct):
 		go_to_scene(leads_to_direct)

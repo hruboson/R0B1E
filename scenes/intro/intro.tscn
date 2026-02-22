@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://qo0u332dbke5" path="res://assets/robot/boot_up/boot6.png" id="10_nvap7"]
 [ext_resource type="AudioStream" uid="uid://vh7dovptchs7" path="res://audio/robot/boot_up.mp3" id="11_hs2o6"]
 [ext_resource type="PackedScene" uid="uid://xa6iswqpdjyj" path="res://nodes/actors/door/door_locked.tscn" id="14_2ypwg"]
+[ext_resource type="AudioStream" uid="uid://dlpmyp4sv6rp7" path="res://audio/Rezident/VO_Rezident A1_Offer.wav" id="17_ivhsj"]
+[ext_resource type="AudioStream" uid="uid://dlidsy3cgfvja" path="res://audio/Rezident/VO_Rezident A1_Tempting.wav" id="17_pykff"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
@@ -65,6 +67,12 @@ gradient = SubResource("Gradient_kfk32")
 fill = 1
 fill_from = Vector2(0.5043478, 0.14347826)
 fill_to = Vector2(0.33043477, 0.6347826)
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ixtfl"]
+loop = false
+stream_count = 2
+stream_0 = ExtResource("17_pykff")
+stream_1 = ExtResource("17_ivhsj")
 
 [sub_resource type="Gradient" id="Gradient_14p5w"]
 offsets = PackedFloat32Array(0, 0.8389423)
@@ -148,6 +156,7 @@ shape = SubResource("WorldBoundaryShape2D_qwu4n")
 texture_filter = 1
 position = Vector2(173, 557)
 sprite_frames = SubResource("SpriteFrames_xk0cr")
+speed_scale = 0.5
 
 [node name="Zwoom" type="AudioStreamPlayer2D" parent="DummyRobot" unique_id=1928092916]
 position = Vector2(172, 555)
@@ -238,9 +247,9 @@ leads_to = "uid://dcot3r0u63dg1"
 position = Vector2(-3, 518)
 subtitles = "Pst hej pojd jsem, hej notak..."
 subtitles_optional = "Hej prosím tě potřebuju od tebe něco ale neboj vyplatí se ti to dám ti nějakou energie té vy plechovky přece nemáte moc ne. Vymaž my historii z heveans gázu."
-sub_length = 3.0
-sub_optional_length = 8.0
-audio_func_name = "play_1A"
+sub_length = 5.0
+sub_optional_length = 15.0
+audio_stream = SubResource("AudioStreamPlaylist_ixtfl")
 
 [node name="DoorLocked" parent="." unique_id=800625432 instance=ExtResource("14_2ypwg")]
 position = Vector2(331, 503.00003)
@@ -274,6 +283,9 @@ libraries/ = SubResource("AnimationLibrary_jbxqg")
 
 [node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("19_ivhsj")]
 position = Vector2(138, 544)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=942467089]
+position = Vector2(62, 410)
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
