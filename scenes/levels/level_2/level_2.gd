@@ -4,4 +4,8 @@ extends Node2D
 
 func _ready() -> void:
 	GameState.last_level = GameState.LEVELS.LEVEL_2
-	await get_tree().create_timer(5.0).timeout
+	
+	$LandLordS.play()
+	await $LandLordS.finished
+	await get_tree().create_timer(3.0).timeout
+	$Propaganda.play()

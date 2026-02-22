@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cb05fmubw5qc2" path="res://nodes/actors/robot/robot.gd" id="1_im0kw"]
 [ext_resource type="Texture2D" uid="uid://dt5rgh0tcm8jb" path="res://assets/robot/walk_forward/front1.png" id="2_cqmxv"]
+[ext_resource type="AudioStream" uid="uid://omg1d3wr7mji" path="res://audio/robot/walk.mp3" id="2_g465r"]
 [ext_resource type="Texture2D" uid="uid://buu66mkyhjmmo" path="res://assets/robot/walk_forward/front2.png" id="3_83y4m"]
 [ext_resource type="Texture2D" uid="uid://yelqvhc6wa73" path="res://assets/robot/idle_left/idle_left_1.png" id="3_u01i4"]
 [ext_resource type="Texture2D" uid="uid://lkbqijaiw6mo" path="res://assets/robot/idle_left/idle_left_2.png" id="4_b7ats"]
@@ -220,6 +221,7 @@ gradient = SubResource("Gradient_ipoti")
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
+walk_sound = ExtResource("2_g465r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-2.499999, -4.5)

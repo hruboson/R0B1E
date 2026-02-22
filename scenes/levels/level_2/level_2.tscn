@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://drey76aaeiu83" path="res://audio/Propaganda/VO_propaganda_2.wav" id="9_0xq57"]
 [ext_resource type="PackedScene" uid="uid://cd5ar0l3um0nt" path="res://nodes/actors/door/door_deliver_to.tscn" id="12_ses5c"]
 [ext_resource type="AudioStream" uid="uid://b04q7f3wb62nl" path="res://audio/Rezident/VO_Rezident B2.wav" id="13_up0v7"]
+[ext_resource type="AudioStream" uid="uid://bh1y2lyjdwwwi" path="res://audio/Landlord/VO_Lord_2.Úvodní řeč.wav" id="14_up0v7"]
+[ext_resource type="AudioStream" uid="uid://ssve1ljfdcps" path="res://audio/Ambiance/KARAVA_ROBOTA_krysy.mp3" id="15_4xau6"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
 distance = 1.0
@@ -93,12 +95,6 @@ scale = Vector2(0.82, 0.82)
 [node name="TabletMiniuature" parent="." unique_id=846197649 instance=ExtResource("8_tf87b")]
 position = Vector2(377, 571)
 
-[node name="Propaganda" type="AudioStreamPlayer2D" parent="." unique_id=497604031]
-position = Vector2(257, 455)
-stream = ExtResource("9_0xq57")
-max_distance = 980.0
-bus = &"Background"
-
 [node name="DoorDeliverTo" parent="." unique_id=1810259843 node_paths=PackedStringArray("enable", "deactivate") instance=ExtResource("12_ses5c")]
 position = Vector2(2402, 498)
 waiting_for_quest = 1
@@ -113,6 +109,21 @@ subtitle_len = 18.0
 position = Vector2(44, 546)
 waiting_for_quest = 2
 deactivate = NodePath("../DoorDeliverTo")
+
+[node name="Propaganda" type="AudioStreamPlayer2D" parent="." unique_id=497604031]
+position = Vector2(257, 455)
+stream = ExtResource("9_0xq57")
+max_distance = 980.0
+bus = &"Background"
+
+[node name="LandLordS" type="AudioStreamPlayer" parent="." unique_id=1302965173]
+stream = ExtResource("14_up0v7")
+
+[node name="KaravaRobotaKrysy" type="AudioStreamPlayer" parent="." unique_id=684442530]
+stream = ExtResource("15_4xau6")
+volume_db = 20.0
+autoplay = true
+bus = &"Ambient"
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]

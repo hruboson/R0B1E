@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bi52tl3yhvqss" path="res://assets/room/pipe_room_pre.png" id="2_iptb2"]
 [ext_resource type="Texture2D" uid="uid://40367wbqe6md" path="res://assets/room/pipe_room_front_new.png" id="3_iptb2"]
 [ext_resource type="Script" uid="uid://cpx2oe0iuhnda" path="res://scenes/levels/level_2/rooms/tubes.gd" id="5_iptb2"]
+[ext_resource type="AudioStream" uid="uid://bogoaq7adxf55" path="res://audio/Ambiance/KARAVA_ROBOTA_Industrial.mp3" id="6_b1am2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7bms"]
 distance = 116.0
@@ -81,6 +82,10 @@ quest_key = "questLandlord2"
 texture_filter = 1
 position = Vector2(420, 444)
 shape = SubResource("RectangleShape2D_b1am2")
+
+[node name="KaravaRobotaIndustrial" type="AudioStreamPlayer" parent="." unique_id=474644918]
+stream = ExtResource("6_b1am2")
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

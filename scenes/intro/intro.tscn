@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://dlidsy3cgfvja" path="res://audio/Rezident/VO_Rezident A1_Tempting.wav" id="17_pykff"]
 [ext_resource type="PackedScene" uid="uid://ckeb8xmxjngvj" path="res://nodes/interactable/tablet/tablet_init.tscn" id="19_ivhsj"]
 [ext_resource type="AudioStream" uid="uid://6clgmlpj838i" path="res://audio/Propaganda/VO_propaganda_1.wav" id="21_ixtfl"]
+[ext_resource type="AudioStream" uid="uid://dln6qt2qfx55i" path="res://audio/Landlord/VO_Lord_1.wav" id="22_nvap7"]
 [ext_resource type="Texture2D" uid="uid://vpll5fc0024o" path="res://assets/hallway/hallway.png" id="24_qwu4n"]
 [ext_resource type="PackedScene" uid="uid://ld0332n6kdd2" path="res://nodes/actors/door/door_quest.tscn" id="27_m56ce"]
 [ext_resource type="PackedScene" uid="uid://dmmjl7kvy4hc6" path="res://nodes/actors/door/door_openable.tscn" id="28_gvbtx"]
@@ -290,6 +291,9 @@ position = Vector2(62, 410)
 stream = ExtResource("21_ixtfl")
 max_distance = 718.0
 bus = &"Background"
+
+[node name="LandLordS" type="AudioStreamPlayer" parent="." unique_id=1143012302]
+stream = ExtResource("22_nvap7")
 
 [connection signal="body_entered" from="Elevator" to="Elevator" method="_on_body_entered"]
 [connection signal="body_exited" from="Elevator" to="Elevator" method="_on_body_exited"]
