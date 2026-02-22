@@ -35,6 +35,7 @@ enum State { IDLE, WALK_LEFT, WALK_RIGHT, WALK_IN, WALK_OUT, INTERACT }
 var current_state: State = State.IDLE
 var last_state: State = State.IDLE
 var input_enabled: bool = true
+var ready_to_exit: bool = false
 
 var is_intro_sequence: bool = false
 var tablet_open: bool = false
@@ -91,11 +92,29 @@ func _physics_process(delta: float) -> void:
 # @return State
 # Handles player input. In case of no input returns State.IDLE
 func get_input() -> State:
+	if Input.is_action_just_pressed("exit"):
+		if ready_to_exit:
+			get_tree().quit()
+		else:
+			$Exit.show()
+			ready_to_exit = true
+	
+	# Check for any key press to hide exit prompt
+	var any_key_pressed = false
+	for key in range(KEY_A, KEY_Z + 1):
+		if Input.is_key_pressed(key):
+			any_key_pressed = true
+			break
+	
+	if any_key_pressed and not Input.is_action_just_pressed("exit"):
+		$Exit.hide()
+		ready_to_exit = false
+	
 	if Input.is_action_pressed("left"):
 		velocity.x = -SPEED
 		return State.WALK_LEFT
 	elif Input.is_action_pressed("right"):
-		velocity.x =  SPEED
+		velocity.x = SPEED
 		return State.WALK_RIGHT
 	else:
 		velocity.x = 0

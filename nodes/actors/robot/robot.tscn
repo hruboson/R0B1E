@@ -220,10 +220,6 @@ gradient = SubResource("Gradient_ipoti")
 [node name="Robot" type="CharacterBody2D" unique_id=2042197399 groups=["player"]]
 floor_constant_speed = true
 script = ExtResource("1_im0kw")
-waiting_for_quest = null
-is_enabled = null
-subtitles = null
-subtitle_len = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=882163359]
 position = Vector2(-2.499999, -4.5)
@@ -248,6 +244,16 @@ position = Vector2(0, -7)
 stream = SubResource("AudioStream_83y4m")
 pitch_scale = 0.7
 bus = &"SFX"
+
+[node name="Exit" type="Label" parent="." unique_id=215548074]
+visible = false
+offset_left = -41.0
+offset_top = -58.0
+offset_right = 45.0
+offset_bottom = -35.0
+theme_override_fonts/font = ExtResource("32_g465r")
+theme_override_font_sizes/font_size = 14
+text = "Odejít? [ESC]"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1327289935]
 
